@@ -17,10 +17,9 @@
     "react": "19.0.0-rc-1631855f-20241023",
     "react-dom": "19.0.0-rc-1631855f-20241023",
     "rehype-highlight": "^7.0.1",
+    "rehype-parse": "^9.0.1",
     "rehype-sanitize": "^6.0.0",
     "rehype-stringify": "^10.0.1",
-    "remark-parse": "^11.0.0",
-    "remark-rehype": "^11.1.1",
     "unified": "^11.0.5"
   },
   "devDependencies": {
