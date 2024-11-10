@@ -1,5 +1,6 @@
 import { PostContainer } from '@/components/PostContainer/PostContainer'
 import { fetchPost, fetchPosts } from '@/services/post'
+import type { Metadata } from 'next'
 import { css, cx } from 'styled-system/css'
 import { divider } from 'styled-system/patterns'
 import { text as textRecipe } from 'styled-system/recipes'
@@ -16,6 +17,24 @@ export async function generateStaticParams() {
   return paths.map((path) => ({
     postId: path,
   }))
+}
+
+export async function generateMetadata({
+  params,
+}: { params: { postId: string } }): Promise<Metadata> {
+  const { postId } = await params
+  const post = await fetchPost(postId)
+  const title = post.title
+  const description = post.content.split('。')[0]
+
+  return {
+    title: title,
+    description: description,
+    openGraph: {
+      title: title,
+      description: description,
+    },
+  }
 }
 
 export default async function BlogPage({ params }: { params: { postId: string } }) {

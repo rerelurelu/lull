@@ -3,10 +3,23 @@ import { Heading } from '@/components/Heading/Heading'
 import { Pagination } from '@/components/Pagination/Pagination'
 import { PER_PAGE } from '@/constants'
 import { fetchPosts } from '@/services/post'
+import type { Metadata } from 'next'
 import { css } from 'styled-system/css'
 import { grid } from 'styled-system/patterns'
 
 export const experimental_ppr = true
+
+const TITLE = 'Blogs'
+const DESCRIPTION = 'Reluの投稿記事一覧'
+
+export const metadata: Metadata = {
+  title: TITLE,
+  description: DESCRIPTION,
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+  },
+}
 
 export async function generateStaticParams() {
   const { totalCount } = await fetchPosts()

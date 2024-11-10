@@ -1,9 +1,22 @@
 import { Avatar } from '@/components/Avatar/Avatar'
 import { IconLink } from '@/components/Link/IconLink'
+import type { Metadata } from 'next'
 import { css } from 'styled-system/css'
 import { grid } from 'styled-system/patterns'
 
 export const experimental_ppr = true
+
+const TITLE = 'About'
+const DESCRIPTION = 'Reluの自己紹介'
+
+export const metadata: Metadata = {
+  title: TITLE,
+  description: DESCRIPTION,
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+  },
+}
 
 const sns = {
   github: { href: 'https://github.com/rerelurelu' },
