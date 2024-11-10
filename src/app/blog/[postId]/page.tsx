@@ -7,6 +7,10 @@ import { text as textRecipe } from 'styled-system/recipes'
 
 export const experimental_ppr = true
 
+type Props = {
+  params: Promise<{ postId: string }>
+}
+
 export async function generateStaticParams() {
   const data = await fetchPosts()
 
@@ -19,10 +23,8 @@ export async function generateStaticParams() {
   }))
 }
 
-export async function generateMetadata({
-  params,
-}: { params: { postId: string } }): Promise<Metadata> {
-  const { postId } = await params
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const postId = (await params).postId
   const post = await fetchPost(postId)
   const title = post.title
   const description = post.content.split('。')[0]
@@ -37,8 +39,8 @@ export async function generateMetadata({
   }
 }
 
-export default async function BlogPage({ params }: { params: { postId: string } }) {
-  const { postId } = await params
+export default async function BlogPage({ params }: Props) {
+  const postId = (await params).postId
   const post = await fetchPost(postId)
 
   const dateDisplay = new Date(post.publishedAt).toLocaleDateString('en-us', {

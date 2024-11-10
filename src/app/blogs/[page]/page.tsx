@@ -31,8 +31,12 @@ export async function generateStaticParams() {
   }))
 }
 
-export default async function BlogsPage({ params }: { params: { page: string } }) {
-  const { page } = await params
+type Props = {
+  params: Promise<{ page: string }>
+}
+
+export default async function BlogsPage({ params }: Props) {
+  const page = (await params).page
   const { posts, totalCount } = await fetchPosts()
   const currentIndex = Number(page)
 
