@@ -9,7 +9,7 @@ import { grid } from 'styled-system/patterns'
 
 export const experimental_ppr = true
 
-const TITLE = 'Blogs'
+const TITLE = 'Posts'
 const DESCRIPTION = 'Reluの投稿記事一覧'
 
 export const metadata: Metadata = {
@@ -35,14 +35,14 @@ type Props = {
   params: Promise<{ page: string }>
 }
 
-export default async function BlogsPage({ params }: Props) {
+export default async function PostsPage({ params }: Props) {
   const page = (await params).page
   const { posts, totalCount } = await fetchPosts()
   const currentIndex = Number(page)
 
   return (
     <div className={grid({ placeItems: 'center' })}>
-      <Heading title='Blog' />
+      <Heading title='Post' />
       <PostArea posts={posts} style={css({ mt: '5rem' })} />
       <Pagination totalCount={totalCount} currentIndex={currentIndex} />
     </div>
