@@ -8,7 +8,7 @@ export const getPathname = (url: string): string => {
 
   const pathname = matches[0].replaceAll('/', '')
 
-  if (pathname === 'blogs') return 'blog'
+  if (pathname === 'posts') return 'post'
 
   return pathname
 }

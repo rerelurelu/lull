@@ -23,7 +23,7 @@ export const Pagination: FC<Props> = ({ totalCount, currentIndex }) => {
   const pagination = getPagination(maxIndex, currentIndex, isLaptop)
 
   const handlePagination = (index: number) => {
-    route.push(`/blogs/${index}`)
+    route.push(`/posts/${index}`)
   }
 
   return (

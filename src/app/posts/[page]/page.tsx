@@ -1,6 +1,6 @@
-import { BlogArea } from '@/components/BlogArea/BlogArea'
 import { Heading } from '@/components/Heading/Heading'
 import { Pagination } from '@/components/Pagination/Pagination'
+import { PostArea } from '@/components/PostArea/PostArea'
 import { PER_PAGE } from '@/constants'
 import { fetchPosts } from '@/services/post'
 import type { Metadata } from 'next'
@@ -43,7 +43,7 @@ export default async function BlogsPage({ params }: Props) {
   return (
     <div className={grid({ placeItems: 'center' })}>
       <Heading title='Blog' />
-      <BlogArea posts={posts} style={css({ mt: '5rem' })} />
+      <PostArea posts={posts} style={css({ mt: '5rem' })} />
       <Pagination totalCount={totalCount} currentIndex={currentIndex} />
     </div>
   )
