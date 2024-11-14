@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "fmt:check": "bunx @biomejs/biome check --write ./src"
+    "fmt:check": "bunx @biomejs/biome check --write ./src",
+    "test": "vitest"
   },
   "dependencies": {
     "microcms-js-sdk": "^3.1.2",
