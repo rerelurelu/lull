@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default async function BlogPage({ params }: Props) {
+export default async function PostPage({ params }: Props) {
   const postId = (await params).postId
   const post = await fetchPost(postId)
 
