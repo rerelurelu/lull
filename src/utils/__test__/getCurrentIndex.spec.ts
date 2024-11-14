@@ -3,10 +3,10 @@ import { getCurrentIndex } from '../getCurrentIndex'
 
 describe('ブログ一覧のページインデックスを取得できるか', () => {
   test('ページインデックスが1の場合', () => {
-    expect(getCurrentIndex('/blog/')).toBe('1')
+    expect(getCurrentIndex('/post/')).toBe('1')
   })
 
   test('ページインデックスが2以上の場合', () => {
-    expect(getCurrentIndex('/blog/page/2/')).toBe('2')
+    expect(getCurrentIndex('/post/page/2/')).toBe('2')
   })
 })

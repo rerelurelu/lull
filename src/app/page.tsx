@@ -1,5 +1,5 @@
-import { BlogArea } from '@/components/BlogArea/BlogArea'
 import { Hero } from '@/components/Hero/Hero'
+import { PostArea } from '@/components/PostArea/PostArea'
 import { fetchPosts } from '@/services/post'
 import type { Metadata } from 'next'
 import { css } from 'styled-system/css'
@@ -34,7 +34,7 @@ export default async function Home() {
       >
         <Hero />
       </div>
-      <BlogArea posts={posts} />
+      <PostArea posts={posts} />
     </div>
   )
 }

@@ -4,8 +4,8 @@ import { getPathname } from '../getPathname'
 describe('現在開いているページのパス（ディレクトリ名）を取得できること', () => {
   const paths = {
     home: '/',
-    blogs: '/blogs/1/',
-    blogDetail: '/blog/renewal-my-portfolio-site/',
+    posts: '/posts/1/',
+    postDetail: '/post/renewal-my-portfolio-site/',
     about: '/about/',
     contact: '/contact/',
     noMatch: 'noMatch',
@@ -15,12 +15,12 @@ describe('現在開いているページのパス（ディレクトリ名）を�
     expect(getPathname(paths.home)).toBe('home')
   })
 
-  test('開いているページがBlog一覧の場合', () => {
-    expect(getPathname(paths.blogs)).toBe('blog')
+  test('開いているページがPost一覧の場合', () => {
+    expect(getPathname(paths.posts)).toBe('post')
   })
 
-  test('開いているページがBlog詳細の場合', () => {
-    expect(getPathname(paths.blogDetail)).toBe('blog')
+  test('開いているページがPost詳細の場合', () => {
+    expect(getPathname(paths.postDetail)).toBe('post')
   })
 
   test('開いているページがAboutの場合', () => {

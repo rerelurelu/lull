@@ -13,7 +13,7 @@ type Pros = {
   style?: string
 }
 
-export const BlogArea: FC<Pros> = ({ posts, style }) => {
+export const PostArea: FC<Pros> = ({ posts, style }) => {
   const isHome = getPathname(usePathname()) === 'home'
 
   return (
