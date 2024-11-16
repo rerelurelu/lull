@@ -27,7 +27,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const postId = (await params).postId
   const post = await fetchPost(postId)
   const title = post.title
-  const description = post.content.split('。')[0]
+  const description = post.content
+    .replace(/<[^>]*>/g, '')
+    .slice(0, 80)
+    .split('。')[0]
 
   return {
     title: title,

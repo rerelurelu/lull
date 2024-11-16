@@ -4,6 +4,7 @@ import { Footer } from '@/components/Footer/Footer'
 import { Header } from '@/components/Header/Header'
 import { ViewTransitions } from 'next-view-transitions'
 import { M_PLUS_1p } from 'next/font/google'
+import Head from 'next/head'
 import { cx } from 'styled-system/css'
 import { flex, grid } from 'styled-system/patterns'
 
@@ -34,6 +35,9 @@ export default function RootLayout({
   return (
     <ViewTransitions>
       <html lang='ja'>
+        <Head>
+          <meta name='twitter:card' content='summary_large_image' />
+        </Head>
         <body className={MPlus1p.className}>
           <div
             className={cx(
