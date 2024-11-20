@@ -1,6 +1,6 @@
 import type { Entry } from '@/types/entry'
 
-export const PER_PAGE = 9
+export const PER_PAGE = 12
 
 export const ENTRIES: Entry[] = [
   { href: '/', content: 'home' },
