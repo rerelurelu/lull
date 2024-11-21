@@ -76,6 +76,7 @@ export default async function PostPage({ params }: Props) {
             lineHeight: '2.5rem',
             fontWeight: '600',
             textWrap: 'pretty',
+            textAlign: 'center',
           })}
         >
           {post.title}
