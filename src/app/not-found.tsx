@@ -1,8 +1,14 @@
 import type { Metadata } from 'next'
 import { css } from 'styled-system/css'
 
+const DESCRIPTION = 'ページが見つかりませんでした'
+
 export const metadata: Metadata = {
   title: '404 Page Not Found',
+  description: DESCRIPTION,
+  openGraph: {
+    description: DESCRIPTION,
+  },
 }
 
 export default function Page() {
