@@ -7,7 +7,7 @@ import type { Metadata } from 'next'
 import { css } from 'styled-system/css'
 import { grid } from 'styled-system/patterns'
 
-export const experimental_ppr = true
+export const dynamicParams = false
 
 const TITLE = 'Posts'
 const DESCRIPTION = 'Reluの投稿記事一覧'
@@ -37,14 +37,24 @@ type Props = {
 
 export default async function PostsPage({ params }: Props) {
   const page = (await params).page
-  const { posts, totalCount } = await fetchPosts()
-  const currentIndex = Number(page)
+  const { posts, totalCount } = await fetchPosts({
+    limit: PER_PAGE,
+    offset: (Number(page) - 1) * PER_PAGE,
+  })
+  const url = '/posts'
 
   return (
     <div className={grid({ placeItems: 'center' })}>
       <Heading title='Post' />
-      <PostArea posts={posts} style={css({ mt: '5rem' })} />
-      <Pagination totalCount={totalCount} currentIndex={currentIndex} />
+      <PostArea posts={posts} className={css({ mt: '5rem' })} />
+      <Pagination
+        url={url}
+        count={totalCount}
+        pageSize={PER_PAGE}
+        siblingCount={1}
+        defaultPage={Number(page)}
+        className={css({ mt: '5rem' })}
+      />
     </div>
   )
 }

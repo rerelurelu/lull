@@ -1,140 +1,82 @@
 'use client'
 
-import { PER_PAGE } from '@/constants'
-import { useWindowSize } from '@/hooks/useWindowSize'
-import { getPagination } from '@/utils/getPagination'
+import { Pagination as ArkPagination, type UsePaginationProps, usePagination } from '@ark-ui/react'
 import { useRouter } from 'next/navigation'
 import type { FC } from 'react'
-import { HiChevronLeft, HiChevronRight } from 'react-icons/hi2'
-import { css, cva } from 'styled-system/css'
-import { flex } from 'styled-system/patterns'
+import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
+import { css, cx } from 'styled-system/css'
+import { grid } from 'styled-system/patterns'
 
-type Props = {
-  totalCount: number
-  currentIndex: number
+type Props = UsePaginationProps & {
+  url: string
+  className?: string
 }
 
-export const Pagination: FC<Props> = ({ totalCount, currentIndex }) => {
-  const route = useRouter()
-  const { width } = useWindowSize()
+const clickableItemStyle = css({
+  h: '2.5rem',
+  minW: '2.5rem',
+  cursor: 'pointer',
+  borderColor: 'base',
+  borderRadius: 'sm',
+  _hover: { bg: 'fuchsia.500', color: 'black' },
+})
 
-  const maxIndex = Math.ceil(totalCount / PER_PAGE)
-  const isLaptop = width >= 1024
-  const pagination = getPagination(maxIndex, currentIndex, isLaptop)
+const iconWrapperStyle = cx(clickableItemStyle, css({ display: 'grid', placeItems: 'center' }))
 
-  const handlePagination = (index: number) => {
-    route.push(`/posts/${index}`)
+export const Pagination: FC<Props> = ({ url, className, ...props }) => {
+  const pagination = usePagination({ ...props })
+  const router = useRouter()
+
+  const onClickPage = (page: number | null) => {
+    if (!page || page === props.defaultPage) return
+    router.push(`${url}/${page}`)
   }
 
   return (
-    <div
-      className={flex({
-        mt: { base: '4rem', md: '6rem' },
-        justifyContent: 'center',
-        alignItems: 'center',
-        flexWrap: 'wrap',
-        gap: '0.5rem',
-      })}
-    >
-      {currentIndex !== 1 && (
-        <li
-          className={css({
-            w: '24px',
-            h: '40px',
-            lineHeight: '36px',
-            display: 'grid',
-            placeItems: 'center',
-            textAlign: 'center',
-          })}
-        >
-          <button
-            type='button'
-            className={button({ visual: 'icon' })}
-            onClick={() => handlePagination(currentIndex - 1)}
+    <div className={className}>
+      <ArkPagination.RootProvider value={pagination}>
+        <div className={css({ display: 'flex', gap: '0.5rem' })}>
+          <ArkPagination.PrevTrigger
+            className={iconWrapperStyle}
+            onClick={() => onClickPage(pagination.previousPage)}
           >
-            <HiChevronLeft
-              className={css({
-                w: '24px',
-                h: '40px',
-                lineHeight: '36px',
-                color: 'icon',
-                _hover: {
-                  opacity: '0.7',
-                },
-              })}
-            />
-          </button>
-        </li>
-      )}
-      {pagination.map((number) => (
-        <li
-          className={css({
-            w: '40px',
-            h: '40px',
-            lineHeight: '36px',
-            display: 'grid',
-            placeItems: 'center',
-            textAlign: 'center',
-          })}
-          key={number}
-        >
-          <button
-            type='button'
-            className={button({ visual: currentIndex === number ? 'currentPage' : 'default' })}
-            onClick={() => handlePagination(number)}
+            <FiChevronLeft />
+          </ArkPagination.PrevTrigger>
+          <ArkPagination.Context>
+            {(pagination) =>
+              pagination.pages.map((page, idx) =>
+                page.type === 'page' ? (
+                  <ArkPagination.Item
+                    key={`${idx}-${page}`}
+                    onClick={() => onClickPage(page.value)}
+                    className={cx(
+                      clickableItemStyle,
+                      css({ border: page.value === props.defaultPage ? '1px solid' : 'none' }),
+                    )}
+                    {...page}
+                  >
+                    {page.value}
+                  </ArkPagination.Item>
+                ) : (
+                  <ArkPagination.Ellipsis
+                    key={`${idx}-${page}`}
+                    index={idx}
+                    className={grid({ placeItems: 'center' })}
+                  >
+                    &#8230;
+                  </ArkPagination.Ellipsis>
+                ),
+              )
+            }
+          </ArkPagination.Context>
+          <ArkPagination.NextTrigger
+            className={iconWrapperStyle}
+            onClick={() => onClickPage(pagination.nextPage)}
           >
-            {number}
-          </button>
-        </li>
-      ))}
-      {currentIndex !== maxIndex && (
-        <li
-          className={css({
-            w: '24px',
-            h: '40px',
-            lineHeight: '36px',
-            display: 'grid',
-            placeItems: 'center',
-            textAlign: 'center',
-          })}
-        >
-          <button
-            type='button'
-            className={button({ visual: 'icon' })}
-            onClick={() => handlePagination(currentIndex + 1)}
-          >
-            <HiChevronRight
-              className={css({
-                w: '24px',
-                h: '40px',
-                lineHeight: '36px',
-                color: 'icon',
-                _hover: {
-                  opacity: '0.7',
-                },
-              })}
-            />
-          </button>
-        </li>
-      )}
+            <FiChevronRight />
+          </ArkPagination.NextTrigger>
+        </div>
+      </ArkPagination.RootProvider>
     </div>
   )
 }
-
-const button = cva({
-  base: {
-    pt: '3px',
-    w: '40px',
-    cursor: 'pointer',
-    color: 'white',
-    borderRadius: '10px',
-    textAlign: 'center',
-  },
-  variants: {
-    visual: {
-      default: { bg: 'transparent', _hover: { bg: '#ffffff1a' } },
-      currentPage: { bg: '#ad5bba', _hover: { opacity: '0.7' } },
-      icon: { w: '20px', h: '40px', pt: 0, bg: 'transparent', _hover: { opacity: '0.7' } },
-    },
-  },
-})

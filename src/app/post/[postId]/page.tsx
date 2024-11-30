@@ -5,7 +5,7 @@ import { css, cx } from 'styled-system/css'
 import { divider } from 'styled-system/patterns'
 import { text as textRecipe } from 'styled-system/recipes'
 
-export const experimental_ppr = true
+export const dynamicParams = false
 
 type Props = {
   params: Promise<{ postId: string }>

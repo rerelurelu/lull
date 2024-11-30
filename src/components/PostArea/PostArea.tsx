@@ -10,10 +10,10 @@ import { PostCard } from '../PostCard/PostCard'
 
 type Pros = {
   posts: Post[]
-  style?: string
+  className?: string
 }
 
-export const PostArea: FC<Pros> = ({ posts, style }) => {
+export const PostArea: FC<Pros> = ({ posts, className }) => {
   const isHome = getPathname(usePathname()) === 'home'
 
   return (
@@ -25,7 +25,7 @@ export const PostArea: FC<Pros> = ({ posts, style }) => {
           w: '100%',
           mx: 'auto',
         }),
-        style,
+        className,
       )}
     >
       {isHome && (
