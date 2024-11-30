@@ -4,8 +4,6 @@ import type { Metadata } from 'next'
 import { css } from 'styled-system/css'
 import { grid } from 'styled-system/patterns'
 
-export const experimental_ppr = true
-
 const TITLE = 'About'
 const DESCRIPTION = 'Reluの自己紹介'
 
