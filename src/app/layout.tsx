@@ -53,7 +53,7 @@ export default function RootLayout({
               className={flex({
                 alignItems: 'start',
                 justifyContent: 'center',
-                px: { base: '2rem', md: 0 },
+                mx: '2rem',
               })}
             >
               {children}
