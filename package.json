@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@ark-ui/react": "^4.4.4",
+    "@vercel/speed-insights": "^1.1.0",
     "microcms-js-sdk": "^3.1.2",
     "next": "15.0.2-canary.6",
     "next-view-transitions": "^0.3.2",
