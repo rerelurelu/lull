@@ -55,8 +55,7 @@ export default async function PostPage({ params }: Props) {
   return (
     <div
       className={css({
-        w: '100%',
-        maxW: { base: '18rem', lg: '48rem' },
+        maxW: '48rem',
         display: 'flex',
         flexDir: 'column',
         alignItems: 'center',
