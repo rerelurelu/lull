@@ -42,3 +42,6 @@ next-env.d.ts
 ## Panda
 styled-system
 styled-system-studio
+
+# Cursor Rules
+.cursor/rules/personality.mdc
