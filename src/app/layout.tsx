@@ -4,16 +4,9 @@ import { Footer } from '@/components/Footer/Footer'
 import { Header } from '@/components/Header/Header'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { ViewTransitions } from 'next-view-transitions'
-import { M_PLUS_1p } from 'next/font/google'
 import Head from 'next/head'
 import { cx } from 'styled-system/css'
 import { flex, grid } from 'styled-system/patterns'
-
-const MPlus1p = M_PLUS_1p({
-  subsets: ['latin'],
-  display: 'swap',
-  weight: ['300'],
-})
 
 export const metadata: Metadata = {
   title: { template: '%s | Relu', default: 'Relu' },
@@ -39,7 +32,7 @@ export default function RootLayout({
         <Head>
           <meta name='twitter:card' content='summary_large_image' />
         </Head>
-        <body className={MPlus1p.className}>
+        <body>
           <SpeedInsights />
           <div
             className={cx(
