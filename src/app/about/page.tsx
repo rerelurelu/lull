@@ -1,5 +1,5 @@
-import { Avatar } from '@/components/Avatar/Avatar'
 import { IconLink } from '@/components/Link/IconLink'
+import { Avatar, AvatarImage } from '@/components/ui/avatar'
 import type { Metadata } from 'next'
 import { css } from 'styled-system/css'
 import { grid } from 'styled-system/patterns'
@@ -28,7 +28,9 @@ const intro = {
 export default function AboutPage() {
   return (
     <div className={grid({ placeItems: 'center', px: '1.5rem' })}>
-      <Avatar src={'/images/avatar.webp'} alt={`Relu's avatar`} />
+      <Avatar className='w-[192px] h-[192px] border-3 border-purple-300'>
+        <AvatarImage src='/images/avatar.webp' alt='Avatar image' />
+      </Avatar>
       <span
         className={css({
           fontSize: '2.25rem',
