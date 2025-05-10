@@ -1,12 +1,5 @@
 import { recipes } from '@/themes/recipes'
-import { defineConfig, defineGlobalStyles } from '@pandacss/dev'
-
-const globalCss = defineGlobalStyles({
-  body: {
-    color: 'base',
-    bg: 'bg.base',
-  },
-})
+import { defineConfig } from '@pandacss/dev'
 
 export default defineConfig({
   preflight: true,
@@ -18,7 +11,6 @@ export default defineConfig({
         colors: {
           base: { value: '#bdc6e9' },
           head: { value: '#ffffff' },
-          error: { value: '#f87171' },
           link: { value: '#f472b6' },
           bg: {
             base: { value: '#1a1e2e' },
@@ -26,19 +18,6 @@ export default defineConfig({
           },
           border: {
             section: { value: '#312e81' },
-          },
-          input: {
-            border: {
-              base: { value: '#999eef' },
-              focus: { value: '#7c3aed' },
-            },
-            placeholder: { value: '#475569' },
-          },
-          button: {
-            bg: {
-              base: { value: '#e879f9' },
-              hover: { value: '#22d3ee' },
-            },
           },
           icon: { value: '#c4b5fd' },
           postCard: {
@@ -66,6 +45,5 @@ export default defineConfig({
       recipes,
     },
   },
-  globalCss,
   outdir: 'styled-system',
 })

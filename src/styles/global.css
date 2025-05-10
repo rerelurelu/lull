@@ -111,11 +111,35 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+/* Custom Theme */
+@theme {
+  /* Accent Colors */
+  --accent-cyan: oklch(85% 0.25 200);
+  --accent-magenta: oklch(70% 0.30 320);
+
+  /* Semantic Tokens */
+  --text-color-main: var(--color-violet-300);
+  --text-color-heading: var(--color-white);
+  --text-color-tag: var(--color-fuchsia-300);
+  --text-color-code: var(--color-slate-400/80);
+  --text-color-link: var(--color-pink-400);
+  --color-bg: var(--color-slate-950);
+  --color-codeblock: var(--color-slate-600);
+  --color-divider: var(--color-slate-800);
+  --color-icon: var(--color-violet-400);
+
+  /* グラデーション */
+  --gradient-post-card: linear-gradient(to bottom right,
+      var(--color-violet-500),
+      var(--color-fuchsia-400));
+  --gradient-header-active: linear-gradient(to bottom,
+      var(--accent-cyan),
+      var(--accent-magenta));
+}
+
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
   body {
-    @apply bg-background text-foreground;
+    background-color: var(--color-bg);
+    color: var(--text-color-main);
   }
 }
