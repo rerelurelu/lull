@@ -1,4 +1,4 @@
-import { client } from "@/libs/microCMS";
+import { client } from "@/libs/microCMS/microCMS";
 import type { Post, PostsData } from "@/types/post";
 import type { MicroCMSQueries } from "microcms-js-sdk";
 
