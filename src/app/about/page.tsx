@@ -1,7 +1,6 @@
 import { IconLink } from '@/components/Link/IconLink'
 import { Avatar, AvatarImage } from '@/components/ui/avatar'
 import type { Metadata } from 'next'
-import { css } from 'styled-system/css'
 import { grid } from 'styled-system/patterns'
 
 const TITLE = 'About'
