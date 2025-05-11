@@ -1,3 +1,4 @@
+import { cn } from '@/libs/shadcn/utils'
 import Image from 'next/image'
 import Link from 'next/link'
 import type { FC } from 'react'
@@ -28,15 +29,7 @@ export const IconLink: FC<Props> = ({
 }) => {
   return (
     <Link
-      className={cx(
-        css({
-          textDecoration: 'underline',
-          _hover: {
-            opacity: '0.7',
-          },
-        }),
-        linkStyle,
-      )}
+      className={cn('underline hover:opacity-70', linkStyle)}
       href={href}
       target={target}
       rel={target === '_blank' ? 'noreferrer' : undefined}
@@ -44,7 +37,7 @@ export const IconLink: FC<Props> = ({
     >
       <Image
         src={src}
-        className={cx(css({ objectFit: 'fill' }), iconStyle)}
+        className={cn('object-fill', iconStyle)}
         width={width}
         height={height}
         alt={alt}
