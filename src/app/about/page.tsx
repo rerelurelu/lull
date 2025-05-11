@@ -31,24 +31,8 @@ export default function AboutPage() {
       <Avatar className='w-[192px] h-[192px] border-3 border-purple-300'>
         <AvatarImage src='/images/avatar.webp' alt='Avatar image' />
       </Avatar>
-      <span
-        className={css({
-          fontSize: '2.25rem',
-          lineHeight: '2.5rem',
-          mt: '2.5rem',
-        })}
-      >
-        Relu
-      </span>
-      <ul
-        className={css({
-          mt: '1.5rem',
-          display: 'flex',
-          flexWrap: 'wrap',
-          gap: '1rem',
-          listStyle: 'none',
-        })}
-      >
+      <span className='text-4xl mt-8'>Relu</span>
+      <ul className='flex flex-wrap gap-4 list-none mt-6'>
         <li>
           <IconLink
             href={sns.github.href}
@@ -70,16 +54,7 @@ export default function AboutPage() {
           />
         </li>
       </ul>
-      <div
-        className={css({
-          mt: '3rem',
-          display: 'grid',
-          w: '100%',
-          maxW: '56rem',
-          placeItems: 'center',
-          lineHeight: '1.5rem',
-        })}
-      >
+      <div className='mt-12 grid w-full max-w-[56rem] place-items-center leading-6'>
         <p>{intro.para1}</p>
       </div>
     </div>
