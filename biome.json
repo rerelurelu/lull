@@ -27,6 +27,9 @@
       },
       "suspicious": {
         "noAssignInExpressions": "off"
+      },
+      "nursery": {
+        "useSortedClasses": "warn"
       }
     }
   },
