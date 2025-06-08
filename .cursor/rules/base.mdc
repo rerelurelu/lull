@@ -1,0 +1,52 @@
+---
+description:
+globs:
+alwaysApply: true
+---
+Always respond in Japanese.
+
+# 概要
+- このプロジェクトはエンジニアがテックブログや自己経歴などを紹介するためのポートフォリオ的個人サイトです
+
+# 技術スタック
+- 技術スタックは [package.json](mdc:package.json) や [bun.lockb](mdc:bun.lockb) を参照してください
+- Next.jsではApp Routerを採用しています
+
+# ディレクトリ構造（App Router）
+
+```
+src/
+├──app/
+│  ├── (dashboard)/         # Route Groups
+│  │   ├── analytics/
+│  │   │   └── page.tsx
+│  │   └── settings/
+│  │       ├── _components/ # settings内でのみ使うコンポーネント
+│  │       ├── _hooks/      # settings内でのみ使うhooks
+│  │       └── page.tsx
+│  ├── api/                 # API Routes
+│  │   └── users/
+│  │       └── route.ts
+│  ├── globals.css
+│  ├── layout.tsx           # Root Layout
+│  └── page.tsx            # Home Page
+├── components/
+│   ├── ui/              # 再利用可能UIコンポーネント
+│   │   ├── button/
+│   │   │   ├── button.tsx
+│   │   │   └── index.ts
+│   │   └── card/
+│   │       └── card.tsx
+│   ├── layout/          # レイアウトコンポーネント
+│   │   ├── header/
+│   │   └── footer/
+│   └── features/        # 機能別コンポーネント
+├── constants/           # 定数定義
+├── libs/                # ライブラリ設定
+├── types/               # 型定義ファイル
+├── hooks/               # カスタムフック
+├── services/            # API・外部サービス
+├── types/               # 型定義ファイル
+├── styles/              # スタイル関連
+└── utils/               # ユーティリティ関数
+```

@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import '@/styles/global.css'
-import { Footer } from '@/components/Footer/Footer'
-import { Header } from '@/components/Header/Header'
+import { Footer, Header } from '@/components/layout'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { ViewTransitions } from 'next-view-transitions'
 import { M_PLUS_1p } from 'next/font/google'

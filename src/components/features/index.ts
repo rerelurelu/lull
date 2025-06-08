@@ -1,0 +1,6 @@
+export * from './Hero'
+export * from './PostArea'
+export * from './PostCard'
+export * from './PostContainer'
+export * from './Pagination'
+export * from './Ogp'

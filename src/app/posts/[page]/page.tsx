@@ -1,6 +1,5 @@
-import { Heading } from '@/components/Heading/Heading'
-import { Pagination } from '@/components/Pagination/Pagination'
-import { PostArea } from '@/components/PostArea/PostArea'
+import { Pagination, PostArea } from '@/components/features'
+import { Heading } from '@/components/ui'
 import { PER_PAGE } from '@/constants'
 import { fetchPosts } from '@/services/post'
 import type { Metadata } from 'next'

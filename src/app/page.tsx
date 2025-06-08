@@ -1,5 +1,4 @@
-import { Hero } from '@/components/Hero/Hero'
-import { PostArea } from '@/components/PostArea/PostArea'
+import { Hero, PostArea } from '@/components/features'
 import { fetchPosts } from '@/services/post'
 import type { Metadata } from 'next'
 import { css } from 'styled-system/css'
