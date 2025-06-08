@@ -1,0 +1,14 @@
+---
+description:
+globs:
+alwaysApply: true
+---
+Always respond in Japanese.
+
+# 概要
+- このプロジェクトはエンジニアがテックブログや自己経歴などを紹介するためのポートフォリオ的個人サイトです
+
+# 技術スタック
+- 技術スタックは [package.json](mdc:package.json) や [bun.lockb](mdc:bun.lockb) を参照してください
+- Next.jsではApp Routerを採用しています
+

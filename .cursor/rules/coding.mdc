@@ -1,0 +1,510 @@
+---
+description:
+globs:
+alwaysApply: true
+---
+# 開発ガイドライン
+## コーディング規約
+- 書籍「リーダブルコード」を参考に可読性が高く簡潔なコードを実装してください
+- Biomeの設定に従ったフォーマット
+- コンポーネントは関数型で記述
+
+# AI支援ガイド
+## コード生成時の注意点
+- Next.js App Routerの`use client`、`use server`ディレクティブを適切に使用
+- Server ComponentsとClient Componentsの使い分けを明確に
+- スタイリングにはStyleXを使用すること
+- レスポンシブデザインを考慮すること
+- モバイルファーストで開発すること
+
+## 推奨パターン
+- ページコンポーネントは`app/`配下に配置
+- 共通コンポーネントは適切に分割・再利用
+- 型定義は明確に記述
+- Server ActionsとClient Actionsの適切な使い分け
+
+## パフォーマンス
+- Core Web Vitals最適化必須
+- Next.js Image最適化・遅延読み込み実装
+- バンドルサイズ最小化
+- Server Componentsを優先的に使用
+
+# TypeScript + Next.js App Router コーディング規約
+
+## 1. TypeScript 基本規則
+
+### 型安全性
+- `any` 型の使用を禁止
+- すべての変数・関数・プロパティに明示的な型定義
+- オプショナルプロパティは `?` で明示
+- 型定義は `interface` ではなく `type` を推奨
+
+### 型定義の使い分け
+- **`type`を推奨** - より柔軟で一貫性がある
+- Union型、Intersection型、Conditional型との親和性が高い
+- オブジェクト型、関数型、プリミティブ型すべてに対応
+
+```typescript
+// ✅ 良い例 - type を使用
+type UserProfile = {
+  id: string
+  name: string
+  email: string
+  createdAt: Date
+  avatar?: string  // オプショナル
+}
+
+// ✅ 良い例 - Union型との組み合わせ
+type Status = 'loading' | 'success' | 'error'
+type UserWithStatus = UserProfile & { status: Status }
+
+// ✅ 良い例 - 関数型
+type EventHandler = (event: Event) => void
+
+// ❌ 悪い例 - interface の使用
+interface UserProfile {
+  id: string
+  name: string
+}
+
+// ❌ 悪い例 - any型は禁止
+const user: any = { /* ... */ }
+```
+
+### 厳格な型チェック
+- `strict: true` を維持
+- `noImplicitAny`, `noImplicitReturns` を遵守
+- Union型は適切に使用し、型ガードを実装
+
+```typescript
+// ✅ 良い例
+type Status = 'loading' | 'success' | 'error'
+
+const handleStatus = (status: Status): string => {
+  switch (status) {
+    case 'loading': return 'Loading...'
+    case 'success': return 'Success!'
+    case 'error': return 'Error occurred'
+    default:
+      const _exhaustive: never = status
+      return _exhaustive
+  }
+}
+```
+
+## 2. Next.js App Router 専用規則
+
+### Server Components vs Client Components
+- デフォルトはServer Components
+- インタラクティブな機能が必要な場合のみClient Components
+- `use client`ディレクティブは必要最小限に
+
+```typescript
+// ✅ 良い例 - Server Component（デフォルト）
+type UserProfileProps = {
+  userId: string
+}
+
+export default async function UserProfile({ userId }: UserProfileProps) {
+  const user = await fetchUser(userId)
+
+  return (
+    <div className="user-profile">
+      <h2>{user.name}</h2>
+      <p>{user.email}</p>
+    </div>
+  )
+}
+
+// ✅ 良い例 - Client Component（必要な場合のみ）
+'use client'
+
+import { useState } from 'react'
+
+type ButtonProps = {
+  variant?: 'primary' | 'secondary' | 'danger'
+  size?: 'sm' | 'md' | 'lg'
+  disabled?: boolean
+  children: React.ReactNode
+  onClick?: () => void
+}
+
+export function Button({ variant = 'primary', size = 'md', disabled, children, onClick }: ButtonProps) {
+  const [isLoading, setIsLoading] = useState(false)
+
+  const handleClick = async () => {
+    if (onClick) {
+      setIsLoading(true)
+      await onClick()
+      setIsLoading(false)
+    }
+  }
+
+  return (
+    <button
+      className={`btn btn-${variant} btn-${size} ${disabled ? 'btn-disabled' : ''} ${isLoading ? 'loading' : ''}`}
+      disabled={disabled || isLoading}
+      onClick={handleClick}
+    >
+      {children}
+    </button>
+  )
+}
+```
+
+### Hooks使用規則
+- Client Componentsでのみ使用可能
+- 型を明示的に指定
+- カスタムフックは適切に分離
+- useEffectのアンチパターンを避ける
+
+```typescript
+// ✅ 良い例 - Client Componentでのhooks使用
+'use client'
+
+import { useState, useEffect } from 'react'
+
+type User = {
+  id: string
+  name: string
+  email: string
+}
+
+export function UserList() {
+  const [users, setUsers] = useState<User[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const response = await fetch('/api/users')
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`)
+        }
+        const data = await response.json()
+        setUsers(data)
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'Unknown error')
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchUsers()
+  }, [])
+
+  if (loading) return <div className="loading">Loading...</div>
+  if (error) return <div className="error">Error: {error}</div>
+
+  return (
+    <div className="user-list">
+      {users.map((user) => (
+        <div key={user.id} className="user-item">
+          <h3>{user.name}</h3>
+          <p>{user.email}</p>
+        </div>
+      ))}
+    </div>
+  )
+}
+```
+
+### useEffect アンチパターン回避規則
+
+#### 1. 不要なuseEffectを避ける
+```typescript
+// ❌ 悪い例 - 不要なuseEffect
+function UserProfile({ user }: { user: User }) {
+  const [displayName, setDisplayName] = useState('')
+
+  useEffect(() => {
+    setDisplayName(user.name.toUpperCase())
+  }, [user.name])
+
+  return <div>{displayName}</div>
+}
+
+// ✅ 良い例 - 計算結果は直接導出
+function UserProfile({ user }: { user: User }) {
+  const displayName = user.name.toUpperCase()
+
+  return <div>{displayName}</div>
+}
+```
+
+#### 2. 依存配列の適切な管理
+```typescript
+// ❌ 悪い例 - 依存配列の不備
+function SearchResults({ query }: { query: string }) {
+  const [results, setResults] = useState<SearchResult[]>([])
+
+  useEffect(() => {
+    searchAPI(query).then(setResults)
+  }, []) // queryが依存配列にない
+
+  return <div>{/* ... */}</div>
+}
+
+// ✅ 良い例 - 適切な依存配列
+function SearchResults({ query }: { query: string }) {
+  const [results, setResults] = useState<SearchResult[]>([])
+
+  useEffect(() => {
+    if (!query) return
+
+    const controller = new AbortController()
+
+    searchAPI(query, { signal: controller.signal })
+      .then(setResults)
+      .catch((error) => {
+        if (error.name !== 'AbortError') {
+          console.error('Search failed:', error)
+        }
+      })
+
+    return () => controller.abort()
+  }, [query])
+
+  return <div>{/* ... */}</div>
+}
+```
+
+#### 3. 無限ループの回避
+```typescript
+// ❌ 悪い例 - オブジェクトを依存配列に含める
+function UserStats({ user }: { user: User }) {
+  const [stats, setStats] = useState<UserStats | null>(null)
+
+  useEffect(() => {
+    fetchUserStats(user).then(setStats)
+  }, [user]) // userオブジェクトが毎回新しい参照
+
+  return <div>{/* ... */}</div>
+}
+
+// ✅ 良い例 - プリミティブ値を依存配列に含める
+function UserStats({ user }: { user: User }) {
+  const [stats, setStats] = useState<UserStats | null>(null)
+
+  useEffect(() => {
+    fetchUserStats(user.id).then(setStats)
+  }, [user.id]) // プリミティブ値のみ
+
+  return <div>{/* ... */}</div>
+}
+
+// ✅ 良い例 - useMemoでオブジェクトを安定化
+function UserStats({ user }: { user: User }) {
+  const [stats, setStats] = useState<UserStats | null>(null)
+
+  const userQuery = useMemo(() => ({
+    id: user.id,
+    role: user.role
+  }), [user.id, user.role])
+
+  useEffect(() => {
+    fetchUserStats(userQuery).then(setStats)
+  }, [userQuery])
+
+  return <div>{/* ... */}</div>
+}
+```
+
+#### 4. 競合状態（Race Condition）の回避
+```typescript
+// ❌ 悪い例 - 競合状態が発生する可能性
+function UserProfile({ userId }: { userId: string }) {
+  const [user, setUser] = useState<User | null>(null)
+
+  useEffect(() => {
+    fetchUser(userId).then(setUser)
+  }, [userId])
+
+  return <div>{/* ... */}</div>
+}
+
+// ✅ 良い例 - AbortControllerで競合状態を回避
+function UserProfile({ userId }: { userId: string }) {
+  const [user, setUser] = useState<User | null>(null)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const controller = new AbortController()
+
+    const loadUser = async () => {
+      try {
+        setLoading(true)
+        const userData = await fetchUser(userId, {
+          signal: controller.signal
+        })
+        if (!controller.signal.aborted) {
+          setUser(userData)
+        }
+      } catch (error) {
+        if (error.name !== 'AbortError') {
+          console.error('Failed to fetch user:', error)
+        }
+      } finally {
+        if (!controller.signal.aborted) {
+          setLoading(false)
+        }
+      }
+    }
+
+    loadUser()
+
+    return () => controller.abort()
+  }, [userId])
+
+  return <div>{/* ... */}</div>
+}
+```
+
+#### 5. イベントリスナーの適切な管理
+```typescript
+// ❌ 悪い例 - クリーンアップなし
+function WindowSize() {
+  const [size, setSize] = useState({ width: 0, height: 0 })
+
+  useEffect(() => {
+    const updateSize = () => {
+      setSize({ width: window.innerWidth, height: window.innerHeight })
+    }
+
+    window.addEventListener('resize', updateSize)
+    // クリーンアップなし - メモリリーク
+  }, [])
+
+  return <div>{size.width} x {size.height}</div>
+}
+
+// ✅ 良い例 - 適切なクリーンアップ
+function WindowSize() {
+  const [size, setSize] = useState({ width: 0, height: 0 })
+
+  useEffect(() => {
+    const updateSize = () => {
+      setSize({ width: window.innerWidth, height: window.innerHeight })
+    }
+
+    // 初期値設定
+    updateSize()
+
+    window.addEventListener('resize', updateSize)
+
+    // クリーンアップ関数
+    return () => {
+      window.removeEventListener('resize', updateSize)
+    }
+  }, [])
+
+  return <div>{size.width} x {size.height}</div>
+}
+```
+
+#### 6. カスタムフックによる抽象化
+```typescript
+// ✅ 良い例 - 再利用可能なカスタムフック
+function useWindowSize() {
+  const [size, setSize] = useState({ width: 0, height: 0 })
+
+  useEffect(() => {
+    const updateSize = () => {
+      setSize({ width: window.innerWidth, height: window.innerHeight })
+    }
+
+    updateSize()
+    window.addEventListener('resize', updateSize)
+
+    return () => window.removeEventListener('resize', updateSize)
+  }, [])
+
+  return size
+}
+
+function useAsyncData<T>(
+  fetchFn: () => Promise<T>,
+  deps: React.DependencyList
+) {
+  const [data, setData] = useState<T | null>(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<Error | null>(null)
+
+  useEffect(() => {
+    const controller = new AbortController()
+
+    const loadData = async () => {
+      try {
+        setLoading(true)
+        setError(null)
+        const result = await fetchFn()
+        if (!controller.signal.aborted) {
+          setData(result)
+        }
+      } catch (err) {
+        if (!controller.signal.aborted) {
+          setError(err instanceof Error ? err : new Error('Unknown error'))
+        }
+      } finally {
+        if (!controller.signal.aborted) {
+          setLoading(false)
+        }
+      }
+    }
+
+    loadData()
+
+    return () => controller.abort()
+  }, deps)
+
+  return { data, loading, error }
+}
+
+// 使用例
+function UserProfile({ userId }: { userId: string }) {
+  const { data: user, loading, error } = useAsyncData(
+    () => fetchUser(userId),
+    [userId]
+  )
+
+  if (loading) return <div>Loading...</div>
+  if (error) return <div>Error: {error.message}</div>
+  if (!user) return <div>User not found</div>
+
+  return <div>{user.name}</div>
+}
+```
+
+## 3. ファイル・ディレクトリ命名規則
+
+### ディレクトリ構造（App Router）
+```
+src/
+├──app/
+│  ├── (dashboard)/         # Route Groups
+│  │   ├── analytics/
+│  │   │   └── page.tsx
+│  │   └── settings/
+│  │       └── page.tsx
+│  ├── api/                 # API Routes
+│  │   └── users/
+│  │       └── route.ts
+│  ├── globals.css
+│  ├── layout.tsx           # Root Layout
+│  └── page.tsx            # Home Page
+├── components/
+│   ├── ui/              # 再利用可能UIコンポーネント
+│   │   ├── button/
+│   │   │   ├── button.tsx
+│   │   │   └── index.ts
+│   │   └── card/
+│   │       └── card.tsx
+│   ├── layout/          # レイアウトコンポーネント
+│   │   ├── header/
+│   │   └── footer/
+│   └── features/        # 機能別コンポーネント
+├── lib/                 # ユーティリティ・設定
+├── types/               # 型定義ファイル
+└── hooks/               # カスタムフック（Client用）
+```
