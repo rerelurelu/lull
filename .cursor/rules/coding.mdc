@@ -475,36 +475,3 @@ function UserProfile({ userId }: { userId: string }) {
   return <div>{user.name}</div>
 }
 ```
-
-## 3. ファイル・ディレクトリ命名規則
-
-### ディレクトリ構造（App Router）
-```
-src/
-├──app/
-│  ├── (dashboard)/         # Route Groups
-│  │   ├── analytics/
-│  │   │   └── page.tsx
-│  │   └── settings/
-│  │       └── page.tsx
-│  ├── api/                 # API Routes
-│  │   └── users/
-│  │       └── route.ts
-│  ├── globals.css
-│  ├── layout.tsx           # Root Layout
-│  └── page.tsx            # Home Page
-├── components/
-│   ├── ui/              # 再利用可能UIコンポーネント
-│   │   ├── button/
-│   │   │   ├── button.tsx
-│   │   │   └── index.ts
-│   │   └── card/
-│   │       └── card.tsx
-│   ├── layout/          # レイアウトコンポーネント
-│   │   ├── header/
-│   │   └── footer/
-│   └── features/        # 機能別コンポーネント
-├── lib/                 # ユーティリティ・設定
-├── types/               # 型定義ファイル
-└── hooks/               # カスタムフック（Client用）
-```
