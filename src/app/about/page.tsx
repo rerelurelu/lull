@@ -1,5 +1,4 @@
-import { Avatar } from '@/components/Avatar/Avatar'
-import { IconLink } from '@/components/Link/IconLink'
+import { Avatar, IconLink } from '@/components/ui'
 import type { Metadata } from 'next'
 import { css } from 'styled-system/css'
 import { grid } from 'styled-system/patterns'

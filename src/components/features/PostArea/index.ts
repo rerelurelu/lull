@@ -1,0 +1,1 @@
+export { PostArea } from './PostArea'

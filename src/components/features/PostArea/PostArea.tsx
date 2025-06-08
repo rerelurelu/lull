@@ -1,12 +1,12 @@
 'use client'
 
+import { PostCard } from '@/components/features'
+import { TextLink } from '@/components/ui'
 import type { Post } from '@/types/post'
 import { getPathname } from '@/utils/getPathname'
 import { usePathname } from 'next/navigation'
 import type { FC } from 'react'
 import { css, cx } from 'styled-system/css'
-import { TextLink } from '../Link/TextLink'
-import { PostCard } from '../PostCard/PostCard'
 
 type Pros = {
   posts: Post[]

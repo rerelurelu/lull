@@ -1,4 +1,4 @@
-import { PostContainer } from '@/components/PostContainer/PostContainer'
+import { PostContainer } from '@/components/features'
 import { fetchPost, fetchPosts } from '@/services/post'
 import type { Metadata } from 'next'
 import { css, cx } from 'styled-system/css'
