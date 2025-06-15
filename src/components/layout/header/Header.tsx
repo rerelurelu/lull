@@ -1,27 +1,50 @@
+'use client'
+
 import { ENTRIES } from '@/constants'
+import { useScrollDirection } from '@/hooks/useScrollDirection'
+import { Link } from 'next-view-transitions'
 import { css } from 'styled-system/css'
+import { Logo } from './fragments/Logo'
 import { NavItems } from './fragments/NavItems'
 
 export const Header = () => {
+  const scrollDirection = useScrollDirection()
+
   return (
     <header
       className={css({
-        w: '100%',
-        alignItems: 'center',
-        h: '4rem',
-        top: '0',
-        left: '0',
-        right: '0',
-        px: { base: '0', md: '3rem' },
-        zIndex: '50',
         display: 'flex',
-        justifyContent: { base: 'center', md: 'end' },
-        bg: 'header.bg',
-        pos: 'sticky',
-        backdropFilter: 'blur(8px)',
+        alignItems: 'center',
+        justifyContent: 'center',
+        px: { base: '0.5rem', md: '1rem' },
+        py: { base: '1rem', md: '2rem' },
+        transform: scrollDirection === 'down' ? 'translateY(-100%)' : 'translateY(0)',
+        transition: 'transform 0.3s ease-in-out',
+        position: 'sticky',
+        top: '0',
+        zIndex: '50',
       })}
     >
-      <NavItems entries={ENTRIES} />
+      <div
+        className={css({
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          gap: '40px',
+          w: 'max-content',
+          px: { base: '1rem', md: '1.5rem' },
+          py: '0.5rem',
+          bg: 'header.bg',
+          backdropFilter: 'blur(8px)',
+          borderRadius: '1rem',
+          border: '1px solid rgba(255, 255, 255, 0.1)',
+        })}
+      >
+        <Link href={'/'}>
+          <Logo />
+        </Link>
+        <NavItems entries={ENTRIES} />
+      </div>
     </header>
   )
 }
