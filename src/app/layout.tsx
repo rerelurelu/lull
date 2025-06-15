@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import '@/styles/global.css'
 import { Footer, Header } from '@/components/layout'
-import { SpeedInsights } from '@vercel/speed-insights/next'
 import { ViewTransitions } from 'next-view-transitions'
 import { M_PLUS_1p } from 'next/font/google'
 import Head from 'next/head'
@@ -39,13 +38,12 @@ export default function RootLayout({
           <meta name='twitter:card' content='summary_large_image' />
         </Head>
         <body className={MPlus1p.className}>
-          <SpeedInsights />
           <div
             className={cx(
               grid({
                 minH: '100vh',
                 gridTemplateRows: 'auto 1fr auto',
-                rowGap: { base: '6rem', md: '8rem' },
+                gap: 0,
               }),
             )}
           >
@@ -55,6 +53,7 @@ export default function RootLayout({
                 alignItems: 'start',
                 justifyContent: 'center',
                 mx: '2rem',
+                py: '2rem',
               })}
             >
               {children}
