@@ -25,15 +25,9 @@ bun run test               # Vitestでテスト実行
 bun run prepare            # Panda CSS生成（自動実行）
 ```
 
-## 技術スタック
-
-- **フレームワーク**: Next.js 15 (canary) with App Router
-- **ランタイム**: React 19 RC
-- **スタイリング**: Panda CSS（カスタムデザイントークン付き）
-- **コンテンツ**: microCMS ヘッドレスCMS
-- **パッケージマネージャー**: Bun
-- **コード品質**: Biome（フォーマット/リンティング）、Lefthook（gitフック）
-- **テスト**: Vitest
+# 技術スタック
+- 技術スタックは `package.json` や `bun.lockb` を参照してください
+- Next.jsではApp Routerを採用しています
 
 ## アーキテクチャ
 
@@ -97,6 +91,7 @@ MICROCMS_ENDPOINT=your-endpoint
 - try/catchブロックで適切なエラーハンドリングを実装
 - デフォルトでServer Components、必要な場合のみClient Components
 - 既存の命名規則とファイル構成パターンに従う
+- `.cursor/rules/coding.mdc` の包括的なコーディングガイドラインに従う
 
 ## 重要な注意事項
 
@@ -104,4 +99,3 @@ MICROCMS_ENDPOINT=your-endpoint
 - スタイリングでは任意の値ではなくPanda CSSデザイントークンを使用
 - すべてのテキストコンテンツは日本語をサポート
 - Core Web Vitals最適化を優先したパフォーマンス重視
-- `.cursor/rules/coding.mdc` の包括的なコーディングガイドラインに従う
