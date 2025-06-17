@@ -147,13 +147,18 @@ const postContainer = css({
   },
 
   '& pre': {
-    pb: '2rem',
+    w: '100%',
+    mb: '2rem',
+    overflowX: 'auto',
+    borderRadius: '0.5rem',
 
     '& code': {
+      display: 'block',
+      w: 'max-content',
+      minW: '100%',
       mx: 0,
-      borderRadius: '0.5rem',
+      borderRadius: '0',
       fontSize: '1rem',
-      overflowX: 'scroll',
     },
   },
 })
