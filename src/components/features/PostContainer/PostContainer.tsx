@@ -12,6 +12,36 @@ type Props = {
 }
 
 const highlight = async (content: string) => {
+  // data-filename属性を持つdiv要素を処理
+  const divRegex = /<div data-filename="([^"]*)">\s*(<pre><code class="language-.*?">[\s\S]*?<\/code><\/pre>)\s*<\/div>/g
+  let divMatch: RegExpExecArray | null
+  const divMatches = []
+
+  while ((divMatch = divRegex.exec(content)) !== null) {
+    divMatches.push({
+      fullMatch: divMatch[0],
+      filename: divMatch[1],
+      codeBlock: divMatch[2]
+    })
+  }
+
+  for (const divMatch of divMatches) {
+    const matchLanguage = divMatch.codeBlock.match(/language-(.*?)"/)
+    const language = matchLanguage ? matchLanguage[1] : 'plaintext'
+
+    const file = await unified()
+      .use(rehypeParse, { fragment: true })
+      .use(rehypeSanitize)
+      .use(rehypeHighlight)
+      .use(rehypeStringify)
+      .process(`<pre><code class="language-${language}">${divMatch.codeBlock}</code></pre>`)
+
+    const highlighted = String(file)
+    const wrappedWithFilename = `<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-filename">${divMatch.filename}</span></div>${highlighted}</div>`
+    content = content.replace(divMatch.fullMatch, wrappedWithFilename)
+  }
+
+  // 通常のcode blockも処理
   const regex = /(<pre><code class="language-.*?">[\s\S]*?<\/code><\/pre>)/g
   let match: RegExpExecArray | null
   const matches = []
@@ -146,6 +176,26 @@ const postContainer = css({
     color: 'post.code',
   },
 
+  '& .code-block-wrapper': {
+    mb: '2rem',
+    borderRadius: '0.5rem',
+    bg: 'bg.codeBlock',
+    overflow: 'hidden',
+  },
+
+  '& .code-block-header': {
+    px: '1rem',
+    py: '0.25rem',
+    bg: 'rgba(255, 255, 255, 0.05)',
+    borderBottom: '1px solid token(colors.divider)',
+    fontSize: '0.875rem',
+    fontWeight: '500',
+  },
+
+  '& .code-block-filename': {
+    color: 'post.code',
+  },
+
   '& pre': {
     w: '100%',
     mb: '2rem',
@@ -160,5 +210,11 @@ const postContainer = css({
       borderRadius: '0',
       fontSize: '1rem',
     },
+  },
+
+  '& .code-block-wrapper pre': {
+    mb: 0,
+    borderRadius: 0,
+    bg: 'transparent',
   },
 })
