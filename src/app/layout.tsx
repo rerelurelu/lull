@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import '@/styles/global.css'
+import '@/styles/syntax-highlighting.css'
 import { Footer, Header } from '@/components/layout'
 import { ViewTransitions } from 'next-view-transitions'
 import { M_PLUS_1p } from 'next/font/google'
