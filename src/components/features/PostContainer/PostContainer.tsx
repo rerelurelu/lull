@@ -5,6 +5,7 @@ import rehypeSanitize from 'rehype-sanitize'
 import rehypeStringify from 'rehype-stringify'
 import { css } from 'styled-system/css'
 import { unified } from 'unified'
+import '@/styles/syntax-highlighting.css'
 
 type Props = {
   postContent: string
@@ -167,7 +168,7 @@ const postContainer = css({
   },
 
   '& code': {
-    p: '1rem',
+    p: '0.125rem 0.25rem',
     mx: '0.25rem',
     borderRadius: '0.25rem',
     fontSmoothing: 'antialiased',
@@ -208,6 +209,7 @@ const postContainer = css({
       mx: 0,
       borderRadius: '0',
       fontSize: '1rem',
+      p: '1rem'
     },
   },
 
