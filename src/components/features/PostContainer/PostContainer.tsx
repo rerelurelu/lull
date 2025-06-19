@@ -5,7 +5,6 @@ import rehypeSanitize from 'rehype-sanitize'
 import rehypeStringify from 'rehype-stringify'
 import { css } from 'styled-system/css'
 import { unified } from 'unified'
-import '@/styles/syntax-highlighting.css'
 
 type Props = {
   postContent: string
