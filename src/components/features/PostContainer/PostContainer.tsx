@@ -11,33 +11,9 @@ type Props = {
   postContent: string
 }
 
-const addLineNumbers = (codeHtml: string): string => {
-  // codeタグの中身を取得
-  const codeMatch = codeHtml.match(/<code[^>]*>([\s\S]*?)<\/code>/)
-  if (!codeMatch) return codeHtml
-
-  const codeContent = codeMatch[1]
-  const lines = codeContent.split('\n')
-
-  // 最後の行が空の場合は削除
-  if (lines[lines.length - 1] === '') {
-    lines.pop()
-  }
-
-  const numberedLines = lines
-    .map((line, index) => {
-      const lineNumber = index + 1
-      return `<span class="line-number">${lineNumber}</span><span class="line-content">${line}</span>`
-    })
-    .join('\n')
-
-  return codeHtml.replace(codeMatch[1], numberedLines)
-}
-
 const highlight = async (content: string) => {
   // data-filename属性を持つdiv要素を処理
-  const divRegex =
-    /<div data-filename="([^"]*)">\s*(<pre><code class="language-.*?">[\s\S]*?<\/code><\/pre>)\s*<\/div>/g
+  const divRegex = /<div data-filename="([^"]*)">\s*(<pre><code class="language-.*?">[\s\S]*?<\/code><\/pre>)\s*<\/div>/g
   let divMatch: RegExpExecArray | null
   const divMatches = []
 
@@ -45,7 +21,7 @@ const highlight = async (content: string) => {
     divMatches.push({
       fullMatch: divMatch[0],
       filename: divMatch[1],
-      codeBlock: divMatch[2],
+      codeBlock: divMatch[2]
     })
   }
 
@@ -61,8 +37,7 @@ const highlight = async (content: string) => {
       .process(`<pre><code class="language-${language}">${divMatch.codeBlock}</code></pre>`)
 
     const highlighted = String(file)
-    const withLineNumbers = addLineNumbers(highlighted)
-    const wrappedWithFilename = `<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-filename">${divMatch.filename}</span></div>${withLineNumbers}</div>`
+    const wrappedWithFilename = `<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-filename">${divMatch.filename}</span></div>${highlighted}</div>`
     content = content.replace(divMatch.fullMatch, wrappedWithFilename)
   }
 
@@ -87,8 +62,7 @@ const highlight = async (content: string) => {
       .process(`<pre><code class="language-${language}">${match}</code></pre>`)
 
     const highlighted = String(file)
-    const withLineNumbers = addLineNumbers(highlighted)
-    content = content.replace(match, withLineNumbers)
+    content = content.replace(match, highlighted)
   }
   return content
 }
@@ -235,23 +209,6 @@ const postContainer = css({
       mx: 0,
       borderRadius: '0',
       fontSize: '1rem',
-      lineHeight: '1.6',
-
-      '& .line-number': {
-        display: 'inline-block',
-        w: '3rem',
-        textAlign: 'right',
-        pr: '1rem',
-        mr: '0.5rem',
-        color: 'rgba(255, 255, 255, 0.4)',
-        fontSize: '0.875rem',
-        userSelect: 'none',
-      },
-
-      '& .line-content': {
-        display: 'inline-block',
-        minH: '1.25rem',
-      },
     },
   },
 
