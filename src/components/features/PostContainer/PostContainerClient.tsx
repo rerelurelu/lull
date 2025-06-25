@@ -35,26 +35,37 @@ export const PostContainerClient: FC<Props> = ({ children }) => {
           </svg>
         `
 
-        // ボタンのスタイルを適用
-        button.style.cssText = `
-          position: absolute;
-          top: 0.5rem;
-          right: 0.5rem;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 2rem;
-          height: 2rem;
-          border-radius: 0.25rem;
-          border: none;
-          background: rgba(255, 255, 255, 0.1);
-          color: currentColor;
-          cursor: pointer;
-          transition: all 0.2s ease;
-          z-index: 10;
-          opacity: 0;
-          pointer-events: none;
-        `
+        // CSSスタイルを動的に追加
+        if (!document.getElementById('copy-button-styles')) {
+          const style = document.createElement('style')
+          style.id = 'copy-button-styles'
+          style.textContent = `
+            .copy-button {
+              position: absolute !important;
+              top: 0.5rem !important;
+              right: 0.5rem !important;
+              display: flex !important;
+              align-items: center !important;
+              justify-content: center !important;
+              width: 2rem !important;
+              height: 2rem !important;
+              border-radius: 0.25rem !important;
+              border: none !important;
+              background: rgba(255, 255, 255, 0.1) !important;
+              color: currentColor !important;
+              cursor: pointer !important;
+              transition: all 0.2s ease !important;
+              z-index: 1000 !important;
+              opacity: 0 !important;
+              pointer-events: none !important;
+            }
+            .copy-button.visible {
+              opacity: 1 !important;
+              pointer-events: auto !important;
+            }
+          `
+          document.head.appendChild(style)
+        }
 
         // preをラッパーで包む
         pre.parentNode?.insertBefore(wrapper, pre)
@@ -66,26 +77,50 @@ export const PostContainerClient: FC<Props> = ({ children }) => {
         // ホバーイベント（lg以上）
         const handleMouseEnter = () => {
           if (isLargeScreen()) {
-            button.style.opacity = '1'
-            button.style.pointerEvents = 'auto'
+            button.classList.add('visible')
           }
         }
 
         const handleMouseLeave = () => {
           if (isLargeScreen()) {
-            button.style.opacity = '0'
-            button.style.pointerEvents = 'none'
+            button.classList.remove('visible')
           }
         }
 
         // クリックイベント（lg未満）
         const handleWrapperClick = (e: Event) => {
-          if (!isLargeScreen() && e.target === wrapper) {
-            const isVisible = button.style.opacity === '1'
-            button.style.opacity = isVisible ? '0' : '1'
-            button.style.pointerEvents = isVisible ? 'none' : 'auto'
+          if (!isLargeScreen()) {
+            // ボタン自体のクリックは除外
+            if (e.target === button || button.contains(e.target as Node)) {
+              return
+            }
+            
+            const isVisible = button.classList.contains('visible')
+            if (isVisible) {
+              button.classList.remove('visible')
+            } else {
+              button.classList.add('visible')
+            }
+            e.preventDefault()
+            e.stopPropagation()
           }
         }
+
+        // アイコンSVGを変数として定義
+        const copyIcon = `
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <title>コピー</title>
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" stroke-width="2" fill="none"/>
+            <path d="m5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2" fill="none"/>
+          </svg>
+        `
+        
+        const checkIcon = `
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <title>コピー完了</title>
+            <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        `
 
         // コピー機能
         const handleCopy = async () => {
@@ -93,20 +128,12 @@ export const PostContainerClient: FC<Props> = ({ children }) => {
           try {
             await navigator.clipboard.writeText(code)
             // コピー成功時の視覚的フィードバック
-            button.innerHTML = `
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <title>コピー完了</title>
-                <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            `
+            button.innerHTML = ''
+            button.insertAdjacentHTML('afterbegin', checkIcon)
+            
             setTimeout(() => {
-              button.innerHTML = `
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <title>コピー</title>
-                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" stroke-width="2" fill="none"/>
-                  <path d="m5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2" fill="none"/>
-                </svg>
-              `
+              button.innerHTML = ''
+              button.insertAdjacentHTML('afterbegin', copyIcon)
             }, 2000)
           } catch {
             // フォールバック
@@ -116,6 +143,15 @@ export const PostContainerClient: FC<Props> = ({ children }) => {
             textArea.select()
             document.execCommand('copy')
             document.body.removeChild(textArea)
+            
+            // フォールバック時も同様の視覚的フィードバック
+            button.innerHTML = ''
+            button.insertAdjacentHTML('afterbegin', checkIcon)
+            
+            setTimeout(() => {
+              button.innerHTML = ''
+              button.insertAdjacentHTML('afterbegin', copyIcon)
+            }, 2000)
           }
         }
 
@@ -123,6 +159,7 @@ export const PostContainerClient: FC<Props> = ({ children }) => {
         wrapper.addEventListener('mouseenter', handleMouseEnter)
         wrapper.addEventListener('mouseleave', handleMouseLeave)
         wrapper.addEventListener('click', handleWrapperClick)
+        pre.addEventListener('click', handleWrapperClick)
         button.addEventListener('click', handleCopy)
 
         // ホバー効果
