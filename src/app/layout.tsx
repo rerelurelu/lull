@@ -1,12 +1,12 @@
 import type { Metadata } from 'next'
 import '@/styles/global.css'
 import '@/styles/syntax-highlighting.css'
-import { Footer, Header } from '@/components/layout'
-import { ViewTransitions } from 'next-view-transitions'
 import { M_PLUS_1p } from 'next/font/google'
 import Head from 'next/head'
+import { ViewTransitions } from 'next-view-transitions'
 import { cx } from 'styled-system/css'
 import { flex, grid } from 'styled-system/patterns'
+import { Footer, Header } from '@/components/layout'
 
 const MPlus1p = M_PLUS_1p({
   subsets: ['latin'],

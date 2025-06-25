@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import type { FC, PropsWithChildren } from 'react'
 
 export const OgpWrapper: FC<PropsWithChildren> = ({ children }) => {
@@ -49,7 +50,7 @@ export const OgpWrapper: FC<PropsWithChildren> = ({ children }) => {
                 marginLeft: '8px',
               }}
             >
-              <img
+              <Image
                 src='https://avatars.githubusercontent.com/u/43092452?v=4'
                 alt='Relu`s Icon'
                 width={56}

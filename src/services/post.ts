@@ -1,6 +1,6 @@
+import type { MicroCMSQueries } from 'microcms-js-sdk'
 import { client } from '@/libs/microCMS'
 import type { Post, PostsData } from '@/types/post'
-import type { MicroCMSQueries } from 'microcms-js-sdk'
 
 const ENDPOINT = process.env.MICROCMS_ENDPOINT as string
 

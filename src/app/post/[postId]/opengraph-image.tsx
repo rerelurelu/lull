@@ -1,9 +1,9 @@
+import { ImageResponse } from 'next/og'
 import { OgpWrapper } from '@/components/features'
 import { MAX_OGP_TEXT_LENGTH, OGP_FONT } from '@/constants'
 import { OGP_IMAGE_SIZE } from '@/constants/index'
 import { fetchGoogleFonts } from '@/services/fonts'
 import { fetchPost } from '@/services/post'
-import { ImageResponse } from 'next/og'
 
 export const runtime = 'edge'
 export const alt = 'Reluの投稿記事'
