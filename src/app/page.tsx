@@ -1,8 +1,8 @@
-import { Hero, PostArea } from '@/components/features'
-import { fetchPosts } from '@/services/post'
 import type { Metadata } from 'next'
 import { css } from 'styled-system/css'
 import { grid } from 'styled-system/patterns'
+import { Hero, PostArea } from '@/components/features'
+import { fetchPosts } from '@/services/post'
 
 const TITLE = 'Home | Relu'
 const DESCRIPTION = 'れるのパーソナルフェブサイト'

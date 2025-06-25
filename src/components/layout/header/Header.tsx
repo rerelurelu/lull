@@ -1,9 +1,9 @@
 'use client'
 
-import { ENTRIES } from '@/constants'
-import { useScrollDirection } from '@/hooks/useScrollDirection'
 import { Link } from 'next-view-transitions'
 import { css } from 'styled-system/css'
+import { ENTRIES } from '@/constants'
+import { useScrollDirection } from '@/hooks/useScrollDirection'
 import { Logo } from './fragments/Logo'
 import { NavItems } from './fragments/NavItems'
 

@@ -1,8 +1,8 @@
-import type { Tag } from '@/types/post'
 import { Link } from 'next-view-transitions'
 import type { FC } from 'react'
 import { css, cx } from 'styled-system/css'
 import { text } from 'styled-system/recipes'
+import type { Tag } from '@/types/post'
 
 type Props = {
   title: string

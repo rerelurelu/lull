@@ -1,3 +1,4 @@
 export * from './avatar'
-export * from './link'
+export * from './copy-button'
 export * from './heading'
+export * from './link'

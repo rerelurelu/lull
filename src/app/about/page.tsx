@@ -1,7 +1,7 @@
-import { Avatar, IconLink } from '@/components/ui'
 import type { Metadata } from 'next'
 import { css } from 'styled-system/css'
 import { grid } from 'styled-system/patterns'
+import { Avatar, IconLink } from '@/components/ui'
 
 const TITLE = 'About'
 const DESCRIPTION = 'Reluの自己紹介'

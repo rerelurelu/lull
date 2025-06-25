@@ -1,10 +1,10 @@
+import type { Metadata } from 'next'
+import { css } from 'styled-system/css'
+import { grid } from 'styled-system/patterns'
 import { Pagination, PostArea } from '@/components/features'
 import { Heading } from '@/components/ui'
 import { PER_PAGE } from '@/constants'
 import { fetchPosts } from '@/services/post'
-import type { Metadata } from 'next'
-import { css } from 'styled-system/css'
-import { grid } from 'styled-system/patterns'
 
 export const dynamicParams = false
 

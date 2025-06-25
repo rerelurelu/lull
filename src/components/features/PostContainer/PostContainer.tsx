@@ -5,6 +5,7 @@ import rehypeSanitize from 'rehype-sanitize'
 import rehypeStringify from 'rehype-stringify'
 import { css } from 'styled-system/css'
 import { unified } from 'unified'
+import { PostContainerClient } from './PostContainerClient'
 
 type Props = {
   postContent: string
@@ -12,7 +13,8 @@ type Props = {
 
 const highlight = async (content: string) => {
   // data-filename属性を持つdiv要素を処理
-  const divRegex = /<div data-filename="([^"]*)">\s*(<pre><code class="language-.*?">[\s\S]*?<\/code><\/pre>)\s*<\/div>/g
+  const divRegex =
+    /<div data-filename="([^"]*)">\s*(<pre><code class="language-.*?">[\s\S]*?<\/code><\/pre>)\s*<\/div>/g
   let divMatch: RegExpExecArray | null
   const divMatches = []
 
@@ -20,7 +22,7 @@ const highlight = async (content: string) => {
     divMatches.push({
       fullMatch: divMatch[0],
       filename: divMatch[1],
-      codeBlock: divMatch[2]
+      codeBlock: divMatch[2],
     })
   }
 
@@ -69,8 +71,12 @@ const highlight = async (content: string) => {
 export const PostContainer: FC<Props> = async ({ postContent }) => {
   const highlightedContent = await highlight(postContent)
 
-  // biome-ignore lint/security/noDangerouslySetInnerHtml: This contents from microcms
-  return <div className={postContainer} dangerouslySetInnerHTML={{ __html: highlightedContent }} />
+  return (
+    <PostContainerClient>
+      {/* biome-ignore lint/security/noDangerouslySetInnerHtml: This content is sanitized from microCMS */}
+      <div className={postContainer} dangerouslySetInnerHTML={{ __html: highlightedContent }} />
+    </PostContainerClient>
+  )
 }
 
 const postContainer = css({
@@ -208,7 +214,7 @@ const postContainer = css({
       mx: 0,
       borderRadius: '0',
       fontSize: '1rem',
-      p: '1rem'
+      p: '1rem',
     },
   },
 
