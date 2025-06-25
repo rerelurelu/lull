@@ -1,5 +1,5 @@
-import type { FC } from 'react'
 import Image from 'next/image'
+import type { FC } from 'react'
 import { css } from 'styled-system/css'
 
 export const Logo: FC = () => {
@@ -14,13 +14,7 @@ export const Logo: FC = () => {
         py: '0.5rem',
       })}
     >
-      <Image
-        src='/images/Logo.svg'
-        alt='Logo'
-        width={32}
-        height={32}
-        priority
-      />
+      <Image src='/images/Logo.svg' alt='Logo' width={32} height={32} priority />
     </div>
   )
 }
