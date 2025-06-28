@@ -5,11 +5,14 @@
   "scripts": {
     "prepare": "panda codegen --clean",
     "dev": "next dev --turbo",
+    "prebuild": "bun run generate:link-meta",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "fmt:check": "bunx @biomejs/biome check --write ./src",
-    "test": "vitest"
+    "test": "vitest",
+    "generate:link-meta": "bun run scripts/generateLinkMeta.ts",
+    "link-meta:stats": "bun -e \"import('./scripts/generateLinkMeta.ts').then(m => m.logMetadataStats())\""
   },
   "dependencies": {
     "@ark-ui/react": "^4.4.4",

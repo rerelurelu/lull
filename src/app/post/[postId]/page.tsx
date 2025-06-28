@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { css, cx } from 'styled-system/css'
 import { divider } from 'styled-system/patterns'
 import { text as textRecipe } from 'styled-system/recipes'
-import { PostContainer } from '@/components/features'
+import { PostContainerWithLinkCards } from '@/components/features'
 import { fetchPost, fetchPosts } from '@/services/post'
 
 export const dynamicParams = false
@@ -119,7 +119,7 @@ export default async function PostPage({ params }: Props) {
           letterSpacing: '0.025rem',
         })}
       >
-        <PostContainer postContent={post.content} />
+        <PostContainerWithLinkCards postContent={post.content} />
       </div>
     </div>
   )
