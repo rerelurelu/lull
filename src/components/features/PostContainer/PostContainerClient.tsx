@@ -94,7 +94,7 @@ export const PostContainerClient: FC<Props> = ({ children }) => {
             if (e.target === button || button.contains(e.target as Node)) {
               return
             }
-            
+
             const isVisible = button.classList.contains('visible')
             if (isVisible) {
               button.classList.remove('visible')
@@ -114,7 +114,7 @@ export const PostContainerClient: FC<Props> = ({ children }) => {
             <path d="m5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2" fill="none"/>
           </svg>
         `
-        
+
         const checkIcon = `
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <title>コピー完了</title>
@@ -130,7 +130,7 @@ export const PostContainerClient: FC<Props> = ({ children }) => {
             // コピー成功時の視覚的フィードバック
             button.innerHTML = ''
             button.insertAdjacentHTML('afterbegin', checkIcon)
-            
+
             setTimeout(() => {
               button.innerHTML = ''
               button.insertAdjacentHTML('afterbegin', copyIcon)
@@ -143,11 +143,11 @@ export const PostContainerClient: FC<Props> = ({ children }) => {
             textArea.select()
             document.execCommand('copy')
             document.body.removeChild(textArea)
-            
+
             // フォールバック時も同様の視覚的フィードバック
             button.innerHTML = ''
             button.insertAdjacentHTML('afterbegin', checkIcon)
-            
+
             setTimeout(() => {
               button.innerHTML = ''
               button.insertAdjacentHTML('afterbegin', copyIcon)

@@ -46,3 +46,6 @@ styled-system-studio
 # Rules
 personality.mdc
 .claude
+
+# Generated files
+.generated/
