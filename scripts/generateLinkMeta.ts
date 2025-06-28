@@ -181,12 +181,8 @@ export const logMetadataStats = async (): Promise<void> => {
     })
 }
 
-/**
- * スクリプトとして直接実行された場合の処理
- */
-if (import.meta.main) {
-  generateLinkCardMetadata().catch(error => {
-    console.error('❌ スクリプト実行中にエラーが発生しました:', error)
-    process.exit(1)
-  })
-}
+// スクリプト実行
+generateLinkCardMetadata().catch(error => {
+  console.error('❌ スクリプト実行中にエラーが発生しました:', error)
+  process.exit(1)
+})

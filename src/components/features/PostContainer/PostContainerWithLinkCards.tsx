@@ -408,7 +408,6 @@ const linkCardStyles = css({
     overflow: 'hidden',
     display: '-webkit-box',
     WebkitLineClamp: 2,
-    WebkitBoxOrient: 'vertical',
     margin: '0 0 0.25rem 0 !important',
     padding: '0 !important',
   },

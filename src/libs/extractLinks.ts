@@ -1,4 +1,4 @@
-import type { Element, Parent, Text } from 'hast'
+import type { Element, Parent, Text, Node } from 'hast'
 import rehypeParse from 'rehype-parse'
 import rehypeStringify from 'rehype-stringify'
 import { unified } from 'unified'
@@ -90,7 +90,7 @@ const isValidUrl = (url: string): boolean => {
   }
 }
 
-const walkAst = (node: Parent | Element, callback: (node: Element) => void): void => {
+const walkAst = (node: any, callback: (node: Element) => void): void => {
   if (node.type === 'element') {
     callback(node)
   }
@@ -102,8 +102,8 @@ const walkAst = (node: Parent | Element, callback: (node: Element) => void): voi
   }
 }
 
-const _removeMarkedElements = (tree: Parent, elementsToRemove: Element[]): void => {
-  const removeFromChildren = (children: (Element | Text)[]): (Element | Text)[] => {
+const _removeMarkedElements = (tree: any, elementsToRemove: Element[]): void => {
+  const removeFromChildren = (children: any[]): any[] => {
     return children.filter((child) => {
       if (elementsToRemove.includes(child)) {
         return false
@@ -127,21 +127,21 @@ const nodeToHtml = (node: Element): string => {
     const processor = unified().use(rehypeParse, { fragment: true }).use(rehypeStringify)
 
     const tree = {
-      type: 'root',
+      type: 'root' as const,
       children: [node],
     }
 
-    return String(processor.stringify(tree))
+    return String(processor.stringify(tree as any))
   } catch {
     return ''
   }
 }
 
-const astToHtml = (tree: Parent): string => {
+const astToHtml = (tree: any): string => {
   try {
     const processor = unified().use(rehypeParse, { fragment: true }).use(rehypeStringify)
 
-    return String(processor.stringify(tree))
+    return String(processor.stringify(tree as any))
   } catch (error) {
     console.error('AST to HTML 変換エラー:', error)
     return ''

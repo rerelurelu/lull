@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { css, cx } from 'styled-system/css'
 import { divider } from 'styled-system/patterns'
 import { text as textRecipe } from 'styled-system/recipes'
-import { PostContainerWithLinkCards } from '@/components/features'
+import { PostContainerWithLinkCards } from '@/components/features/PostContainer/PostContainerWithLinkCards'
 import { fetchPost, fetchPosts } from '@/services/post'
 
 export const dynamicParams = false

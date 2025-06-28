@@ -268,7 +268,14 @@ export const fetchMultipleLinkMetadata = async (
     const batchResults = await Promise.all(
       batch.map(async (url) => {
         const result = await fetchLinkMetadata(url)
-        return result.metadata ?? null
+        return result.metadata ?? {
+          href: url,
+          title: url,
+          description: '',
+          image: '',
+          siteName: '',
+          type: 'website'
+        }
       }),
     )
 
