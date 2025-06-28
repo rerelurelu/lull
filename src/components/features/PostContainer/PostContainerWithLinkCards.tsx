@@ -182,6 +182,7 @@ export const PostContainerWithLinkCards: FC<Props> = async ({ postContent }) => 
     <PostContainerClient>
       <div
         className={`${postContainer} ${linkCardStyles}`}
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: コンテンツは内部で処理・サニタイズされており、rehype-sanitizeを使用してXSS対策を実装済み
         dangerouslySetInnerHTML={{ __html: highlightedContent }}
       />
     </PostContainerClient>

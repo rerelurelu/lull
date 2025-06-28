@@ -1,4 +1,4 @@
-import type { Element, Parent, Text, Node } from 'hast'
+import type { Element, Node, Root, Text } from 'hast'
 import rehypeParse from 'rehype-parse'
 import rehypeStringify from 'rehype-stringify'
 import { unified } from 'unified'
@@ -90,35 +90,15 @@ const isValidUrl = (url: string): boolean => {
   }
 }
 
-const walkAst = (node: any, callback: (node: Element) => void): void => {
+const walkAst = (node: Node, callback: (node: Element) => void): void => {
   if (node.type === 'element') {
-    callback(node)
+    callback(node as Element)
   }
 
-  if (node.children) {
-    for (const child of node.children) {
+  if ('children' in node && node.children) {
+    for (const child of (node as Element | Root).children) {
       walkAst(child, callback)
     }
-  }
-}
-
-const _removeMarkedElements = (tree: any, elementsToRemove: Element[]): void => {
-  const removeFromChildren = (children: any[]): any[] => {
-    return children.filter((child) => {
-      if (elementsToRemove.includes(child)) {
-        return false
-      }
-
-      if (child.children) {
-        child.children = removeFromChildren(child.children)
-      }
-
-      return true
-    })
-  }
-
-  if (tree.children) {
-    tree.children = removeFromChildren(tree.children)
   }
 }
 
@@ -126,22 +106,22 @@ const nodeToHtml = (node: Element): string => {
   try {
     const processor = unified().use(rehypeParse, { fragment: true }).use(rehypeStringify)
 
-    const tree = {
+    const tree: Root = {
       type: 'root' as const,
       children: [node],
     }
 
-    return String(processor.stringify(tree as any))
+    return String(processor.stringify(tree))
   } catch {
     return ''
   }
 }
 
-const astToHtml = (tree: any): string => {
+const astToHtml = (tree: Root): string => {
   try {
     const processor = unified().use(rehypeParse, { fragment: true }).use(rehypeStringify)
 
-    return String(processor.stringify(tree as any))
+    return String(processor.stringify(tree))
   } catch (error) {
     console.error('AST to HTML 変換エラー:', error)
     return ''
