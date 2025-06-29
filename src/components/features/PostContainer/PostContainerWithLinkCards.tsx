@@ -125,7 +125,7 @@ const generateLinkCardHtml = (
           <div class="link-card-text">
             <div>
               <h3 class="link-card-title">${title}</h3>
-              ${description ? `<p class="link-card-description">${description}</p>` : ''}
+              ${description ? `<p class="link-card-description" style="-webkit-box-orient: vertical;">${description}</p>` : ''}
             </div>
             <span class="link-card-domain">${domain}</span>
           </div>
