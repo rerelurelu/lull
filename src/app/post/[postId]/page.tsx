@@ -12,7 +12,7 @@ type Props = {
 }
 
 export async function generateStaticParams() {
-  const data = await fetchPosts()
+  const data = await fetchPosts({ limit: 1000 })
 
   const paths = data.posts.map((post) => {
     return post.id

@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 }
 
 export async function generateStaticParams() {
-  const { totalCount } = await fetchPosts()
+  const { totalCount } = await fetchPosts({ limit: 1000 })
   const maxPageIndex = Math.ceil(totalCount / PER_PAGE)
   const paths = [...Array(maxPageIndex).keys()].map((i) => (i + 1).toString())
 
