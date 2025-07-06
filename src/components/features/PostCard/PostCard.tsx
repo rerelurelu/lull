@@ -26,20 +26,25 @@ export const PostCard: FC<Props> = ({ title, href, createdAt, tags }) => {
         display: 'flex',
         flexDir: 'column',
         borderRadius: '1rem',
-        h: '12rem',
+        h: '14rem',
         overflow: 'hidden',
         bg: 'postCard.bg',
+        transition: 'all 0.3s ease-in-out',
+        _hover: {
+          transform: 'translateY(-4px)',
+          boxShadow: '0 8px 32px rgba(255, 204, 0, 0.2)',
+        },
       })}
     >
       <div
         className={css({
           color: 'postCard.title.base',
-          p: '1.25rem',
+          p: '1.5rem',
           display: 'flex',
           justifyContent: 'space-between',
           flex: '1 1 auto',
           flexDir: 'column',
-          gap: '0.5rem',
+          gap: '0.75rem',
         })}
       >
         <header
@@ -49,13 +54,14 @@ export const PostCard: FC<Props> = ({ title, href, createdAt, tags }) => {
         >
           <h2
             className={css({
-              fontSize: '1.125rem',
+              fontSize: '1.25rem',
               fontWeight: '600',
-              lineHeight: '1.75rem',
+              lineHeight: '1.875rem',
               textWrap: 'pretty',
               display: 'flex',
               alignItems: 'center',
               gap: '0.5rem',
+              mb: '0.5rem',
             })}
           >
             <Link
@@ -83,19 +89,29 @@ export const PostCard: FC<Props> = ({ title, href, createdAt, tags }) => {
           </time>
           <div
             className={css({
-              mt: '0.5rem',
+              mt: '0.75rem',
               display: 'flex',
               flexWrap: 'wrap',
               alignItems: 'flex-start',
               justifyContent: 'flex-start',
               columnGap: '0.5rem',
-              rowGap: '0',
+              rowGap: '0.25rem',
             })}
           >
             {tags.map((tag) => (
-              <div className={css({ color: 'postCard.tag' })} key={tag.id}>
-                <span className={cx(css({ mr: '1px' }), text({ size: 'sm' }))}>#</span>
-                <span>{tag.tagName}</span>
+              <div 
+                className={css({ 
+                  color: 'postCard.tag',
+                  bg: 'rgba(255, 204, 0, 0.1)',
+                  px: '0.5rem',
+                  py: '0.25rem',
+                  borderRadius: '0.375rem',
+                  border: '1px solid rgba(255, 204, 0, 0.3)',
+                })} 
+                key={tag.id}
+              >
+                <span className={cx(css({ mr: '2px' }), text({ size: 'sm' }))}>#</span>
+                <span className={text({ size: 'sm' })}>{tag.tagName}</span>
               </div>
             ))}
           </div>
