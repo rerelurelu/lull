@@ -29,17 +29,6 @@ export const PostCard: FC<Props> = ({ title, href, createdAt, tags }) => {
         h: '14rem',
         overflow: 'hidden',
         bg: 'postCard.bg',
-        clipPath: 'polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%)',
-        _before: {
-          content: '""',
-          pos: 'absolute',
-          left: '0',
-          top: '0',
-          bottom: '0',
-          w: '4px',
-          bg: '#7c3aed',
-          zIndex: '10',
-        },
       })}
     >
       <div
@@ -60,7 +49,7 @@ export const PostCard: FC<Props> = ({ title, href, createdAt, tags }) => {
         >
           <h2
             className={css({
-              fontSize: '1.125rem',
+              fontSize: '1rem',
               fontWeight: '600',
               lineHeight: '1.75rem',
               textWrap: 'pretty',
