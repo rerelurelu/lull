@@ -215,6 +215,10 @@ const postContainer = css({
   },
 
   '& h3': {
+    fontSize: '1.125rem',
+    lineHeight: '1.75rem',
+    mb: '0.75rem',
+    fontWeight: '600',
     _before: {
       mr: '0.5rem',
       content: '"#"',
@@ -222,10 +226,21 @@ const postContainer = css({
   },
 
   '& h4': {
+    fontSize: '1.0625rem',
+    lineHeight: '1.75rem',
+    mb: '0.75rem',
+    fontWeight: '600',
     _before: {
       mr: '0.5rem',
       content: '"##"',
     },
+  },
+
+  '& h5, h6': {
+    fontSize: '1rem',
+    lineHeight: '1.75rem',
+    mb: '0.75rem',
+    fontWeight: '600',
   },
 
   '& h5': {
@@ -233,13 +248,6 @@ const postContainer = css({
       mr: '0.5rem',
       content: '"###"',
     },
-  },
-
-  '& h3, h4, h5, h6': {
-    fontSize: '1.25rem',
-    lineHeight: '1.75rem',
-    mb: '0.75rem',
-    fontWeight: '400',
   },
 
   '& a': {
@@ -288,7 +296,7 @@ const postContainer = css({
     borderRadius: '0.25rem',
     fontSmoothing: 'antialiased',
     bg: 'bg.codeBlock',
-    color: 'post.code',
+    color: '#1e1b4b',
   },
 
   '& .code-block-wrapper': {
@@ -301,8 +309,7 @@ const postContainer = css({
   '& .code-block-header': {
     px: '1rem',
     py: '0.25rem',
-    bg: 'rgba(255, 255, 255, 0.05)',
-    borderBottom: '1px solid token(colors.divider)',
+    bg: '#d0d8ff',
     fontSize: '0.875rem',
     fontWeight: '500',
   },

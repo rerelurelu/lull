@@ -1,5 +1,5 @@
-import { recipes } from '@/themes/recipes'
 import { defineConfig, defineGlobalStyles } from '@pandacss/dev'
+import { recipes } from '@/themes/recipes'
 
 const globalCss = defineGlobalStyles({
   body: {
@@ -22,7 +22,7 @@ export default defineConfig({
           link: { value: '#6d28d9' },
           bg: {
             base: { value: '#faf8ff' },
-            codeBlock: { value: '#f1f0ff' },
+            codeBlock: { value: '#e2e3efb5' },
           },
           border: {
             section: { value: '#7c3aed' },
