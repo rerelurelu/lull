@@ -34,7 +34,7 @@ export const NavItems: FC<Props> = ({ entries }) => {
                 className={css({
                   bg: { _hover: 'transparent', _focus: 'transparent' },
                   gap: '0.75rem',
-                  color: { base: 'white' },
+                  color: { base: '#2d1b69' },
                   alignItems: 'center',
                   userSelect: 'none',
                 })}

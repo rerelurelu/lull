@@ -29,10 +29,16 @@ export const PostCard: FC<Props> = ({ title, href, createdAt, tags }) => {
         h: '14rem',
         overflow: 'hidden',
         bg: 'postCard.bg',
-        transition: 'all 0.3s ease-in-out',
-        _hover: {
-          transform: 'translateY(-4px)',
-          boxShadow: '0 8px 32px rgba(255, 204, 0, 0.2)',
+        clipPath: 'polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%)',
+        _before: {
+          content: '""',
+          pos: 'absolute',
+          left: '0',
+          top: '0',
+          bottom: '0',
+          w: '4px',
+          bg: '#7c3aed',
+          zIndex: '10',
         },
       })}
     >
@@ -54,9 +60,9 @@ export const PostCard: FC<Props> = ({ title, href, createdAt, tags }) => {
         >
           <h2
             className={css({
-              fontSize: '1.25rem',
+              fontSize: '1.125rem',
               fontWeight: '600',
-              lineHeight: '1.875rem',
+              lineHeight: '1.75rem',
               textWrap: 'pretty',
               display: 'flex',
               alignItems: 'center',
@@ -84,7 +90,7 @@ export const PostCard: FC<Props> = ({ title, href, createdAt, tags }) => {
             justifyContent: 'end',
           })}
         >
-          <time className={text({ size: 'sm' })} dateTime={createdAt}>
+          <time className={css({ fontSize: '0.6875rem', color: '#6b7280' })} dateTime={createdAt}>
             {dateText}
           </time>
           <div
@@ -102,16 +108,21 @@ export const PostCard: FC<Props> = ({ title, href, createdAt, tags }) => {
               <div 
                 className={css({ 
                   color: 'postCard.tag',
-                  bg: 'rgba(255, 204, 0, 0.1)',
-                  px: '0.5rem',
-                  py: '0.25rem',
-                  borderRadius: '0.375rem',
-                  border: '1px solid rgba(255, 204, 0, 0.3)',
+                  bg: '#e0d9ff',
+                  px: '0.75rem',
+                  py: '0.375rem',
+                  borderRadius: '9999px',
+                  border: '1px solid #c4b5fd',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.125rem',
+                  fontSize: '0.6875rem',
+                  fontWeight: '500',
                 })} 
                 key={tag.id}
               >
-                <span className={cx(css({ mr: '2px' }), text({ size: 'sm' }))}>#</span>
-                <span className={text({ size: 'sm' })}>{tag.tagName}</span>
+                <span className={css({ opacity: 0.8 })}>#</span>
+                <span>{tag.tagName}</span>
               </div>
             ))}
           </div>

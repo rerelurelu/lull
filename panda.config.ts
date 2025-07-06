@@ -16,51 +16,51 @@ export default defineConfig({
     extend: {
       tokens: {
         colors: {
-          base: { value: '#e0e0e0' },
-          head: { value: '#ffffff' },
+          base: { value: '#2d1b69' },
+          head: { value: '#1e1b4b' },
           error: { value: '#f87171' },
-          link: { value: '#ffcc00' },
+          link: { value: '#6d28d9' },
           bg: {
-            base: { value: '#1a1a1a' },
-            codeBlock: { value: '#2a2a2a' },
+            base: { value: '#faf8ff' },
+            codeBlock: { value: '#f1f0ff' },
           },
           border: {
-            section: { value: '#ffcc00' },
+            section: { value: '#7c3aed' },
           },
           input: {
             border: {
-              base: { value: '#ffcc00' },
-              focus: { value: '#ff6b35' },
+              base: { value: '#7c3aed' },
+              focus: { value: '#6d28d9' },
             },
-            placeholder: { value: '#888888' },
+            placeholder: { value: '#9ca3af' },
           },
           button: {
             bg: {
-              base: { value: '#ffcc00' },
-              hover: { value: '#ff6b35' },
+              base: { value: '#7c3aed' },
+              hover: { value: '#6d28d9' },
             },
           },
-          icon: { value: '#ffcc00' },
+          icon: { value: '#7c3aed' },
           postCard: {
             title: {
-              base: { value: '#ffffff' },
-              hover: { value: '#ffcc00' },
+              base: { value: '#1e1b4b' },
+              hover: { value: '#6d28d9' },
             },
-            tag: { value: '#ffcc00' },
-            bg: { value: 'linear-gradient(to bottom right, #2a2a2a, #1a1a1a)' },
+            tag: { value: '#4c1d95' },
+            bg: { value: 'linear-gradient(to bottom, #f1f0ff, #e9e7ff)' },
           },
           post: {
-            base: { value: '#cccccc' },
-            code: { value: '#f2f4ffcc' },
+            base: { value: '#4c1d95' },
+            code: { value: '#1e1b4bcc' },
           },
           header: {
-            active: { value: 'linear-gradient(to bottom, #ffcc00, #ff6b35)' },
-            bg: { value: '#1a1a1a4d' },
+            active: { value: 'linear-gradient(to bottom, #7c3aed, #6d28d9)' },
+            bg: { value: '#faf8ff8d' },
           },
           avatar: {
-            ring: { value: '#ffcc00' },
+            ring: { value: '#7c3aed' },
           },
-          divider: { value: '#333333' },
+          divider: { value: '#e9e7ff' },
         },
       },
       recipes,
