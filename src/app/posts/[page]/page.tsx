@@ -43,7 +43,7 @@ export default async function PostsPage({ params }: Props) {
   const url = '/posts'
 
   return (
-    <div className={grid({ placeItems: 'center' })}>
+    <div className={grid({ placeItems: 'center', w: '100%' })}>
       <Heading title='Post' />
       <PostArea posts={posts} className={css({ mt: '5rem' })} />
       <Pagination
