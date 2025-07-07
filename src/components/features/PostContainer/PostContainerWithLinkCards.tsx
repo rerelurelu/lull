@@ -194,11 +194,11 @@ const postContainer = css({
   fontWeight: '400',
 
   '& h1, h2, h3, h4, h5, h6': {
-    mt: '4rem',
+    mt: '0',
   },
 
   '& h1, h2': {
-    mb: '0.5rem',
+    mb: '1rem',
     py: '0.5rem',
     fontWeight: '600',
     borderBottom: '0.0625rem solid token(colors.divider)',
@@ -250,6 +250,27 @@ const postContainer = css({
     },
   },
 
+  // セクション間の間隔制御
+  '& p + h2, & ul + h2, & pre + h2, & .code-block-wrapper + h2, & .link-card-wrapper + h2, & hr + h2': {
+    mt: '3rem',
+  },
+
+  '& p + h3, & ul + h3, & pre + h3, & .code-block-wrapper + h3, & .link-card-wrapper + h3, & hr + h3': {
+    mt: '2.25rem',
+  },
+
+  '& p + h4, & ul + h4, & pre + h4, & .code-block-wrapper + h4, & .link-card-wrapper + h4, & hr + h4': {
+    mt: '2.25rem',
+  },
+
+  '& p + h5, & ul + h5, & pre + h5, & .code-block-wrapper + h5, & .link-card-wrapper + h5, & hr + h5': {
+    mt: '2.25rem',
+  },
+
+  '& p + h6, & ul + h6, & pre + h6, & .code-block-wrapper + h6, & .link-card-wrapper + h6, & hr + h6': {
+    mt: '2.25rem',
+  },
+
   '& a': {
     color: 'link',
     mx: '1px',
@@ -260,14 +281,14 @@ const postContainer = css({
     '& img': {
       w: '100%',
       mx: 'auto',
-      my: '2rem',
+      mb: '2.25rem',
       borderRadius: '0.5rem',
     },
   },
 
   '& ul': {
     ml: '1.75rem',
-    mb: '2rem',
+    mb: '1.5rem',
     listStyleType: 'disc',
 
     '& li': {
@@ -278,14 +299,14 @@ const postContainer = css({
   },
 
   '& hr': {
-    my: '2rem',
+    mb: '3rem',
     h: '1px',
     border: 'none',
     bg: 'divider',
   },
 
   '& p': {
-    mb: '2rem',
+    mb: '1.5rem',
     fontSize: '1rem',
     color: 'post.base',
   },
@@ -300,7 +321,7 @@ const postContainer = css({
   },
 
   '& .code-block-wrapper': {
-    mb: '2rem',
+    mb: '1.5rem',
     borderRadius: '0.5rem',
     bg: 'bg.codeBlock',
     overflow: 'hidden',
@@ -320,7 +341,7 @@ const postContainer = css({
 
   '& pre': {
     w: '100%',
-    mb: '2rem',
+    mb: '1.5rem',
     overflowX: 'auto',
     borderRadius: '0.5rem',
 
@@ -347,7 +368,7 @@ const linkCardStyles = css({
     w: '100%',
     maxW: '640px',
     mx: 'auto',
-    my: '2rem',
+    mb: '2.25rem',
 
     '& *': {
       boxSizing: 'border-box',
