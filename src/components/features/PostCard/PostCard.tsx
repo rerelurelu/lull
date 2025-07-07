@@ -1,7 +1,6 @@
 import { Link } from 'next-view-transitions'
 import type { FC } from 'react'
-import { css, cx } from 'styled-system/css'
-import { text } from 'styled-system/recipes'
+import { css } from 'styled-system/css'
 import type { Tag } from '@/types/post'
 
 type Props = {
@@ -94,8 +93,8 @@ export const PostCard: FC<Props> = ({ title, href, createdAt, tags }) => {
             })}
           >
             {tags.map((tag) => (
-              <div 
-                className={css({ 
+              <div
+                className={css({
                   color: 'postCard.tag',
                   bg: '#e0d9ff',
                   px: '0.75rem',
@@ -107,7 +106,7 @@ export const PostCard: FC<Props> = ({ title, href, createdAt, tags }) => {
                   gap: '0.125rem',
                   fontSize: '0.6875rem',
                   fontWeight: '500',
-                })} 
+                })}
                 key={tag.id}
               >
                 <span className={css({ opacity: 0.8 })}>#</span>
