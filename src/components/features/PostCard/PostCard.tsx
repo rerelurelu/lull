@@ -28,6 +28,8 @@ export const PostCard: FC<Props> = ({ title, href, createdAt, tags }) => {
         h: '14rem',
         overflow: 'hidden',
         bg: 'postCard.bg',
+        border: '1px solid rgba(124, 58, 237, 0.12)',
+        boxShadow: '0 1px 4px rgba(124, 58, 237, 0.08)',
       })}
     >
       <div

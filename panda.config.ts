@@ -21,7 +21,7 @@ export default defineConfig({
           error: { value: '#f87171' },
           link: { value: '#6d28d9' },
           bg: {
-            base: { value: '#faf8ff' },
+            base: { value: '#eaeaff' },
             codeBlock: { value: '#e2e3efb5' },
           },
           border: {
@@ -60,7 +60,7 @@ export default defineConfig({
           avatar: {
             ring: { value: '#7c3aed' },
           },
-          divider: { value: '#e9e7ff' },
+          divider: { value: '#c4b5fd' },
         },
       },
       recipes,
