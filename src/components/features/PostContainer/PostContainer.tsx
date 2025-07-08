@@ -191,8 +191,7 @@ const postContainer = css({
   '& .code-block-header': {
     px: '1rem',
     py: '0.25rem',
-    bg: 'rgba(255, 255, 255, 0.05)',
-    borderBottom: '1px solid token(colors.divider)',
+    bg: '#d0d8ff',
     fontSize: '0.875rem',
     fontWeight: '500',
   },

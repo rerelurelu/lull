@@ -1,7 +1,6 @@
 import { Link } from 'next-view-transitions'
 import type { FC } from 'react'
-import { css, cx } from 'styled-system/css'
-import { text } from 'styled-system/recipes'
+import { css } from 'styled-system/css'
 import type { Tag } from '@/types/post'
 
 type Props = {
@@ -26,20 +25,22 @@ export const PostCard: FC<Props> = ({ title, href, createdAt, tags }) => {
         display: 'flex',
         flexDir: 'column',
         borderRadius: '1rem',
-        h: '12rem',
+        h: '14rem',
         overflow: 'hidden',
         bg: 'postCard.bg',
+        border: '1px solid rgba(124, 58, 237, 0.12)',
+        boxShadow: '0 1px 4px rgba(124, 58, 237, 0.08)',
       })}
     >
       <div
         className={css({
           color: 'postCard.title.base',
-          p: '1.25rem',
+          p: '1.5rem',
           display: 'flex',
           justifyContent: 'space-between',
           flex: '1 1 auto',
           flexDir: 'column',
-          gap: '0.5rem',
+          gap: '0.75rem',
         })}
       >
         <header
@@ -49,13 +50,14 @@ export const PostCard: FC<Props> = ({ title, href, createdAt, tags }) => {
         >
           <h2
             className={css({
-              fontSize: '1.125rem',
+              fontSize: '1rem',
               fontWeight: '600',
               lineHeight: '1.75rem',
               textWrap: 'pretty',
               display: 'flex',
               alignItems: 'center',
               gap: '0.5rem',
+              mb: '0.5rem',
             })}
           >
             <Link
@@ -78,23 +80,38 @@ export const PostCard: FC<Props> = ({ title, href, createdAt, tags }) => {
             justifyContent: 'end',
           })}
         >
-          <time className={text({ size: 'sm' })} dateTime={createdAt}>
+          <time className={css({ fontSize: '0.6875rem', color: '#6b7280' })} dateTime={createdAt}>
             {dateText}
           </time>
           <div
             className={css({
-              mt: '0.5rem',
+              mt: '0.75rem',
               display: 'flex',
               flexWrap: 'wrap',
               alignItems: 'flex-start',
               justifyContent: 'flex-start',
               columnGap: '0.5rem',
-              rowGap: '0',
+              rowGap: '0.25rem',
             })}
           >
             {tags.map((tag) => (
-              <div className={css({ color: 'postCard.tag' })} key={tag.id}>
-                <span className={cx(css({ mr: '1px' }), text({ size: 'sm' }))}>#</span>
+              <div
+                className={css({
+                  color: 'postCard.tag',
+                  bg: '#e0d9ff',
+                  px: '0.75rem',
+                  py: '0.375rem',
+                  borderRadius: '9999px',
+                  border: '1px solid #c4b5fd',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.125rem',
+                  fontSize: '0.6875rem',
+                  fontWeight: '500',
+                })}
+                key={tag.id}
+              >
+                <span className={css({ opacity: 0.8 })}>#</span>
                 <span>{tag.tagName}</span>
               </div>
             ))}

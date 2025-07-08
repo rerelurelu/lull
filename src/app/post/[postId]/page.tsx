@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { css, cx } from 'styled-system/css'
-import { divider } from 'styled-system/patterns'
 import { text as textRecipe } from 'styled-system/recipes'
 import { PostContainerWithLinkCards } from '@/components/features/PostContainer/PostContainerWithLinkCards'
 import { fetchPost, fetchPosts } from '@/services/post'
@@ -12,7 +11,7 @@ type Props = {
 }
 
 export async function generateStaticParams() {
-  const data = await fetchPosts()
+  const data = await fetchPosts({ limit: 1000 })
 
   const paths = data.posts.map((post) => {
     return post.id
@@ -101,15 +100,6 @@ export default async function PostPage({ params }: Props) {
           <time dateTime={post.publishedAt}>{dateDisplay}</time>
         </div>
       </header>
-      <div
-        className={divider({
-          mb: '0',
-          mt: '5rem',
-          orientation: 'horizontal',
-          thickness: '0.125rem',
-          color: 'divider',
-        })}
-      />
       <div
         className={css({
           mt: '5rem',

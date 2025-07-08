@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 }
 
 export async function generateStaticParams() {
-  const { totalCount } = await fetchPosts()
+  const { totalCount } = await fetchPosts({ limit: 1000 })
   const maxPageIndex = Math.ceil(totalCount / PER_PAGE)
   const paths = [...Array(maxPageIndex).keys()].map((i) => (i + 1).toString())
 
@@ -43,7 +43,7 @@ export default async function PostsPage({ params }: Props) {
   const url = '/posts'
 
   return (
-    <div className={grid({ placeItems: 'center' })}>
+    <div className={grid({ placeItems: 'center', w: '100%' })}>
       <Heading title='Post' />
       <PostArea posts={posts} className={css({ mt: '5rem' })} />
       <Pagination

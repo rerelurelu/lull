@@ -1,5 +1,5 @@
-import { recipes } from '@/themes/recipes'
 import { defineConfig, defineGlobalStyles } from '@pandacss/dev'
+import { recipes } from '@/themes/recipes'
 
 const globalCss = defineGlobalStyles({
   body: {
@@ -16,51 +16,51 @@ export default defineConfig({
     extend: {
       tokens: {
         colors: {
-          base: { value: '#bdc6e9' },
-          head: { value: '#ffffff' },
+          base: { value: '#2d1b69' },
+          head: { value: '#1e1b4b' },
           error: { value: '#f87171' },
-          link: { value: '#f472b6' },
+          link: { value: '#6d28d9' },
           bg: {
-            base: { value: '#1a1e2e' },
-            codeBlock: { value: '#2b3047' },
+            base: { value: '#eaeaff' },
+            codeBlock: { value: '#e2e3efb5' },
           },
           border: {
-            section: { value: '#312e81' },
+            section: { value: '#7c3aed' },
           },
           input: {
             border: {
-              base: { value: '#999eef' },
-              focus: { value: '#7c3aed' },
+              base: { value: '#7c3aed' },
+              focus: { value: '#6d28d9' },
             },
-            placeholder: { value: '#475569' },
+            placeholder: { value: '#9ca3af' },
           },
           button: {
             bg: {
-              base: { value: '#e879f9' },
-              hover: { value: '#22d3ee' },
+              base: { value: '#7c3aed' },
+              hover: { value: '#6d28d9' },
             },
           },
-          icon: { value: '#c4b5fd' },
+          icon: { value: '#7c3aed' },
           postCard: {
             title: {
-              base: { value: '#ffffff' },
-              hover: { value: '#f0abfc' },
+              base: { value: '#1e1b4b' },
+              hover: { value: '#6d28d9' },
             },
-            tag: { value: '#f0abfc' },
-            bg: { value: 'linear-gradient(to bottom right, #647dee, #7f53ac)' },
+            tag: { value: '#4c1d95' },
+            bg: { value: 'linear-gradient(to bottom, #f1f0ff, #e9e7ff)' },
           },
           post: {
-            base: { value: '#939ab5' },
-            code: { value: '#f2f4ffcc' },
+            base: { value: '#4c1d95' },
+            code: { value: '#1e1b4bcc' },
           },
           header: {
-            active: { value: 'linear-gradient(to bottom, #00f1f9, #cb33f4)' },
-            bg: { value: '#1a1e2e4d' },
+            active: { value: 'linear-gradient(to bottom, #7c3aed, #6d28d9)' },
+            bg: { value: '#faf8ff8d' },
           },
           avatar: {
-            ring: { value: '#999eef' },
+            ring: { value: '#7c3aed' },
           },
-          divider: { value: '#2A2F40' },
+          divider: { value: '#c4b5fd' },
         },
       },
       recipes,

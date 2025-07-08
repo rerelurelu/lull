@@ -41,10 +41,10 @@ const braille = cva({
   variants: {
     visual: {
       on: {
-        bg: '#fde047',
+        bg: '#7c3aed',
       },
       off: {
-        border: '2px solid #fde047',
+        border: '2px solid #7c3aed',
       },
     },
   },
