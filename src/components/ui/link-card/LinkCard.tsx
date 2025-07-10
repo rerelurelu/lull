@@ -79,12 +79,12 @@ const titleStyles = cva({
     lineHeight: '1.4',
     color: 'token(colors.postCard.title.base)',
     mb: '0.25rem',
-
-    display: '-webkit-box',
-    WebkitLineClamp: 2,
-    WebkitBoxOrient: 'vertical',
     overflow: 'hidden',
     maxW: '100%',
+    display: '-webkit-box',
+    WebkitLineClamp: '2',
+    // Use custom CSS property for WebkitBoxOrient
+    '--webkit-box-orient': 'vertical',
 
     _groupHover: {
       color: 'token(colors.postCard.title.hover)',
@@ -98,11 +98,11 @@ const descriptionStyles = cva({
     color: 'token(colors.post.base)',
     lineHeight: '1.4',
     mb: '0.25rem',
-
-    display: '-webkit-box',
-    WebkitLineClamp: 1,
-    WebkitBoxOrient: 'vertical',
     overflow: 'hidden',
+    display: '-webkit-box',
+    WebkitLineClamp: '1',
+    // Use custom CSS property for WebkitBoxOrient
+    '--webkit-box-orient': 'vertical',
   },
 })
 
