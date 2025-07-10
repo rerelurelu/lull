@@ -80,9 +80,10 @@ const titleStyles = cva({
     color: 'token(colors.postCard.title.base)',
     mb: '0.25rem',
 
+    display: '-webkit-box',
+    WebkitLineClamp: 2,
+    WebkitBoxOrient: 'vertical',
     overflow: 'hidden',
-    whiteSpace: 'nowrap',
-    textOverflow: 'ellipsis',
     maxW: '100%',
 
     _groupHover: {
@@ -99,7 +100,8 @@ const descriptionStyles = cva({
     mb: '0.25rem',
 
     display: '-webkit-box',
-    WebkitLineClamp: 2,
+    WebkitLineClamp: 1,
+    WebkitBoxOrient: 'vertical',
     overflow: 'hidden',
   },
 })

@@ -251,25 +251,30 @@ const postContainer = css({
   },
 
   // セクション間の間隔制御
-  '& p + h2, & ul + h2, & pre + h2, & .code-block-wrapper + h2, & .link-card-wrapper + h2, & hr + h2': {
-    mt: '3rem',
-  },
+  '& p + h2, & ul + h2, & pre + h2, & .code-block-wrapper + h2, & .link-card-wrapper + h2, & hr + h2':
+    {
+      mt: '3rem',
+    },
 
-  '& p + h3, & ul + h3, & pre + h3, & .code-block-wrapper + h3, & .link-card-wrapper + h3, & hr + h3': {
-    mt: '2.25rem',
-  },
+  '& p + h3, & ul + h3, & pre + h3, & .code-block-wrapper + h3, & .link-card-wrapper + h3, & hr + h3':
+    {
+      mt: '2.25rem',
+    },
 
-  '& p + h4, & ul + h4, & pre + h4, & .code-block-wrapper + h4, & .link-card-wrapper + h4, & hr + h4': {
-    mt: '2.25rem',
-  },
+  '& p + h4, & ul + h4, & pre + h4, & .code-block-wrapper + h4, & .link-card-wrapper + h4, & hr + h4':
+    {
+      mt: '2.25rem',
+    },
 
-  '& p + h5, & ul + h5, & pre + h5, & .code-block-wrapper + h5, & .link-card-wrapper + h5, & hr + h5': {
-    mt: '2.25rem',
-  },
+  '& p + h5, & ul + h5, & pre + h5, & .code-block-wrapper + h5, & .link-card-wrapper + h5, & hr + h5':
+    {
+      mt: '2.25rem',
+    },
 
-  '& p + h6, & ul + h6, & pre + h6, & .code-block-wrapper + h6, & .link-card-wrapper + h6, & hr + h6': {
-    mt: '2.25rem',
-  },
+  '& p + h6, & ul + h6, & pre + h6, & .code-block-wrapper + h6, & .link-card-wrapper + h6, & hr + h6':
+    {
+      mt: '2.25rem',
+    },
 
   '& a': {
     color: 'link',
@@ -418,9 +423,10 @@ const linkCardStyles = css({
     fontWeight: '600',
     lineHeight: '1.4',
     color: 'token(colors.postCard.title.base)',
+    display: '-webkit-box',
+    WebkitLineClamp: 2,
+    WebkitBoxOrient: 'vertical',
     overflow: 'hidden',
-    whiteSpace: 'nowrap',
-    textOverflow: 'ellipsis',
     maxW: '100%',
     margin: '0 0 0.25rem 0 !important',
     padding: '0 !important',
@@ -436,7 +442,8 @@ const linkCardStyles = css({
     lineHeight: '1.4',
     overflow: 'hidden',
     display: '-webkit-box',
-    WebkitLineClamp: 2,
+    WebkitLineClamp: 1,
+    WebkitBoxOrient: 'vertical',
     margin: '0 0 0.25rem 0 !important',
     padding: '0 !important',
   },
