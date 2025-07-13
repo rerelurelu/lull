@@ -2,18 +2,13 @@ import type { Metadata } from 'next'
 import { css } from 'styled-system/css'
 import { grid } from 'styled-system/patterns'
 import { Avatar, IconLink } from '@/components/ui'
+import { createMetadata } from '@/utils/metadata'
 
-const TITLE = 'About'
-const DESCRIPTION = 'Reluの自己紹介'
-
-export const metadata: Metadata = {
-  title: TITLE,
-  description: DESCRIPTION,
-  openGraph: {
-    title: TITLE,
-    description: DESCRIPTION,
-  },
-}
+export const metadata: Metadata = createMetadata({
+  title: 'About',
+  description: 'Reluの自己紹介',
+  path: '/about',
+})
 
 const sns = {
   github: { href: 'https://github.com/rerelurelu' },

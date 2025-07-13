@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import type { FC, PropsWithChildren } from 'react'
 
 export const OgpWrapper: FC<PropsWithChildren> = ({ children }) => {
@@ -48,13 +47,17 @@ export const OgpWrapper: FC<PropsWithChildren> = ({ children }) => {
                 boxShadow: '0 0 0 3px #999eef',
                 alignItems: 'center',
                 marginLeft: '8px',
+                width: 56,
+                height: 56,
               }}
             >
-              <Image
+              {/* biome-ignore lint/performance/noImgElement: OGPの設定ではImageコンポーネントを使用できないため */}
+              <img
                 src='https://avatars.githubusercontent.com/u/43092452?v=4'
                 alt='Relu`s Icon'
                 width={56}
                 height={56}
+                style={{ borderRadius: '9999px' }}
               />
             </div>
             <span style={{ paddingBottom: '5px' }}>Relu</span>
