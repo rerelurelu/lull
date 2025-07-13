@@ -14,3 +14,12 @@ export const OGP_IMAGE_SIZE = {
   WIDTH: 1200,
   HEIGHT: 630,
 } as const
+
+// サイト設定定数
+export const SITE_CONFIG = {
+  title: 'Relu',
+  description: 'Reluの個人ブログ・技術記事',
+  url: process.env.SITE_URL,
+  language: 'ja',
+  author: { name: 'Relu' },
+} as const
