@@ -3,6 +3,7 @@ import { css, cx } from 'styled-system/css'
 import { text as textRecipe } from 'styled-system/recipes'
 import { PostContainerWithLinkCards } from '@/components/features/PostContainer/PostContainerWithLinkCards'
 import { fetchPost, fetchPosts } from '@/services/post'
+import { createArticleMetadata } from '@/utils/metadata'
 
 export const dynamicParams = false
 
@@ -31,14 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     .slice(0, 80)
     .split('。')[0]
 
-  return {
-    title: title,
-    description: description,
-    openGraph: {
-      title: title,
-      description: description,
-    },
-  }
+  return createArticleMetadata(title, description, `/post/${postId}`)
 }
 
 export default async function PostPage({ params }: Props) {

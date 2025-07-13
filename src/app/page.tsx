@@ -3,17 +3,12 @@ import { css } from 'styled-system/css'
 import { grid } from 'styled-system/patterns'
 import { Hero, PostArea } from '@/components/features'
 import { fetchPosts } from '@/services/post'
+import { createMetadata } from '@/utils/metadata'
 
-const TITLE = 'Home | Relu'
-const DESCRIPTION = 'Reluの個人ブログ・技術記事'
-
-export const metadata: Metadata = {
-  title: TITLE,
-  description: DESCRIPTION,
-  openGraph: {
-    title: DESCRIPTION,
-  },
-}
+export const metadata: Metadata = createMetadata({
+  title: 'Home',
+  path: '/',
+})
 
 export default async function Home() {
   const { posts } = await fetchPosts({ limit: 3 })
