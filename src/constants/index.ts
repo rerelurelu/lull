@@ -19,7 +19,7 @@ export const OGP_IMAGE_SIZE = {
 export const SITE_CONFIG = {
   title: 'Relu',
   description: 'Reluの個人ブログ・技術記事',
-  url: process.env.SITE_URL,
+  url: process.env.SITE_URL || '',
   language: 'ja',
   author: { name: 'Relu' },
 } as const
