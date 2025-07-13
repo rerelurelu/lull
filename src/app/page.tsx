@@ -5,7 +5,7 @@ import { Hero, PostArea } from '@/components/features'
 import { fetchPosts } from '@/services/post'
 
 const TITLE = 'Home | Relu'
-const DESCRIPTION = 'れるのパーソナルフェブサイト'
+const DESCRIPTION = 'Reluの個人ブログ・技術記事'
 
 export const metadata: Metadata = {
   title: TITLE,
