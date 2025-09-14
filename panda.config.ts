@@ -2,25 +2,9 @@ import { defineConfig, defineGlobalStyles } from '@pandacss/dev'
 import { recipes } from '@/themes/recipes'
 
 const globalCss = defineGlobalStyles({
-  '@keyframes wave-gentle': {
-    '0%, 100%': { transform: 'translateY(0px)' },
-    '50%': { transform: 'translateY(-8px)' },
-  },
-  '@keyframes ripple': {
-    '0%': { transform: 'scale(1)', opacity: '0.8' },
-    '100%': { transform: 'scale(1.2)', opacity: '0' },
-  },
-  '@keyframes float': {
-    '0%, 100%': { transform: 'translateY(0px)' },
-    '50%': { transform: 'translateY(-12px)' },
-  },
   body: {
     color: 'base',
     bg: 'bg.base',
-    backgroundAttachment: 'fixed',
-  },
-  '*': {
-    transition: 'all 0.2s ease-in-out',
   },
 })
 
@@ -31,63 +15,52 @@ export default defineConfig({
   theme: {
     extend: {
       tokens: {
-        animations: {
-          'wave-gentle': { value: 'wave-gentle 3s ease-in-out infinite' },
-          'ripple': { value: 'ripple 0.6s ease-out' },
-          'float': { value: 'float 4s ease-in-out infinite' },
-        },
         colors: {
-          base: { value: '#e0f0ff' },
-          head: { value: '#00ffff' },
-          error: { value: '#ff0080' },
-          link: { value: '#00d4ff' },
+          base: { value: '#2d1b69' },
+          head: { value: '#1e1b4b' },
+          error: { value: '#f87171' },
+          link: { value: '#6d28d9' },
           bg: {
-            base: { value: 'linear-gradient(135deg, #0a0a0a, #1a0d2e, #2a1810)' },
-            codeBlock: { value: '#e2e8f0b5' },
+            base: { value: '#eaeaff' },
+            codeBlock: { value: '#e2e3efb5' },
           },
           border: {
-            section: { value: '#00ffff' },
+            section: { value: '#7c3aed' },
           },
           input: {
             border: {
-              base: { value: '#00ffff' },
-              focus: { value: '#ff00ff' },
+              base: { value: '#7c3aed' },
+              focus: { value: '#6d28d9' },
             },
-            placeholder: { value: '#8899bb' },
+            placeholder: { value: '#9ca3af' },
           },
           button: {
             bg: {
-              base: { value: 'linear-gradient(135deg, #00ffff, #0099cc)' },
-              hover: { value: 'linear-gradient(135deg, #ff00ff, #cc0066)' },
+              base: { value: '#7c3aed' },
+              hover: { value: '#6d28d9' },
             },
           },
-          icon: { value: '#00ffff' },
+          icon: { value: '#7c3aed' },
           postCard: {
             title: {
-              base: { value: '#00ffff' },
-              hover: { value: '#ff00ff' },
+              base: { value: '#1e1b4b' },
+              hover: { value: '#6d28d9' },
             },
-            tag: { value: '#ffff00' },
-            bg: { value: 'linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(255, 0, 255, 0.05), rgba(255, 255, 0, 0.05))' },
+            tag: { value: '#4c1d95' },
+            bg: { value: 'linear-gradient(to bottom, #f1f0ff, #e9e7ff)' },
           },
           post: {
-            base: { value: '#e0f0ff' },
-            code: { value: '#00ffffcc' },
+            base: { value: '#4c1d95' },
+            code: { value: '#1e1b4bcc' },
           },
           header: {
-            active: { value: 'linear-gradient(to right, #00ffff, #ff00ff)' },
-            bg: { value: 'rgba(10, 10, 10, 0.9)' },
+            active: { value: 'linear-gradient(to bottom, #7c3aed, #6d28d9)' },
+            bg: { value: '#faf8ff8d' },
           },
           avatar: {
-            ring: { value: '#00ffff' },
+            ring: { value: '#7c3aed' },
           },
-          divider: { value: '#ff00ff' },
-          neon: {
-            cyan: { value: '#00ffff' },
-            magenta: { value: '#ff00ff' },
-            yellow: { value: '#ffff00' },
-            orange: { value: '#ff8800' },
-          },
+          divider: { value: '#c4b5fd' },
         },
       },
       recipes,
