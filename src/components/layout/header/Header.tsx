@@ -36,13 +36,11 @@ export const Header = () => {
           w: 'max-content',
           px: { base: '1rem', md: '1.5rem' },
           py: '0.5rem',
-          bg: 'rgba(250, 248, 255, 0.9)',
-          backdropFilter: 'blur(8px)',
+          bg: 'rgba(10, 10, 10, 0.8)',
+          backdropFilter: 'blur(12px)',
           borderRadius: '1rem',
-          border: '1px solid rgba(124, 58, 237, 0.2)',
-          boxShadow: '0 8px 32px rgba(124, 58, 237, 0.1), 0 2px 8px rgba(255, 255, 255, 0.5) inset',
-          background:
-            'linear-gradient(135deg, rgba(250, 248, 255, 0.95) 0%, rgba(241, 240, 255, 0.9) 100%)',
+          border: '1px solid rgba(0, 255, 255, 0.4)',
+          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 255, 255, 0.1)',
         })}
       >
         <Link href={'/'}>

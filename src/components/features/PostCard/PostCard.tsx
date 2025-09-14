@@ -28,8 +28,15 @@ export const PostCard: FC<Props> = ({ title, href, createdAt, tags }) => {
         h: '14rem',
         overflow: 'hidden',
         bg: 'postCard.bg',
-        border: '1px solid rgba(124, 58, 237, 0.12)',
-        boxShadow: '0 1px 4px rgba(124, 58, 237, 0.08)',
+        border: '1px solid rgba(0, 255, 255, 0.3)',
+        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 255, 255, 0.1)',
+        backdropFilter: 'blur(10px)',
+        transition: 'all 0.3s ease',
+        _hover: {
+          transform: 'translateY(-4px)',
+          border: '1px solid rgba(255, 0, 255, 0.6)',
+          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 0, 255, 0.3)',
+        },
       })}
     >
       <div
@@ -80,7 +87,7 @@ export const PostCard: FC<Props> = ({ title, href, createdAt, tags }) => {
             justifyContent: 'end',
           })}
         >
-          <time className={css({ fontSize: '0.6875rem', color: '#6b7280' })} dateTime={createdAt}>
+          <time className={css({ fontSize: '0.6875rem', color: '#8899bb' })} dateTime={createdAt}>
             {dateText}
           </time>
           <div
@@ -98,16 +105,22 @@ export const PostCard: FC<Props> = ({ title, href, createdAt, tags }) => {
               <div
                 className={css({
                   color: 'postCard.tag',
-                  bg: '#e0d9ff',
+                  bg: 'rgba(255, 255, 0, 0.15)',
                   px: '0.75rem',
                   py: '0.375rem',
                   borderRadius: '9999px',
-                  border: '1px solid #c4b5fd',
+                  border: '1px solid rgba(255, 255, 0, 0.4)',
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '0.125rem',
                   fontSize: '0.6875rem',
                   fontWeight: '500',
+                  transition: 'all 0.2s ease',
+                  _hover: {
+                    bg: 'rgba(255, 255, 0, 0.3)',
+                    transform: 'scale(1.05)',
+                    boxShadow: '0 0 10px rgba(255, 255, 0, 0.5)',
+                  },
                 })}
                 key={tag.id}
               >

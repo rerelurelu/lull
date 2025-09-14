@@ -34,7 +34,7 @@ export const NavItems: FC<Props> = ({ entries }) => {
                 className={css({
                   bg: { _hover: 'transparent', _focus: 'transparent' },
                   gap: '0.75rem',
-                  color: { base: '#2d1b69' },
+                  color: { base: '#e0f0ff' },
                   alignItems: 'center',
                   userSelect: 'none',
                 })}
@@ -66,17 +66,20 @@ const gradationRecipe = cva({
     transition: 'all 0.2s ease',
     _hover: {
       fontWeight: '500',
-      color: '#8b5cf6',
+      color: '#00ffff',
+      textShadow: '0 0 10px rgba(0, 255, 255, 0.5)',
     },
   },
   variants: {
     visual: {
       active: {
-        color: '#a78bfa',
+        color: '#ff00ff',
         fontWeight: '600',
+        textShadow: '0 0 15px rgba(255, 0, 255, 0.7)',
         _hover: {
-          color: '#a78bfa',
+          color: '#ff00ff',
           fontWeight: '600',
+          textShadow: '0 0 15px rgba(255, 0, 255, 0.7)',
         },
       },
     },
