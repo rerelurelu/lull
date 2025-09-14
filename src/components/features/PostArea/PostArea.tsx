@@ -36,11 +36,6 @@ export const PostArea: FC<Pros> = ({ posts, className }) => {
             lineHeight: { base: '1.75rem', md: '2.25rem' },
             textAlign: 'left',
             color: 'head',
-            textShadow: '0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor',
-            animation: 'neonGlow 3s ease-in-out infinite',
-            _hover: {
-              textShadow: '0 0 15px currentColor, 0 0 30px currentColor, 0 0 45px currentColor',
-            },
           })}
         >
           Recent Posts

@@ -14,24 +14,6 @@ const globalCss = defineGlobalStyles({
     '0%, 100%': { transform: 'translateY(0px)' },
     '50%': { transform: 'translateY(-12px)' },
   },
-  '@keyframes neonGlow': {
-    '0%, 100%': {
-      textShadow: '0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor, 0 0 20px currentColor',
-      filter: 'brightness(1)',
-    },
-    '50%': {
-      textShadow: '0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor, 0 0 40px currentColor',
-      filter: 'brightness(1.2)',
-    },
-  },
-  '@keyframes borderGlow': {
-    '0%, 100%': {
-      boxShadow: '0 0 5px currentColor, 0 0 10px currentColor, inset 0 0 5px rgba(0, 255, 255, 0.1)',
-    },
-    '50%': {
-      boxShadow: '0 0 10px currentColor, 0 0 20px currentColor, inset 0 0 10px rgba(0, 255, 255, 0.2)',
-    },
-  },
   body: {
     color: 'base',
     bg: 'bg.base',
@@ -39,7 +21,7 @@ const globalCss = defineGlobalStyles({
     minHeight: '100vh',
   },
   '*': {
-    transition: 'all 0.3s ease-in-out',
+    transition: 'all 0.2s ease-in-out',
   },
 })
 
@@ -54,61 +36,58 @@ export default defineConfig({
           'wave-gentle': { value: 'wave-gentle 3s ease-in-out infinite' },
           'ripple': { value: 'ripple 0.6s ease-out' },
           'float': { value: 'float 4s ease-in-out infinite' },
-          'neon-glow': { value: 'neonGlow 2s ease-in-out infinite' },
-          'border-glow': { value: 'borderGlow 2s ease-in-out infinite' },
         },
         colors: {
-          base: { value: '#e0e0ff' },
-          head: { value: '#ff00ff' },
-          error: { value: '#ff0080' },
-          link: { value: '#00ffff' },
+          base: { value: '#4a3a5a' },
+          head: { value: '#c8a2ff' },
+          error: { value: '#ff6b9d' },
+          link: { value: '#a855f7' },
           bg: {
-            base: { value: 'radial-gradient(ellipse at center, #1a0d2e 0%, #16213e 30%, #0f3460 100%)' },
-            codeBlock: { value: 'rgba(31, 41, 55, 0.8)' },
+            base: { value: 'linear-gradient(135deg, #f8e8ff 0%, #ffe4f3 30%, #fff4a3 60%, #e4f3ff 100%)' },
+            codeBlock: { value: '#e2e8f0b5' },
           },
           border: {
-            section: { value: '#00ffff' },
+            section: { value: '#c8a2ff' },
           },
           input: {
             border: {
-              base: { value: '#00ffff' },
-              focus: { value: '#ff00ff' },
+              base: { value: '#c8a2ff' },
+              focus: { value: '#ffb3e6' },
             },
-            placeholder: { value: '#8892b0' },
+            placeholder: { value: '#8a7ca8' },
           },
           button: {
             bg: {
-              base: { value: 'linear-gradient(135deg, #ff00ff, #00ffff)' },
-              hover: { value: 'linear-gradient(135deg, #ff0080, #0080ff)' },
+              base: { value: 'linear-gradient(135deg, #c8a2ff, #d8b3ff)' },
+              hover: { value: 'linear-gradient(135deg, #ffb3e6, #ffcaed)' },
             },
           },
-          icon: { value: '#00ffff' },
+          icon: { value: '#c8a2ff' },
           postCard: {
             title: {
-              base: { value: '#e0e0ff' },
-              hover: { value: '#ff00ff' },
+              base: { value: '#6b46c1' },
+              hover: { value: '#ec4899' },
             },
-            tag: { value: '#00ffff' },
-            bg: { value: 'linear-gradient(135deg, rgba(255, 0, 255, 0.1), rgba(0, 255, 255, 0.1))' },
+            tag: { value: '#f59e0b' },
+            bg: { value: 'linear-gradient(135deg, rgba(200, 162, 255, 0.15), rgba(255, 179, 230, 0.1), rgba(255, 244, 163, 0.1))' },
           },
           post: {
-            base: { value: '#e0e0ff' },
-            code: { value: '#00ffffcc' },
+            base: { value: '#4a3a5a' },
+            code: { value: '#c8a2ffcc' },
           },
           header: {
-            active: { value: 'linear-gradient(to right, #ff00ff, #00ffff)' },
-            bg: { value: 'rgba(26, 13, 46, 0.95)' },
+            active: { value: 'linear-gradient(to right, #c8a2ff, #ffb3e6)' },
+            bg: { value: 'rgba(248, 232, 255, 0.95)' },
           },
           avatar: {
-            ring: { value: '#00ffff' },
+            ring: { value: '#c8a2ff' },
           },
-          divider: { value: '#ff00ff' },
-          cyberpunk: {
-            magenta: { value: '#ff00ff' },
-            cyan: { value: '#00ffff' },
-            purple: { value: '#8b00ff' },
-            blue: { value: '#0080ff' },
-            darkBg: { value: '#1a0d2e' },
+          divider: { value: '#ffb3e6' },
+          pastel: {
+            purple: { value: '#c8a2ff' },
+            pink: { value: '#ffb3e6' },
+            yellow: { value: '#fff4a3' },
+            blue: { value: '#a3d9ff' },
           },
         },
       },

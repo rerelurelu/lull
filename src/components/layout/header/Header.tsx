@@ -36,15 +36,11 @@ export const Header = () => {
           w: 'max-content',
           px: { base: '1rem', md: '1.5rem' },
           py: '0.5rem',
-          bg: 'rgba(26, 13, 46, 0.9)',
+          bg: 'rgba(248, 232, 255, 0.9)',
           backdropFilter: 'blur(12px)',
           borderRadius: '1rem',
-          border: '1px solid #00ffff',
-          boxShadow: '0 0 10px #00ffff, 0 0 20px #ff00ff, 0 8px 32px rgba(0, 255, 255, 0.3)',
-          animation: 'borderGlow 2s ease-in-out infinite',
-          _hover: {
-            boxShadow: '0 0 15px #00ffff, 0 0 25px #ff00ff, 0 12px 40px rgba(0, 255, 255, 0.4)',
-          },
+          border: '1px solid rgba(200, 162, 255, 0.4)',
+          boxShadow: '0 8px 32px rgba(200, 162, 255, 0.2), 0 0 20px rgba(255, 179, 230, 0.15)',
         })}
       >
         <Link href={'/'}>
