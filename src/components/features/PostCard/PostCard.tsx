@@ -28,14 +28,14 @@ export const PostCard: FC<Props> = ({ title, href, createdAt, tags }) => {
         h: '14rem',
         overflow: 'hidden',
         bg: 'postCard.bg',
-        border: '1px solid rgba(0, 255, 255, 0.3)',
-        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 255, 255, 0.1)',
+        border: '1px solid rgba(200, 162, 255, 0.3)',
+        boxShadow: '0 8px 32px rgba(200, 162, 255, 0.15), 0 0 20px rgba(255, 179, 230, 0.1)',
         backdropFilter: 'blur(10px)',
         transition: 'all 0.3s ease',
         _hover: {
           transform: 'translateY(-4px)',
-          border: '1px solid rgba(255, 0, 255, 0.6)',
-          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 0, 255, 0.3)',
+          border: '1px solid rgba(255, 179, 230, 0.6)',
+          boxShadow: '0 8px 32px rgba(255, 179, 230, 0.25), 0 0 30px rgba(255, 179, 230, 0.3)',
         },
       })}
     >
@@ -87,7 +87,7 @@ export const PostCard: FC<Props> = ({ title, href, createdAt, tags }) => {
             justifyContent: 'end',
           })}
         >
-          <time className={css({ fontSize: '0.6875rem', color: '#8899bb' })} dateTime={createdAt}>
+          <time className={css({ fontSize: '0.6875rem', color: '#8a7ca8' })} dateTime={createdAt}>
             {dateText}
           </time>
           <div
@@ -105,11 +105,11 @@ export const PostCard: FC<Props> = ({ title, href, createdAt, tags }) => {
               <div
                 className={css({
                   color: 'postCard.tag',
-                  bg: 'rgba(255, 255, 0, 0.15)',
+                  bg: 'rgba(255, 244, 163, 0.2)',
                   px: '0.75rem',
                   py: '0.375rem',
                   borderRadius: '9999px',
-                  border: '1px solid rgba(255, 255, 0, 0.4)',
+                  border: '1px solid rgba(245, 158, 11, 0.4)',
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '0.125rem',
@@ -117,9 +117,9 @@ export const PostCard: FC<Props> = ({ title, href, createdAt, tags }) => {
                   fontWeight: '500',
                   transition: 'all 0.2s ease',
                   _hover: {
-                    bg: 'rgba(255, 255, 0, 0.3)',
+                    bg: 'rgba(255, 244, 163, 0.35)',
                     transform: 'scale(1.05)',
-                    boxShadow: '0 0 10px rgba(255, 255, 0, 0.5)',
+                    boxShadow: '0 0 10px rgba(245, 158, 11, 0.4)',
                   },
                 })}
                 key={tag.id}
