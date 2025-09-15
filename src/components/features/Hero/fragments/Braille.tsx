@@ -37,14 +37,18 @@ const braille = cva({
     h: '1rem',
     w: '1rem',
     borderRadius: 'full',
+    transition: 'all 0.3s ease',
   },
   variants: {
     visual: {
       on: {
-        bg: '#7c3aed',
+        bg: 'linear-gradient(135deg, #a855f7, #ec4899)',
+        boxShadow: '0 0 20px rgba(168, 85, 247, 0.6), 0 0 40px rgba(236, 72, 153, 0.4)',
+        animation: 'pulse 2s ease-in-out infinite alternate',
       },
       off: {
-        border: '2px solid #7c3aed',
+        border: '2px solid rgba(168, 85, 247, 0.4)',
+        bg: 'rgba(168, 85, 247, 0.1)',
       },
     },
   },

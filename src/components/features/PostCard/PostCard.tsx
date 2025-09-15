@@ -28,8 +28,15 @@ export const PostCard: FC<Props> = ({ title, href, createdAt, tags }) => {
         h: '14rem',
         overflow: 'hidden',
         bg: 'postCard.bg',
-        border: '1px solid rgba(124, 58, 237, 0.12)',
-        boxShadow: '0 1px 4px rgba(124, 58, 237, 0.08)',
+        border: '1px solid rgba(168, 85, 247, 0.3)',
+        boxShadow: '0 8px 32px rgba(168, 85, 247, 0.15), 0 0 20px rgba(236, 72, 153, 0.1)',
+        backdropFilter: 'blur(10px)',
+        _hover: {
+          transform: 'translateY(-2px)',
+          boxShadow: '0 12px 40px rgba(168, 85, 247, 0.2), 0 0 30px rgba(236, 72, 153, 0.15)',
+          border: '1px solid rgba(168, 85, 247, 0.5)',
+        },
+        transition: 'all 0.3s ease',
       })}
     >
       <div
@@ -80,7 +87,7 @@ export const PostCard: FC<Props> = ({ title, href, createdAt, tags }) => {
             justifyContent: 'end',
           })}
         >
-          <time className={css({ fontSize: '0.6875rem', color: '#6b7280' })} dateTime={createdAt}>
+          <time className={css({ fontSize: '0.6875rem', color: 'rgba(224, 212, 255, 0.7)' })} dateTime={createdAt}>
             {dateText}
           </time>
           <div
@@ -98,16 +105,17 @@ export const PostCard: FC<Props> = ({ title, href, createdAt, tags }) => {
               <div
                 className={css({
                   color: 'postCard.tag',
-                  bg: '#e0d9ff',
+                  bg: 'rgba(139, 92, 246, 0.2)',
                   px: '0.75rem',
                   py: '0.375rem',
                   borderRadius: '9999px',
-                  border: '1px solid #c4b5fd',
+                  border: '1px solid rgba(192, 132, 252, 0.4)',
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '0.125rem',
                   fontSize: '0.6875rem',
                   fontWeight: '500',
+                  backdropFilter: 'blur(4px)',
                 })}
                 key={tag.id}
               >
