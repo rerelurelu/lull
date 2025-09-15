@@ -24,12 +24,12 @@ export const PostCard: FC<Props> = ({ title, href, createdAt, tags }) => {
         pos: 'relative',
         display: 'flex',
         flexDir: 'column',
-        borderRadius: '1rem',
+        borderRadius: '1.5rem',
         h: '14rem',
         overflow: 'hidden',
         bg: 'postCard.bg',
-        border: '1px solid rgba(124, 58, 237, 0.12)',
-        boxShadow: '0 1px 4px rgba(124, 58, 237, 0.08)',
+        border: '1px solid rgba(230, 126, 34, 0.2)',
+        boxShadow: '0 8px 25px rgba(230, 126, 34, 0.12), 0 2px 10px rgba(255, 255, 255, 0.5) inset',
       })}
     >
       <div
@@ -98,11 +98,11 @@ export const PostCard: FC<Props> = ({ title, href, createdAt, tags }) => {
               <div
                 className={css({
                   color: 'postCard.tag',
-                  bg: '#e0d9ff',
+                  bg: 'rgba(243, 156, 122, 0.15)',
                   px: '0.75rem',
                   py: '0.375rem',
                   borderRadius: '9999px',
-                  border: '1px solid #c4b5fd',
+                  border: '1px solid rgba(230, 126, 34, 0.3)',
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '0.125rem',

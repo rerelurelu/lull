@@ -72,7 +72,19 @@ export const PostArea: FC<Pros> = ({ posts, className }) => {
           style={css({
             mt: { base: '2rem', md: '3rem' },
             display: 'inline-block',
-            textDecoration: 'underline',
+            textDecoration: 'none',
+            bg: '#e67e22',
+            color: 'white',
+            px: '1.5rem',
+            py: '0.75rem',
+            borderRadius: '1rem',
+            fontWeight: '600',
+            transition: 'all 0.2s ease-in-out',
+            _hover: {
+              bg: '#d35400',
+              transform: 'translateY(-2px)',
+              boxShadow: '0 4px 12px rgba(230, 126, 34, 0.3)',
+            },
           })}
         />
       )}
