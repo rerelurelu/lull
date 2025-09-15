@@ -17,9 +17,8 @@ const clickableItemStyle = css({
   minW: '2.5rem',
   cursor: 'pointer',
   borderColor: 'base',
-  borderRadius: 'lg',
-  _hover: { bg: 'button.bg.hover', color: 'white' },
-  transition: 'all 0.2s ease-in-out',
+  borderRadius: 'sm',
+  _hover: { bg: 'fuchsia.500', color: 'black' },
 })
 
 const iconWrapperStyle = cx(clickableItemStyle, css({ display: 'grid', placeItems: 'center' }))
@@ -52,11 +51,7 @@ export const Pagination: FC<Props> = ({ url, className, ...props }) => {
                     onClick={() => onClickPage(page.value)}
                     className={cx(
                       clickableItemStyle,
-                      css({
-                        border: page.value === props.defaultPage ? '2px solid' : '1px solid transparent',
-                        borderColor: page.value === props.defaultPage ? 'button.bg.base' : 'transparent',
-                        bg: page.value === props.defaultPage ? 'rgba(230, 126, 34, 0.1)' : 'transparent'
-                      }),
+                      css({ border: page.value === props.defaultPage ? '1px solid' : 'none' }),
                     )}
                     {...page}
                   >
