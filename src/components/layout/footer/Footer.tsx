@@ -12,7 +12,6 @@ export const Footer = () => {
         letterSpacing: 'widest',
         textAlign: 'center',
         mt: 'auto',
-        color: 'base',
       })}
     >
       <p>© 2024 Relu</p>

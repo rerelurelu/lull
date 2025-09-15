@@ -5,17 +5,6 @@ const globalCss = defineGlobalStyles({
   body: {
     color: 'base',
     bg: 'bg.base',
-    minHeight: '100vh',
-  },
-  '@keyframes pulse': {
-    '0%': {
-      opacity: '0.6',
-      transform: 'scale(1)',
-    },
-    '100%': {
-      opacity: '1',
-      transform: 'scale(1.05)',
-    },
   },
 })
 
@@ -27,51 +16,51 @@ export default defineConfig({
     extend: {
       tokens: {
         colors: {
-          base: { value: '#e0d4ff' },
-          head: { value: '#f0ebff' },
-          error: { value: '#ff6b9d' },
-          link: { value: '#a855f7' },
+          base: { value: '#2d1b69' },
+          head: { value: '#1e1b4b' },
+          error: { value: '#f87171' },
+          link: { value: '#6d28d9' },
           bg: {
-            base: { value: 'radial-gradient(ellipse at top, #1e1b4b 0%, #0f0f23 50%, #000000 100%)' },
-            codeBlock: { value: 'rgba(139, 92, 246, 0.1)' },
+            base: { value: '#eaeaff' },
+            codeBlock: { value: '#e2e3efb5' },
           },
           border: {
-            section: { value: 'rgba(168, 85, 247, 0.6)' },
+            section: { value: '#7c3aed' },
           },
           input: {
             border: {
-              base: { value: 'rgba(168, 85, 247, 0.4)' },
-              focus: { value: 'rgba(168, 85, 247, 0.8)' },
+              base: { value: '#7c3aed' },
+              focus: { value: '#6d28d9' },
             },
-            placeholder: { value: 'rgba(224, 212, 255, 0.6)' },
+            placeholder: { value: '#9ca3af' },
           },
           button: {
             bg: {
-              base: { value: 'linear-gradient(135deg, rgba(168, 85, 247, 0.3), rgba(236, 72, 153, 0.3))' },
-              hover: { value: 'linear-gradient(135deg, rgba(168, 85, 247, 0.5), rgba(236, 72, 153, 0.5))' },
+              base: { value: '#7c3aed' },
+              hover: { value: '#6d28d9' },
             },
           },
-          icon: { value: '#a855f7' },
+          icon: { value: '#7c3aed' },
           postCard: {
             title: {
-              base: { value: '#f0ebff' },
-              hover: { value: '#a855f7' },
+              base: { value: '#1e1b4b' },
+              hover: { value: '#6d28d9' },
             },
-            tag: { value: '#c084fc' },
-            bg: { value: 'linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(236, 72, 153, 0.15) 100%)' },
+            tag: { value: '#4c1d95' },
+            bg: { value: 'linear-gradient(to bottom, #f1f0ff, #e9e7ff)' },
           },
           post: {
-            base: { value: '#c084fc' },
-            code: { value: 'rgba(240, 235, 255, 0.8)' },
+            base: { value: '#4c1d95' },
+            code: { value: '#1e1b4bcc' },
           },
           header: {
-            active: { value: 'linear-gradient(135deg, rgba(168, 85, 247, 0.4), rgba(236, 72, 153, 0.4))' },
-            bg: { value: 'rgba(30, 27, 75, 0.4)' },
+            active: { value: 'linear-gradient(to bottom, #7c3aed, #6d28d9)' },
+            bg: { value: '#faf8ff8d' },
           },
           avatar: {
-            ring: { value: 'rgba(168, 85, 247, 0.6)' },
+            ring: { value: '#7c3aed' },
           },
-          divider: { value: 'rgba(192, 132, 252, 0.3)' },
+          divider: { value: '#c4b5fd' },
         },
       },
       recipes,
