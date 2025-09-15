@@ -19,7 +19,7 @@ const linkCardStyles = cva({
     my: '2rem',
     borderRadius: '0.75rem',
     border: '1px solid token(colors.divider)',
-    bg: 'linear-gradient(135deg, rgba(100, 125, 238, 0.1), rgba(127, 83, 172, 0.1))',
+    bg: 'linear-gradient(135deg, rgba(129, 198, 232, 0.1), rgba(251, 182, 206, 0.1))',
     backdropFilter: 'blur(8px)',
     transition: 'background 0.3s ease',
     textDecoration: 'none',
@@ -27,7 +27,7 @@ const linkCardStyles = cva({
     overflow: 'hidden',
 
     _hover: {
-      bg: 'linear-gradient(135deg, rgba(100, 125, 238, 0.15), rgba(127, 83, 172, 0.15))',
+      bg: 'linear-gradient(135deg, rgba(129, 198, 232, 0.15), rgba(251, 182, 206, 0.15))',
     },
 
     _focus: {
