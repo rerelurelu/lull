@@ -16,7 +16,7 @@ const sns = {
 } as const
 
 const intro = {
-  para1: 'ふろんとえんどえんじにあ',
+  para1: 'ふろんとえんどめいん',
 } as const
 
 export default function AboutPage() {
