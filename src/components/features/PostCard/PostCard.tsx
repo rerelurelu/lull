@@ -1,18 +1,21 @@
-import type { FC } from 'react'
-import { css } from 'styled-system/css'
-import type { Tag } from '@/types/post'
+'use client'
+
 import Link from 'next/link'
-import { UrlObject } from 'url'
+import type { FC } from 'react'
+import { unstable_ViewTransition as ViewTransition } from 'react'
+import { css } from 'styled-system/css'
+import type { UrlObject } from 'url'
+import type { Tag } from '@/types/post'
 
 type Props = {
   title: string
   href: UrlObject
   createdAt: string
   tags: Tag[]
-  key: string
+  postId: string
 }
 
-export const PostCard: FC<Props> = ({ title, href, createdAt, tags }) => {
+export const PostCard: FC<Props> = ({ title, href, createdAt, tags, postId }) => {
   const dateText = new Date(createdAt).toLocaleDateString('en-us', {
     year: 'numeric',
     month: 'short',
@@ -61,17 +64,19 @@ export const PostCard: FC<Props> = ({ title, href, createdAt, tags }) => {
               mb: '0.5rem',
             })}
           >
-            <Link
-              className={css({
-                _hover: {
-                  color: 'postCard.title.hover',
-                  cursor: 'pointer',
-                },
-              })}
-              href={href}
-            >
-              {title}
-            </Link>
+            <ViewTransition name={`post-title-${postId}`}>
+              <Link
+                className={css({
+                  _hover: {
+                    color: 'postCard.title.hover',
+                    cursor: 'pointer',
+                  },
+                })}
+                href={href}
+              >
+                {title}
+              </Link>
+            </ViewTransition>
           </h2>
         </header>
         <div
@@ -81,9 +86,11 @@ export const PostCard: FC<Props> = ({ title, href, createdAt, tags }) => {
             justifyContent: 'end',
           })}
         >
-          <time className={css({ fontSize: '0.6875rem', color: '#6b7280' })} dateTime={createdAt}>
-            {dateText}
-          </time>
+          <ViewTransition name={`post-date-${postId}`}>
+            <time className={css({ fontSize: '0.6875rem', color: '#6b7280' })} dateTime={createdAt}>
+              {dateText}
+            </time>
+          </ViewTransition>
           <div
             className={css({
               mt: '0.75rem',
