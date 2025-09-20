@@ -8,7 +8,7 @@ import { css, cx } from 'styled-system/css'
 import { grid } from 'styled-system/patterns'
 
 type Props = UsePaginationProps & {
-  url: string
+  baseUrl: 'posts'
   className?: string
 }
 
@@ -23,13 +23,13 @@ const clickableItemStyle = css({
 
 const iconWrapperStyle = cx(clickableItemStyle, css({ display: 'grid', placeItems: 'center' }))
 
-export const Pagination: FC<Props> = ({ url, className, ...props }) => {
+export const Pagination: FC<Props> = ({ baseUrl, className, ...props }) => {
   const pagination = usePagination({ ...props })
   const router = useRouter()
 
   const onClickPage = (page: number | null) => {
     if (!page || page === props.defaultPage) return
-    router.push(`${url}/${page}`)
+    router.push(`/${baseUrl}/${page}`)
   }
 
   return (
