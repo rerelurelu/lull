@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import '@/styles/global.css'
 import '@/styles/syntax-highlighting.css'
 import { M_PLUS_1p } from 'next/font/google'
-import { ViewTransitions } from 'next-view-transitions'
 import { cx } from 'styled-system/css'
 import { flex, grid } from 'styled-system/patterns'
 import { Footer, Header } from '@/components/layout'
@@ -22,7 +21,6 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <ViewTransitions>
       <html lang='ja'>
         <body className={MPlus1p.className}>
           <div
@@ -49,6 +47,5 @@ export default function RootLayout({
           </div>
         </body>
       </html>
-    </ViewTransitions>
   )
 }

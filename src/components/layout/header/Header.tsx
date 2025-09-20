@@ -1,11 +1,11 @@
 'use client'
 
-import { Link } from 'next-view-transitions'
 import { css } from 'styled-system/css'
 import { ENTRIES } from '@/constants'
 import { useScrollDirection } from '@/hooks/useScrollDirection'
 import { Logo } from './fragments/Logo'
 import { NavItems } from './fragments/NavItems'
+import Link from 'next/link'
 
 export const Header = () => {
   const scrollDirection = useScrollDirection()

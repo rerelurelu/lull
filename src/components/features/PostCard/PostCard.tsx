@@ -1,11 +1,12 @@
-import { Link } from 'next-view-transitions'
 import type { FC } from 'react'
 import { css } from 'styled-system/css'
 import type { Tag } from '@/types/post'
+import Link from 'next/link'
+import { UrlObject } from 'url'
 
 type Props = {
   title: string
-  href: string
+  href: UrlObject
   createdAt: string
   tags: Tag[]
   key: string
