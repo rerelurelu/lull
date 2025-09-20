@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { unstable_ViewTransition as ViewTransition } from 'react'
 import { css, cx } from 'styled-system/css'
 import { text as textRecipe } from 'styled-system/recipes'
 import { PostContainerWithLinkCards } from '@/components/features/PostContainer/PostContainerWithLinkCards'
@@ -62,17 +63,19 @@ export default async function PostPage({ params }: Props) {
           gap: '3rem',
         })}
       >
-        <h1
-          className={css({
-            fontSize: '2.25rem',
-            lineHeight: '2.5rem',
-            fontWeight: '600',
-            textWrap: 'pretty',
-            textAlign: 'center',
-          })}
-        >
-          {post.title}
-        </h1>
+        <ViewTransition name={`post-title-${postId}`}>
+          <h1
+            className={css({
+              fontSize: '2.25rem',
+              lineHeight: '2.5rem',
+              fontWeight: '600',
+              textWrap: 'pretty',
+              textAlign: 'center',
+            })}
+          >
+            {post.title}
+          </h1>
+        </ViewTransition>
         <div
           className={cx(
             css({
@@ -91,7 +94,9 @@ export default async function PostPage({ params }: Props) {
           >
             Published
           </p>
-          <time dateTime={post.publishedAt}>{dateDisplay}</time>
+          <ViewTransition name={`post-date-${postId}`}>
+            <time dateTime={post.publishedAt}>{dateDisplay}</time>
+          </ViewTransition>
         </div>
       </header>
       <div

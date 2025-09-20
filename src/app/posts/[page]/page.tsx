@@ -40,14 +40,13 @@ export default async function PostsPage({ params }: Props) {
     limit: PER_PAGE,
     offset: (Number(page) - 1) * PER_PAGE,
   })
-  const url = '/posts'
 
   return (
     <div className={grid({ placeItems: 'center', w: '100%' })}>
       <Heading title='Post' />
       <PostArea posts={posts} className={css({ mt: '5rem' })} />
       <Pagination
-        url={url}
+        baseUrl='posts'
         count={totalCount}
         pageSize={PER_PAGE}
         siblingCount={1}

@@ -1,0 +1,1 @@
+export { ViewTransitionHandler } from './ViewTransitionHandler'

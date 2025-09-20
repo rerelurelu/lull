@@ -1,11 +1,11 @@
 'use client'
 
 import { usePathname } from 'next/navigation'
-import { Link } from 'next-view-transitions'
 import type { FC } from 'react'
 import { css, cva, cx } from 'styled-system/css'
 import type { Entry } from '@/types/entry'
 import { getPathname } from '@/utils/getPathname'
+import Link from 'next/link'
 
 type Props = {
   entries: Entry[]
