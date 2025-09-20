@@ -4,12 +4,11 @@ import Link from 'next/link'
 import type { FC } from 'react'
 import { unstable_ViewTransition as ViewTransition } from 'react'
 import { css } from 'styled-system/css'
-import type { UrlObject } from 'url'
 import type { Tag } from '@/types/post'
 
 type Props = {
   title: string
-  href: UrlObject
+  href: string
   createdAt: string
   tags: Tag[]
   postId: string

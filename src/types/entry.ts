@@ -1,6 +1,4 @@
-import { UrlObject } from "url"
-
 export type Entry = {
-  href: UrlObject
+  href: string
   content: string
 }

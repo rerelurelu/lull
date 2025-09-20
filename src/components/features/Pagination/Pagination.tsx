@@ -8,7 +8,7 @@ import { css, cx } from 'styled-system/css'
 import { grid } from 'styled-system/patterns'
 
 type Props = UsePaginationProps & {
-  baseUrl: 'posts'
+  baseUrl: string
   className?: string
 }
 

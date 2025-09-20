@@ -58,7 +58,7 @@ export const PostArea: FC<Pros> = ({ posts, className }) => {
         {posts.map((post) => (
           <PostCard
             createdAt={post.publishedAt.slice(0, 10)}
-            href={{ pathname: `/post/${post.id}` }}
+            href={`/post/${post.id}`}
             key={post.id}
             postId={post.id}
             tags={post.tags.map((tag) => tag)}
@@ -69,7 +69,7 @@ export const PostArea: FC<Pros> = ({ posts, className }) => {
       {isHome && (
         <TextLink
           text='See all posts →'
-          href={{ pathname: '/posts/1' }}
+          href={'/posts/1'}
           style={css({
             mt: { base: '2rem', md: '3rem' },
             display: 'inline-block',
