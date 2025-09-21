@@ -50,3 +50,6 @@ personality.mdc
 # Generated files
 .generated/
 feed.xml
+
+# playwright
+.playwright-mcp
