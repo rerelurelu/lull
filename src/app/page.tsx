@@ -26,7 +26,7 @@ export default async function Home() {
       >
         <Hero />
       </div>
-      <PostArea posts={posts} />
+      <PostArea posts={posts} heading='Recent Posts' />
     </div>
   )
 }
