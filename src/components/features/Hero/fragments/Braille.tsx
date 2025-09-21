@@ -16,10 +16,9 @@ export const Braille: FC<Props> = ({ tl, tr, ml, mr, bl, br }) => {
     <div
       className={flex({
         flexWrap: 'wrap',
-        w: '3.5rem',
+        w: { base: '56px', md: '76px' },
         h: 'fit-content',
-        rowGap: 2,
-        columnGap: 2,
+        gap: { base: '8px', md: '12px' },
       })}
     >
       <div className={braille({ visual: tl ? 'on' : 'off' })} />
@@ -34,9 +33,9 @@ export const Braille: FC<Props> = ({ tl, tr, ml, mr, bl, br }) => {
 
 const braille = cva({
   base: {
-    h: '1rem',
-    w: '1rem',
     borderRadius: 'full',
+    h: { base: '20px', md: '28px' },
+    w: { base: '20px', md: '28px' },
   },
   variants: {
     visual: {

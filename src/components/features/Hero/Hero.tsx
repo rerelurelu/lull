@@ -1,19 +1,27 @@
-import { css } from 'styled-system/css'
+import type { FC } from 'react'
+import { css, cx } from 'styled-system/css'
 import { Braille } from './fragments/Braille'
 
-export const Hero = () => {
+type Props = {
+  className?: string
+}
+
+export const Hero: FC<Props> = ({ className }) => {
   return (
     <div
-      className={css({
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'flex-start',
-        flexDir: 'row',
-        gap: '2rem',
-        flexWrap: 'wrap',
-        w: '100%',
-        h: 'fit-content',
-      })}
+      className={cx(
+        css({
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'flex-start',
+          flexDir: 'row',
+          gap: { base: '2rem', md: '2.75rem' },
+          flexWrap: 'wrap',
+          w: '100%',
+          h: 'fit-content',
+        }),
+        className,
+      )}
     >
       <Braille tl={false} tr={true} ml={true} mr={true} bl={false} br={true} />
       <Braille tl={true} tr={false} ml={false} mr={true} bl={false} br={false} />
