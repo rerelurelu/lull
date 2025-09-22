@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "prepare": "panda codegen --clean",
+    "setup": "lefthook install",
     "dev": "next dev --turbo",
     "dev:debug": "next dev -p 3000",
     "prebuild": "bun run generate:link-meta && bun run generate:feed",
