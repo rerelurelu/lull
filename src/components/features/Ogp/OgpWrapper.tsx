@@ -51,7 +51,6 @@ export const OgpWrapper: FC<PropsWithChildren> = ({ children }) => {
                 height: 56,
               }}
             >
-              {/* biome-ignore lint/performance/noImgElement: OGPの設定ではImageコンポーネントを使用できないため */}
               <img
                 src='https://avatars.githubusercontent.com/u/43092452?v=4'
                 alt='Relu`s Icon'
