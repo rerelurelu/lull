@@ -474,8 +474,8 @@ const linkCardStyles = css({
     '& img': {
       height: '120px',
       width: 'auto',
+      maxWidth: { base: '120px', sm: '240px' },
       minWidth: '120px',
-      maxWidth: '240px',
       objectFit: 'cover',
     },
   },
