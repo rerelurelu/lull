@@ -1,1 +1,64 @@
 @import "tailwindcss";
+
+@theme {
+    /* electric-violet */
+    --color-electric-violet-50: #f7f3ff;
+    --color-electric-violet-100: #f1e9fe;
+    --color-electric-violet-200: #e5d6fe;
+    --color-electric-violet-300: #d0b5fd;
+    --color-electric-violet-400: #b48bfa;
+    --color-electric-violet-500: #955cf6;
+    --color-electric-violet-600: #7c3aed;
+    --color-electric-violet-700: #6928d9;
+    --color-electric-violet-800: #5821b6;
+    --color-electric-violet-900: #491d95;
+    --color-electric-violet-950: #2f1065;
+    /* port-gore */
+    --color-port-gore-50: #efeeff;
+    --color-port-gore-100: #e2e0ff;
+    --color-port-gore-200: #cac7fe;
+    --color-port-gore-300: #aaa5fc;
+    --color-port-gore-400: #8881f8;
+    --color-port-gore-500: #6c63f1;
+    --color-port-gore-600: #5046e5;
+    --color-port-gore-700: #4138ca;
+    --color-port-gore-800: #3730a3;
+    --color-port-gore-900: #332e81;
+    --color-port-gore-950: #1e1b4b;
+    /* carnation */
+    --color-carnation-50: #fef2f2;
+    --color-carnation-100: #fee2e2;
+    --color-carnation-200: #fecaca;
+    --color-carnation-300: #fca5a5;
+    --color-carnation-400: #f87171;
+    --color-carnation-500: #ef4444;
+    --color-carnation-600: #dc2626;
+    --color-carnation-700: #b91c1c;
+    --color-carnation-800: #991b1b;
+    --color-carnation-900: #7f1d1d;
+    --color-carnation-950: #450a0a;
+    /* aqua */
+    --color-aqua-50: #eafffd;
+    --color-aqua-100: #cbfffc;
+    --color-aqua-200: #9efffb;
+    --color-aqua-300: #5bfffd;
+    --color-aqua-400: #00f1f9;
+    --color-aqua-500: #00d9e5;
+    --color-aqua-600: #00adc0;
+    --color-aqua-700: #03899b;
+    --color-aqua-800: #0d6d7d;
+    --color-aqua-900: #105a69;
+    --color-aqua-950: #033c49;
+    /* magenta */
+    --color-magenta-50: #fcf4ff;
+    --color-magenta-100: #f8e7ff;
+    --color-magenta--200: #f2ceff;
+    --color-magenta-300: #eba8ff;
+    --color-magenta-400: #e075fd;
+    --color-magenta-500: #cb33f4;
+    --color-magenta-600: #b620d9;
+    --color-magenta-700: #9917b4;
+    --color-magenta-800: #7f1593;
+    --color-magenta-900: #6b1778;
+    --color-magenta-950: #450151;
+}
