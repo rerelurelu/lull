@@ -20,6 +20,9 @@
     "enabled": true,
     "rules": {
       "recommended": true,
+      "nursery": {
+        "useSortedClasses": "error"
+      },
       "style": {
         "noParameterAssign": "off",
         "useAsConstAssertion": "error",
