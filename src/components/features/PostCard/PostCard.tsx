@@ -2,7 +2,6 @@
 
 import Link from 'next/link'
 import type { FC } from 'react'
-import { unstable_ViewTransition as ViewTransition } from 'react'
 import { css } from 'styled-system/css'
 import type { Tag } from '@/types/post'
 
@@ -14,7 +13,7 @@ type Props = {
   postId: string
 }
 
-export const PostCard: FC<Props> = ({ title, href, createdAt, tags, postId }) => {
+export const PostCard: FC<Props> = ({ title, href, createdAt, tags }) => {
   const dateText = new Date(createdAt).toLocaleDateString('en-us', {
     year: 'numeric',
     month: 'short',
@@ -22,35 +21,43 @@ export const PostCard: FC<Props> = ({ title, href, createdAt, tags, postId }) =>
   })
 
   return (
-    <ViewTransition name={`post-card-${postId}`}>
+    <div
+      className={css({
+        pos: 'relative',
+        display: 'flex',
+        flexDir: 'column',
+        borderRadius: '1rem',
+        h: '14rem',
+        overflow: 'hidden',
+        bg: 'postCard.bg',
+        border: '1px solid rgba(124, 58, 237, 0.12)',
+        boxShadow: '0 1px 4px rgba(124, 58, 237, 0.08)',
+      })}
+    >
       <div
         className={css({
-          pos: 'relative',
+          color: 'postCard.title.base',
+          p: '1.5rem',
           display: 'flex',
+          justifyContent: 'space-between',
+          flex: '1 1 auto',
           flexDir: 'column',
-          borderRadius: '1rem',
-          h: '14rem',
-          overflow: 'hidden',
-          bg: 'postCard.bg',
-          border: '1px solid rgba(124, 58, 237, 0.12)',
-          boxShadow: '0 1px 4px rgba(124, 58, 237, 0.08)',
+          gap: '0.75rem',
         })}
       >
-        <div
+        <header
           className={css({
-            color: 'postCard.title.base',
-            p: '1.5rem',
-            display: 'flex',
-            justifyContent: 'space-between',
-            flex: '1 1 auto',
-            flexDir: 'column',
-            gap: '0.75rem',
+            pb: 'auto',
           })}
         >
-          <header
+          <Link
             className={css({
-              pb: 'auto',
+              _hover: {
+                color: 'postCard.title.hover',
+                cursor: 'pointer',
+              },
             })}
+            href={href}
           >
             <h2
               className={css({
@@ -64,72 +71,61 @@ export const PostCard: FC<Props> = ({ title, href, createdAt, tags, postId }) =>
                 mb: '0.5rem',
               })}
             >
-              <ViewTransition name={`post-title-${postId}`}>
-                <Link
-                  className={css({
-                    _hover: {
-                      color: 'postCard.title.hover',
-                      cursor: 'pointer',
-                    },
-                  })}
-                  href={href}
-                >
-                  {title}
-                </Link>
-              </ViewTransition>
+              {title}
             </h2>
-          </header>
+          </Link>
+        </header>
+        <div
+          className={css({
+            display: 'flex',
+            flexDir: 'column',
+            justifyContent: 'end',
+          })}
+        >
+          <time
+            className={css({
+              fontSize: '0.6875rem',
+              color: '#6b7280',
+            })}
+            dateTime={createdAt}
+          >
+            {dateText}
+          </time>
           <div
             className={css({
+              mt: '0.75rem',
               display: 'flex',
-              flexDir: 'column',
-              justifyContent: 'end',
+              flexWrap: 'wrap',
+              alignItems: 'flex-start',
+              justifyContent: 'flex-start',
+              columnGap: '0.5rem',
+              rowGap: '0.25rem',
             })}
           >
-            <ViewTransition name={`post-date-${postId}`}>
-              <time
-                className={css({ fontSize: '0.6875rem', color: '#6b7280' })}
-                dateTime={createdAt}
+            {tags.map((tag) => (
+              <div
+                className={css({
+                  color: 'postCard.tag',
+                  bg: '#e0d9ff',
+                  px: '0.75rem',
+                  py: '0.375rem',
+                  borderRadius: '9999px',
+                  border: '1px solid #c4b5fd',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.125rem',
+                  fontSize: '0.6875rem',
+                  fontWeight: '500',
+                })}
+                key={tag.id}
               >
-                {dateText}
-              </time>
-            </ViewTransition>
-            <div
-              className={css({
-                mt: '0.75rem',
-                display: 'flex',
-                flexWrap: 'wrap',
-                alignItems: 'flex-start',
-                justifyContent: 'flex-start',
-                columnGap: '0.5rem',
-                rowGap: '0.25rem',
-              })}
-            >
-              {tags.map((tag) => (
-                <div
-                  className={css({
-                    color: 'postCard.tag',
-                    bg: '#e0d9ff',
-                    px: '0.75rem',
-                    py: '0.375rem',
-                    borderRadius: '9999px',
-                    border: '1px solid #c4b5fd',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '0.125rem',
-                    fontSize: '0.6875rem',
-                    fontWeight: '500',
-                  })}
-                  key={tag.id}
-                >
-                  <span className={css({ opacity: 0.8 })}>#</span>
-                  <span>{tag.tagName}</span>
-                </div>
-              ))}
-            </div>
+                <span className={css({ opacity: 0.8 })}>#</span>
+                <span>{tag.tagName}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
-    </ViewTransition>
+    </div>
   )
 }

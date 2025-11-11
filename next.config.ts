@@ -4,8 +4,8 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: process.cwd(),
   },
+  reactCompiler: true,
   experimental: {
-    reactCompiler: true,
     viewTransition: true,
   },
 }

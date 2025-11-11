@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import type { FC } from 'react'
+import { type FC, ViewTransition } from 'react'
 import { css, cva, cx } from 'styled-system/css'
 import type { Entry } from '@/types/entry'
 import { getPathname } from '@/utils/getPathname'
@@ -40,13 +40,15 @@ export const NavItems: FC<Props> = ({ entries }) => {
               href={href}
               id={content}
             >
-              <span
-                className={cx(
-                  gradationRecipe(content === pathname ? { visual: 'active' } : undefined),
-                )}
-              >
-                {content}
-              </span>
+              <ViewTransition>
+                <span
+                  className={cx(
+                    gradationRecipe(content === pathname ? { visual: 'active' } : undefined),
+                  )}
+                >
+                  {content}
+                </span>
+              </ViewTransition>
             </Link>
           </li>
         )

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { unstable_ViewTransition as ViewTransition } from 'react'
+import { ViewTransition } from 'react'
 import { css, cx } from 'styled-system/css'
 import { text as textRecipe } from 'styled-system/recipes'
 import { PostContainerWithLinkCards } from '@/components/features/PostContainer/PostContainerWithLinkCards'
@@ -56,14 +56,14 @@ export default async function PostPage({ params }: Props) {
         justifyContent: 'center',
       })}
     >
-      <header
-        className={css({
-          display: 'grid',
-          justifyItems: 'center',
-          gap: '3rem',
-        })}
-      >
-        <ViewTransition name={`post-title-${postId}`}>
+      <ViewTransition name={`post-${postId}`}>
+        <header
+          className={css({
+            display: 'grid',
+            justifyItems: 'center',
+            gap: '3rem',
+          })}
+        >
           <h1
             className={css({
               fontSize: '2.25rem',
@@ -75,30 +75,28 @@ export default async function PostPage({ params }: Props) {
           >
             {post.title}
           </h1>
-        </ViewTransition>
-        <div
-          className={cx(
-            css({
-              display: 'grid',
-              justifyItems: 'center',
-              gap: '0.25rem',
-              fontSmoothing: 'antialiased',
-            }),
-            textRecipe({ size: 'sm' }),
-          )}
-        >
-          <p
-            className={css({
-              fontWeight: '600',
-            })}
+          <div
+            className={cx(
+              css({
+                display: 'grid',
+                justifyItems: 'center',
+                gap: '0.25rem',
+                fontSmoothing: 'antialiased',
+              }),
+              textRecipe({ size: 'sm' }),
+            )}
           >
-            Published
-          </p>
-          <ViewTransition name={`post-date-${postId}`}>
+            <p
+              className={css({
+                fontWeight: '600',
+              })}
+            >
+              Published
+            </p>
             <time dateTime={post.publishedAt}>{dateDisplay}</time>
-          </ViewTransition>
-        </div>
-      </header>
+          </div>
+        </header>
+      </ViewTransition>
       <div
         className={css({
           mt: '5rem',

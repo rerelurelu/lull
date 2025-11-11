@@ -4,7 +4,6 @@ import '@/styles/syntax-highlighting.css'
 import { M_PLUS_1p } from 'next/font/google'
 import { cx } from 'styled-system/css'
 import { flex, grid } from 'styled-system/patterns'
-import { ViewTransitionHandler } from '@/components/features'
 import { Footer, Header } from '@/components/layout'
 import { createMetadata } from '@/utils/metadata'
 
@@ -46,7 +45,6 @@ export default function RootLayout({
           </main>
           <Footer />
         </div>
-        <ViewTransitionHandler />
       </body>
     </html>
   )
