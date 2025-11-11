@@ -13,7 +13,7 @@ type Props = {
   postId: string
 }
 
-export const PostCard: FC<Props> = ({ title, href, createdAt, tags, postId }) => {
+export const PostCard: FC<Props> = ({ title, href, createdAt, tags }) => {
   const dateText = new Date(createdAt).toLocaleDateString('en-us', {
     year: 'numeric',
     month: 'short',
@@ -22,7 +22,6 @@ export const PostCard: FC<Props> = ({ title, href, createdAt, tags, postId }) =>
 
   return (
     <div
-      style={{ viewTransitionName: `post-card-${postId}` }}
       className={css({
         pos: 'relative',
         display: 'flex',
@@ -51,31 +50,30 @@ export const PostCard: FC<Props> = ({ title, href, createdAt, tags, postId }) =>
             pb: 'auto',
           })}
         >
-          <h2
+          <Link
             className={css({
-              fontSize: '1rem',
-              fontWeight: '600',
-              lineHeight: '1.75rem',
-              textWrap: 'pretty',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.5rem',
-              mb: '0.5rem',
+              _hover: {
+                color: 'postCard.title.hover',
+                cursor: 'pointer',
+              },
             })}
+            href={href}
           >
-            <Link
-              style={{ viewTransitionName: `post-title-${postId}` }}
+            <h2
               className={css({
-                _hover: {
-                  color: 'postCard.title.hover',
-                  cursor: 'pointer',
-                },
+                fontSize: '1rem',
+                fontWeight: '600',
+                lineHeight: '1.75rem',
+                textWrap: 'pretty',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+                mb: '0.5rem',
               })}
-              href={href}
             >
               {title}
-            </Link>
-          </h2>
+            </h2>
+          </Link>
         </header>
         <div
           className={css({
@@ -85,7 +83,6 @@ export const PostCard: FC<Props> = ({ title, href, createdAt, tags, postId }) =>
           })}
         >
           <time
-            style={{ viewTransitionName: `post-date-${postId}` }}
             className={css({
               fontSize: '0.6875rem',
               color: '#6b7280',

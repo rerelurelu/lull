@@ -1,4 +1,4 @@
-import type { FC } from 'react'
+import { type FC, ViewTransition } from 'react'
 import { css, cx } from 'styled-system/css'
 import { PostCard } from '@/components/features'
 import type { Post } from '@/types/post'
@@ -27,14 +27,16 @@ export const PostArea: FC<Pros> = ({ posts, className }) => {
       )}
     >
       {posts.map((post) => (
-        <PostCard
-          createdAt={post.publishedAt.slice(0, 10)}
-          href={`/post/${post.id}`}
-          key={post.id}
-          postId={post.id}
-          tags={post.tags.map((tag) => tag)}
-          title={post.title}
-        />
+        <ViewTransition key={post.id} name={`post-${post.id}`}>
+          <PostCard
+            createdAt={post.publishedAt.slice(0, 10)}
+            href={`/post/${post.id}`}
+            key={post.id}
+            postId={post.id}
+            tags={post.tags.map((tag) => tag)}
+            title={post.title}
+          />
+        </ViewTransition>
       ))}
     </section>
   )

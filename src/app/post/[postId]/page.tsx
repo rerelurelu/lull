@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { ViewTransition } from 'react'
 import { css, cx } from 'styled-system/css'
 import { text as textRecipe } from 'styled-system/recipes'
 import { PostContainerWithLinkCards } from '@/components/features/PostContainer/PostContainerWithLinkCards'
@@ -55,48 +56,47 @@ export default async function PostPage({ params }: Props) {
         justifyContent: 'center',
       })}
     >
-      <header
-        className={css({
-          display: 'grid',
-          justifyItems: 'center',
-          gap: '3rem',
-        })}
-      >
-        <h1
-          style={{ viewTransitionName: `post-title-${postId}` }}
+      <ViewTransition name={`post-${postId}`}>
+        <header
           className={css({
-            fontSize: '2.25rem',
-            lineHeight: '2.5rem',
-            fontWeight: '600',
-            textWrap: 'pretty',
-            textAlign: 'center',
+            display: 'grid',
+            justifyItems: 'center',
+            gap: '3rem',
           })}
         >
-          {post.title}
-        </h1>
-        <div
-          className={cx(
-            css({
-              display: 'grid',
-              justifyItems: 'center',
-              gap: '0.25rem',
-              fontSmoothing: 'antialiased',
-            }),
-            textRecipe({ size: 'sm' }),
-          )}
-        >
-          <p
+          <h1
             className={css({
+              fontSize: '2.25rem',
+              lineHeight: '2.5rem',
               fontWeight: '600',
+              textWrap: 'pretty',
+              textAlign: 'center',
             })}
           >
-            Published
-          </p>
-          <time style={{ viewTransitionName: `post-date-${postId}` }} dateTime={post.publishedAt}>
-            {dateDisplay}
-          </time>
-        </div>
-      </header>
+            {post.title}
+          </h1>
+          <div
+            className={cx(
+              css({
+                display: 'grid',
+                justifyItems: 'center',
+                gap: '0.25rem',
+                fontSmoothing: 'antialiased',
+              }),
+              textRecipe({ size: 'sm' }),
+            )}
+          >
+            <p
+              className={css({
+                fontWeight: '600',
+              })}
+            >
+              Published
+            </p>
+            <time dateTime={post.publishedAt}>{dateDisplay}</time>
+          </div>
+        </header>
+      </ViewTransition>
       <div
         className={css({
           mt: '5rem',
