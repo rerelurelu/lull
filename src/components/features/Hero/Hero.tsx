@@ -19,6 +19,11 @@ export const Hero: FC<Props> = ({ className }) => {
           flexWrap: 'wrap',
           w: '100%',
           h: 'fit-content',
+          perspective: '1000px',
+          transformStyle: 'preserve-3d',
+          p: { base: '6rem 2rem', md: '8rem 3rem' },
+          background:
+            'radial-gradient(ellipse at center, rgba(91, 111, 216, 0.08) 0%, transparent 70%)',
         }),
         className,
       )}

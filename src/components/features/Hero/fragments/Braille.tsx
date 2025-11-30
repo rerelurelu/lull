@@ -36,14 +36,28 @@ const braille = cva({
     borderRadius: 'full',
     h: { base: '20px', md: '28px' },
     w: { base: '20px', md: '28px' },
+    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+    transformStyle: 'preserve-3d',
   },
   variants: {
     visual: {
       on: {
-        bg: '#7c3aed',
+        background: 'linear-gradient(135deg, #3F4C9C 0%, #5B6FD8 100%)',
+        boxShadow:
+          'inset 0 0 12px rgba(123, 142, 255, 0.6), 0 0 24px rgba(63, 76, 156, 0.4), 0 0 48px rgba(91, 111, 216, 0.2)',
+        filter: 'brightness(1.1)',
+        transform: 'translateZ(4px)',
+        _hover: {
+          transform: 'translateZ(4px) scale(1.05)',
+          boxShadow:
+            'inset 0 0 16px rgba(123, 142, 255, 0.7), 0 0 32px rgba(63, 76, 156, 0.5), 0 0 56px rgba(91, 111, 216, 0.3)',
+        },
       },
       off: {
-        border: '2px solid #7c3aed',
+        border: '2px solid rgba(63, 76, 156, 0.3)',
+        bg: 'rgba(255, 255, 255, 0.5)',
+        backdropFilter: 'blur(8px)',
+        transform: 'translateZ(0px)',
       },
     },
   },
