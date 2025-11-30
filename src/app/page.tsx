@@ -33,11 +33,23 @@ export default async function Home() {
       >
         <h2
           className={css({
+            pos: 'relative',
             fontSize: { base: '1.25rem', md: '1.875rem' },
             fontWeight: '600',
             lineHeight: { base: '1.75rem', md: '2.25rem' },
             textAlign: 'center',
-            color: 'head',
+            background: 'linear-gradient(135deg, #2C3269 0%, #3F4C9C 100%)',
+            backgroundClip: 'text',
+            color: 'transparent',
+            _after: {
+              content: '""',
+              display: 'block',
+              w: '60px',
+              h: '3px',
+              background: 'linear-gradient(90deg, #3F4C9C, #5B6FD8)',
+              m: '1rem auto 0',
+              borderRadius: '999px',
+            },
           })}
         >
           Recent Posts

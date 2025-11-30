@@ -28,6 +28,10 @@ export default function AboutPage() {
           fontSize: '2.25rem',
           lineHeight: '2.5rem',
           mt: '2.5rem',
+          background: 'linear-gradient(135deg, #2C3269, #3F4C9C)',
+          backgroundClip: 'text',
+          color: 'transparent',
+          fontWeight: '600',
         })}
       >
         Relu
@@ -39,6 +43,13 @@ export default function AboutPage() {
           flexWrap: 'wrap',
           gap: '1rem',
           listStyle: 'none',
+          '& a': {
+            transition: 'all 0.3s ease',
+            _hover: {
+              transform: 'scale(1.1) translateY(-2px)',
+              filter: 'drop-shadow(0 4px 8px rgba(63, 76, 156, 0.3))',
+            },
+          },
         })}
       >
         <li>
