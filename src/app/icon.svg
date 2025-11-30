@@ -1,0 +1,56 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- 主グラデーション -->
+    <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3F4C9C"/>
+      <stop offset="100%" stop-color="#5B6FD8"/>
+    </linearGradient>
+
+    <!-- 中心の放射グラデーション -->
+    <radialGradient id="centerGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#5B6FD8"/>
+      <stop offset="100%" stop-color="#3F4C9C"/>
+    </radialGradient>
+  </defs>
+
+  <!-- 背景円 -->
+  <circle cx="256" cy="256" r="240" fill="#2C3269"/>
+
+  <!-- 外側の同心円 -->
+  <circle cx="256" cy="256" r="200" fill="none" stroke="url(#waveGradient)" stroke-width="3" opacity="0.4"/>
+  <circle cx="256" cy="256" r="160" fill="none" stroke="url(#waveGradient)" stroke-width="4" opacity="0.5"/>
+  <circle cx="256" cy="256" r="120" fill="none" stroke="url(#waveGradient)" stroke-width="5" opacity="0.6"/>
+
+  <!-- 中央の円の中に波を配置 -->
+  <g>
+    <!-- クリッピング用の円 -->
+    <clipPath id="circleClip">
+      <circle cx="256" cy="256" r="110"/>
+    </clipPath>
+
+    <!-- 円の中の波の層 -->
+    <g clip-path="url(#circleClip)">
+      <!-- 背景塗りつぶし -->
+      <circle cx="256" cy="256" r="110" fill="url(#centerGradient)" opacity="0.3"/>
+
+      <!-- 波の層 (円の中心を基準に) -->
+      <path d="M 150 310 Q 200 290 250 310 T 350 310 L 370 370 L 140 370 Z"
+            fill="url(#waveGradient)" opacity="0.6"/>
+
+      <path d="M 150 290 Q 200 270 250 290 T 350 290 L 370 370 L 140 370 Z"
+            fill="url(#waveGradient)" opacity="0.7"/>
+
+      <path d="M 150 270 Q 200 250 250 270 T 350 270 L 370 370 L 140 370 Z"
+            fill="url(#waveGradient)" opacity="0.8"/>
+
+      <!-- 波の上部に小さい波紋 -->
+      <path d="M 180 230 Q 220 215 260 230 T 340 230"
+            fill="none" stroke="url(#waveGradient)" stroke-width="3" opacity="0.5"/>
+      <path d="M 190 210 Q 225 200 260 210 T 330 210"
+            fill="none" stroke="url(#waveGradient)" stroke-width="2" opacity="0.4"/>
+    </g>
+
+    <!-- 円の輪郭 (最も太く強調) -->
+    <circle cx="256" cy="256" r="110" fill="none" stroke="url(#waveGradient)" stroke-width="8"/>
+  </g>
+</svg>
