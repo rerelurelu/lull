@@ -18,7 +18,13 @@ const clickableItemStyle = css({
   cursor: 'pointer',
   borderColor: 'base',
   borderRadius: 'sm',
-  _hover: { bg: 'fuchsia.500', color: 'black' },
+  transition: 'all 0.3s ease',
+  _hover: {
+    bg: '#3F4C9C',
+    color: 'white',
+    transform: 'scale(1.05)',
+    boxShadow: '0 4px 12px rgba(63, 76, 156, 0.3)',
+  },
 })
 
 const iconWrapperStyle = cx(clickableItemStyle, css({ display: 'grid', placeItems: 'center' }))

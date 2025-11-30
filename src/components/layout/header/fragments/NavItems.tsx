@@ -66,16 +66,16 @@ const gradationRecipe = cva({
     transition: 'all 0.2s ease',
     _hover: {
       fontWeight: '500',
-      color: '#8b5cf6',
+      color: '#3F4C9C',
     },
   },
   variants: {
     visual: {
       active: {
-        color: '#a78bfa',
+        color: '#5B6FD8',
         fontWeight: '600',
         _hover: {
-          color: '#a78bfa',
+          color: '#5B6FD8',
           fontWeight: '600',
         },
       },

@@ -15,7 +15,11 @@ export const Avatar: FC<Props> = ({ src, alt }) => {
         display: 'inline-flex',
       })}
     >
-      <div
+      <Image
+        src={src}
+        width={192}
+        height={192}
+        alt={alt}
         className={css({
           w: '12rem',
           h: '12rem',
@@ -23,9 +27,7 @@ export const Avatar: FC<Props> = ({ src, alt }) => {
           overflow: 'hidden',
           boxShadow: '0 0 0 3px token(colors.avatar.ring)',
         })}
-      >
-        <Image src={src} width={192} height={192} alt={alt} />
-      </div>
+      />
     </div>
   )
 }
