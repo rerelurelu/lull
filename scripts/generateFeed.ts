@@ -1,6 +1,6 @@
+import { promises as fs } from 'node:fs'
+import { join } from 'node:path'
 import { Feed } from 'feed'
-import { promises as fs } from 'fs'
-import { join } from 'path'
 import { SITE_CONFIG } from '../src/constants'
 import { fetchPosts } from '../src/services/post'
 
@@ -9,7 +9,7 @@ const FEED_CONFIG = {
   ...SITE_CONFIG,
   id: SITE_CONFIG.url,
   link: SITE_CONFIG.url,
-  favicon: `${SITE_CONFIG.url}favicon.ico`,
+  favicon: `${SITE_CONFIG.url}icon.svg`,
   copyright: `All rights reserved 2024, ${SITE_CONFIG.author.name}`,
   author: {
     ...SITE_CONFIG.author,
@@ -130,7 +130,7 @@ export const logFeedStats = async (): Promise<void> => {
     console.log('📊 フィード統計:')
     console.log(`   - エントリー数: ${entryCount}`)
     console.log(`   - 最終更新: ${lastUpdated}`)
-  } catch (error) {
+  } catch (_error) {
     console.log('📊 フィードファイルが存在しません')
   }
 }
