@@ -65,7 +65,7 @@ export const generateFeed = async (): Promise<void> => {
       updated: new Date(allPosts[0].publishedAt), // 最新記事の日付
       feedLinks: {
         atom: `${FEED_CONFIG.link}feed.xml`,
-        rss: `${FEED_CONFIG.link}feed.xml`,
+        rss: `${FEED_CONFIG.link}rss.xml`,
       },
       author: FEED_CONFIG.author,
     })
@@ -97,18 +97,25 @@ export const generateFeed = async (): Promise<void> => {
 
     // フィードファイルを保存
     const outputDir = join(process.cwd(), 'public')
-    const outputFile = join(outputDir, 'feed.xml')
+    const atomOutputFile = join(outputDir, 'feed.xml')
+    const rssOutputFile = join(outputDir, 'rss.xml')
 
     // Atom形式でフィードを生成
     const atomFeed = feed.atom1()
 
-    // ファイルに書き込み
-    await fs.writeFile(outputFile, atomFeed, 'utf-8')
+    // RSS 2.0形式でフィードを生成
+    const rssFeed = feed.rss2()
 
-    console.log(`✅ Atom フィードを保存しました: ${outputFile}`)
+    // ファイルに書き込み
+    await fs.writeFile(atomOutputFile, atomFeed, 'utf-8')
+    await fs.writeFile(rssOutputFile, rssFeed, 'utf-8')
+
+    console.log(`✅ Atom フィードを保存しました: ${atomOutputFile}`)
+    console.log(`✅ RSS フィードを保存しました: ${rssOutputFile}`)
     console.log(`   - 記事数: ${allPosts.length}`)
     console.log(`   - 生成日時: ${new Date().toISOString()}`)
-    console.log(`   - アクセスURL: ${FEED_CONFIG.link}feed.xml`)
+    console.log(`   - Atom URL: ${FEED_CONFIG.link}feed.xml`)
+    console.log(`   - RSS URL: ${FEED_CONFIG.link}rss.xml`)
   } catch (error) {
     console.error('❌ フィード生成中にエラーが発生しました:', error)
     process.exit(1)
@@ -120,15 +127,20 @@ export const generateFeed = async (): Promise<void> => {
  */
 export const logFeedStats = async (): Promise<void> => {
   try {
-    const feedFile = join(process.cwd(), 'public', 'feed.xml')
-    const feedContent = await fs.readFile(feedFile, 'utf-8')
+    const atomFile = join(process.cwd(), 'public', 'feed.xml')
+    const rssFile = join(process.cwd(), 'public', 'rss.xml')
+
+    const atomContent = await fs.readFile(atomFile, 'utf-8')
+    const rssContent = await fs.readFile(rssFile, 'utf-8')
 
     // 簡易的な統計情報
-    const entryCount = (feedContent.match(/<entry>/g) || []).length
-    const lastUpdated = feedContent.match(/<updated>(.*?)<\/updated>/)?.[1] || 'Unknown'
+    const atomEntryCount = (atomContent.match(/<entry>/g) || []).length
+    const rssItemCount = (rssContent.match(/<item>/g) || []).length
+    const lastUpdated = atomContent.match(/<updated>(.*?)<\/updated>/)?.[1] || 'Unknown'
 
     console.log('📊 フィード統計:')
-    console.log(`   - エントリー数: ${entryCount}`)
+    console.log(`   - Atom エントリー数: ${atomEntryCount}`)
+    console.log(`   - RSS アイテム数: ${rssItemCount}`)
     console.log(`   - 最終更新: ${lastUpdated}`)
   } catch (_error) {
     console.log('📊 フィードファイルが存在しません')
