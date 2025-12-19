@@ -51,7 +51,7 @@ export const PostContainerClient: FC<Props> = ({ children }) => {
               height: 2rem !important;
               border-radius: 0.25rem !important;
               border: none !important;
-              background: rgba(255, 255, 255, 0.1) !important;
+              background: var(--colors-overlay-white-10) !important;
               color: currentColor !important;
               cursor: pointer !important;
               transition: all 0.2s ease !important;
@@ -164,11 +164,11 @@ export const PostContainerClient: FC<Props> = ({ children }) => {
 
         // ホバー効果
         button.addEventListener('mouseenter', () => {
-          button.style.background = 'rgba(255, 255, 255, 0.2)'
+          button.style.background = 'var(--colors-overlay-white-20)'
           button.style.transform = 'scale(1.05)'
         })
         button.addEventListener('mouseleave', () => {
-          button.style.background = 'rgba(255, 255, 255, 0.1)'
+          button.style.background = 'var(--colors-overlay-white-10)'
           button.style.transform = 'scale(1)'
         })
 

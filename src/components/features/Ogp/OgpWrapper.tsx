@@ -10,7 +10,7 @@ export const OgpWrapper: FC<PropsWithChildren> = ({ children }) => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        background: 'linear-gradient(to right,  #00f1f9 0%, #cb33f4 100%)',
+        background: 'linear-gradient(to right, #00f1f9 0%, #cb33f4 100%)',
         padding: '24px',
       }}
     >

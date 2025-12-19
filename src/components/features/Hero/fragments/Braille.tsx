@@ -1,6 +1,7 @@
 import type { FC } from 'react'
-import { cva } from 'styled-system/css'
+import { cva, cx } from 'styled-system/css'
 import { flex } from 'styled-system/patterns'
+import { gradient } from 'styled-system/recipes'
 
 export type Props = {
   tl: boolean
@@ -21,12 +22,24 @@ export const Braille: FC<Props> = ({ tl, tr, ml, mr, bl, br }) => {
         gap: { base: '8px', md: '12px' },
       })}
     >
-      <div className={braille({ visual: tl ? 'on' : 'off' })} />
-      <div className={braille({ visual: tr ? 'on' : 'off' })} />
-      <div className={braille({ visual: ml ? 'on' : 'off' })} />
-      <div className={braille({ visual: mr ? 'on' : 'off' })} />
-      <div className={braille({ visual: bl ? 'on' : 'off' })} />
-      <div className={braille({ visual: br ? 'on' : 'off' })} />
+      <div
+        className={cx(tl && gradient({ type: 'primary' }), braille({ visual: tl ? 'on' : 'off' }))}
+      />
+      <div
+        className={cx(tr && gradient({ type: 'primary' }), braille({ visual: tr ? 'on' : 'off' }))}
+      />
+      <div
+        className={cx(ml && gradient({ type: 'primary' }), braille({ visual: ml ? 'on' : 'off' }))}
+      />
+      <div
+        className={cx(mr && gradient({ type: 'primary' }), braille({ visual: mr ? 'on' : 'off' }))}
+      />
+      <div
+        className={cx(bl && gradient({ type: 'primary' }), braille({ visual: bl ? 'on' : 'off' }))}
+      />
+      <div
+        className={cx(br && gradient({ type: 'primary' }), braille({ visual: br ? 'on' : 'off' }))}
+      />
     </div>
   )
 }
@@ -42,20 +55,19 @@ const braille = cva({
   variants: {
     visual: {
       on: {
-        background: 'linear-gradient(135deg, #3F4C9C 0%, #5B6FD8 100%)',
         boxShadow:
-          'inset 0 0 12px rgba(123, 142, 255, 0.6), 0 0 24px rgba(63, 76, 156, 0.4), 0 0 48px rgba(91, 111, 216, 0.2)',
+          'inset 0 0 12px {colors.overlay.braille.inner}, 0 0 24px {colors.overlay.braille.outer}, 0 0 48px {colors.overlay.braille.glow}',
         filter: 'brightness(1.1)',
         transform: 'translateZ(4px)',
         _hover: {
           transform: 'translateZ(4px) scale(1.05)',
           boxShadow:
-            'inset 0 0 16px rgba(123, 142, 255, 0.7), 0 0 32px rgba(63, 76, 156, 0.5), 0 0 56px rgba(91, 111, 216, 0.3)',
+            'inset 0 0 16px {colors.overlay.braille.innerHover}, 0 0 32px {colors.overlay.braille.outerHover}, 0 0 56px {colors.overlay.braille.glowHover}',
         },
       },
       off: {
-        border: '2px solid rgba(63, 76, 156, 0.3)',
-        bg: 'rgba(255, 255, 255, 0.5)',
+        border: '2px solid {colors.overlay.braille.border}',
+        bg: 'overlay.white.50',
         backdropFilter: 'blur(8px)',
         transform: 'translateZ(0px)',
       },

@@ -1,7 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import { css } from 'styled-system/css'
+import { css, cx } from 'styled-system/css'
+import { gradient } from 'styled-system/recipes'
 import { ENTRIES } from '@/constants'
 import { useScrollDirection } from '@/hooks/useScrollDirection'
 import { Logo } from './fragments/Logo'
@@ -28,22 +29,23 @@ export const Header = () => {
       })}
     >
       <div
-        className={css({
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          gap: '40px',
-          w: 'max-content',
-          px: { base: '1rem', md: '1.5rem' },
-          py: '0.5rem',
-          bg: 'rgba(250, 251, 255, 0.9)',
-          backdropFilter: 'blur(8px)',
-          borderRadius: '1rem',
-          border: '1px solid rgba(63, 76, 156, 0.2)',
-          boxShadow: '0 8px 32px rgba(63, 76, 156, 0.1), 0 2px 8px rgba(255, 255, 255, 0.5) inset',
-          background:
-            'linear-gradient(135deg, rgba(250, 251, 255, 0.95) 0%, rgba(246, 247, 254, 0.9) 100%)',
-        })}
+        className={cx(
+          gradient({ type: 'header' }),
+          css({
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: '40px',
+            w: 'max-content',
+            px: { base: '1rem', md: '1.5rem' },
+            py: '0.5rem',
+            backdropFilter: 'blur(8px)',
+            borderRadius: '1rem',
+            border: '1px solid {colors.overlay.brand.20}',
+            boxShadow:
+              '0 8px 32px {colors.overlay.brand.10}, 0 2px 8px {colors.overlay.white.50} inset',
+          }),
+        )}
       >
         <Link href={'/'}>
           <Logo />

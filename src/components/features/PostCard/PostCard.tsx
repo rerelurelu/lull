@@ -2,7 +2,8 @@
 
 import Link from 'next/link'
 import type { FC } from 'react'
-import { css } from 'styled-system/css'
+import { css, cx } from 'styled-system/css'
+import { gradient } from 'styled-system/recipes'
 import type { Tag } from '@/types/post'
 
 type Props = {
@@ -22,17 +23,19 @@ export const PostCard: FC<Props> = ({ title, href, createdAt, tags }) => {
 
   return (
     <div
-      className={css({
-        pos: 'relative',
-        display: 'flex',
-        flexDir: 'column',
-        borderRadius: '1rem',
-        h: '14rem',
-        overflow: 'hidden',
-        background: 'linear-gradient(135deg, #FFFFFF 0%, #F8F9FE 100%)',
-        border: '1px solid rgba(63, 76, 156, 0.1)',
-        boxShadow: '0 4px 12px rgba(63, 76, 156, 0.08), 0 1px 4px rgba(63, 76, 156, 0.04)',
-      })}
+      className={cx(
+        gradient({ type: 'postCard' }),
+        css({
+          pos: 'relative',
+          display: 'flex',
+          flexDir: 'column',
+          borderRadius: '1rem',
+          h: '14rem',
+          overflow: 'hidden',
+          border: '1px solid {colors.overlay.brand.10}',
+          boxShadow: '0 4px 12px {colors.overlay.brand.10}, 0 1px 4px {colors.overlay.brand.10}',
+        }),
+      )}
     >
       <div
         className={css({
@@ -85,7 +88,7 @@ export const PostCard: FC<Props> = ({ title, href, createdAt, tags }) => {
           <time
             className={css({
               fontSize: '0.6875rem',
-              color: '#6b7280',
+              color: 'surface.muted',
             })}
             dateTime={createdAt}
           >
@@ -106,11 +109,11 @@ export const PostCard: FC<Props> = ({ title, href, createdAt, tags }) => {
               <div
                 className={css({
                   color: 'postCard.tag',
-                  bg: '#E6E8F9',
+                  bg: 'surface.light',
                   px: '0.75rem',
                   py: '0.375rem',
                   borderRadius: '9999px',
-                  border: '1px solid #C4C9F0',
+                  border: '1px solid {colors.divider}',
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '0.125rem',

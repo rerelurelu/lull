@@ -1,19 +1,22 @@
-import { css } from 'styled-system/css'
+import { css, cx } from 'styled-system/css'
+import { gradient } from 'styled-system/recipes'
 
 export const Footer = () => {
   return (
     <footer
-      className={css({
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderTop: '1px solid token(colors.border.section)',
-        py: '2rem',
-        letterSpacing: 'widest',
-        textAlign: 'center',
-        mt: 'auto',
-        background: 'linear-gradient(to bottom, transparent 0%, rgba(246, 247, 254, 0.5) 100%)',
-      })}
+      className={cx(
+        gradient({ type: 'footer' }),
+        css({
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          borderTop: '1px solid token(colors.border.section)',
+          py: '2rem',
+          letterSpacing: 'widest',
+          textAlign: 'center',
+          mt: 'auto',
+        }),
+      )}
     >
       <p>© 2024 Relu</p>
     </footer>

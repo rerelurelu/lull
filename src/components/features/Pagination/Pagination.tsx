@@ -20,10 +20,10 @@ const clickableItemStyle = css({
   borderRadius: 'sm',
   transition: 'all 0.3s ease',
   _hover: {
-    bg: '#3F4C9C',
+    bg: 'brand.primary',
     color: 'white',
     transform: 'scale(1.05)',
-    boxShadow: '0 4px 12px rgba(63, 76, 156, 0.3)',
+    boxShadow: '0 4px 12px {colors.overlay.brand.30}',
   },
 })
 

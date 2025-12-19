@@ -97,14 +97,14 @@ const copyButton = css({
   h: '2rem',
   borderRadius: '0.25rem',
   border: 'none',
-  bg: 'rgba(255, 255, 255, 0.1)',
+  bg: 'overlay.white.10',
   color: 'post.code',
   cursor: 'pointer',
   transition: 'all 0.2s ease',
   zIndex: 10,
 
   _hover: {
-    bg: 'rgba(255, 255, 255, 0.2)',
+    bg: 'overlay.white.20',
     transform: 'scale(1.05)',
   },
 

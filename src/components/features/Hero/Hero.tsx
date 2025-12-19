@@ -1,5 +1,6 @@
 import type { FC } from 'react'
 import { css, cx } from 'styled-system/css'
+import { gradient } from 'styled-system/recipes'
 import { Braille } from './fragments/Braille'
 
 type Props = {
@@ -10,6 +11,7 @@ export const Hero: FC<Props> = ({ className }) => {
   return (
     <div
       className={cx(
+        gradient({ type: 'radialGlow' }),
         css({
           display: 'flex',
           justifyContent: 'center',
@@ -22,8 +24,6 @@ export const Hero: FC<Props> = ({ className }) => {
           perspective: '1000px',
           transformStyle: 'preserve-3d',
           p: { base: '6rem 2rem', md: '8rem 3rem' },
-          background:
-            'radial-gradient(ellipse at center, rgba(91, 111, 216, 0.08) 0%, transparent 70%)',
         }),
         className,
       )}
