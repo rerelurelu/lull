@@ -30,7 +30,8 @@ export const PostArea: FC<Pros> = ({ posts, className }) => {
             left: '0',
             right: '0',
             h: '1px',
-            background: 'linear-gradient(90deg, transparent 0%, #C4C9F0 50%, transparent 100%)',
+            background:
+              'linear-gradient(90deg, transparent 0%, {colors.divider} 50%, transparent 100%)',
           },
         }),
         className,

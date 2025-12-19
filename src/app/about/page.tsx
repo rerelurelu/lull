@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
-import { css } from 'styled-system/css'
+import { css, cx } from 'styled-system/css'
 import { grid } from 'styled-system/patterns'
+import { gradient } from 'styled-system/recipes'
 import { Avatar, IconLink } from '@/components/ui'
 import { createMetadata } from '@/utils/metadata'
 
@@ -24,15 +25,17 @@ export default function AboutPage() {
     <div className={grid({ placeItems: 'center', px: '1.5rem' })}>
       <Avatar src={'/images/avatar.webp'} alt={`Relu's avatar`} />
       <span
-        className={css({
-          fontSize: '2.25rem',
-          lineHeight: '2.5rem',
-          mt: '2.5rem',
-          background: 'linear-gradient(135deg, #2C3269, #3F4C9C)',
-          backgroundClip: 'text',
-          color: 'transparent',
-          fontWeight: '600',
-        })}
+        className={cx(
+          gradient({ type: 'dark' }),
+          css({
+            fontSize: '2.25rem',
+            lineHeight: '2.5rem',
+            mt: '2.5rem',
+            backgroundClip: 'text',
+            color: 'transparent',
+            fontWeight: '600',
+          }),
+        )}
       >
         Relu
       </span>
@@ -47,7 +50,7 @@ export default function AboutPage() {
             transition: 'all 0.3s ease',
             _hover: {
               transform: 'scale(1.1) translateY(-2px)',
-              filter: 'drop-shadow(0 4px 8px rgba(63, 76, 156, 0.3))',
+              filter: 'drop-shadow(0 4px 8px {colors.overlay.brand.30})',
             },
           },
         })}

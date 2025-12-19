@@ -1,7 +1,11 @@
+'use client'
+
 import Image from 'next/image'
 import type { FC } from 'react'
+import { useState } from 'react'
 import { FiLink } from 'react-icons/fi'
-import { cva } from 'styled-system/css'
+import { cva, cx } from 'styled-system/css'
+import { gradient } from 'styled-system/recipes'
 export type LinkCardProps = {
   href: string
   title?: string
@@ -19,16 +23,11 @@ const linkCardStyles = cva({
     my: '2rem',
     borderRadius: '0.75rem',
     border: '1px solid token(colors.divider)',
-    bg: 'linear-gradient(135deg, rgba(100, 125, 238, 0.1), rgba(127, 83, 172, 0.1))',
     backdropFilter: 'blur(8px)',
     transition: 'background 0.3s ease',
     textDecoration: 'none',
     cursor: 'pointer',
     overflow: 'hidden',
-
-    _hover: {
-      bg: 'linear-gradient(135deg, rgba(100, 125, 238, 0.15), rgba(127, 83, 172, 0.15))',
-    },
 
     _focus: {
       outline: '2px solid token(colors.link)',
@@ -157,13 +156,17 @@ export const LinkCard: FC<LinkCardProps> = ({ href, title, description, thumbnai
     }
   })()
 
+  const [isHovered, setIsHovered] = useState(false)
+
   return (
     <a
       href={href}
       target='_blank'
       rel='noopener noreferrer'
-      className={linkCardStyles()}
+      className={cx(gradient({ type: isHovered ? 'linkCardHover' : 'linkCard' }), linkCardStyles())}
       aria-label={`外部リンク: ${title || href}`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       <div className={cardHeaderStyles()}>
         {thumbnail ? (
