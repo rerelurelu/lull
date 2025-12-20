@@ -1,13 +1,25 @@
 'use client'
 
-import type { FC } from 'react'
-import { useEffect } from 'react'
+import type { ReactNode } from 'react'
+import { useEffect, useState } from 'react'
+import Lightbox from 'yet-another-react-lightbox'
+import Zoom from 'yet-another-react-lightbox/plugins/zoom'
+import 'yet-another-react-lightbox/styles.css'
 
-type Props = {
-  children: React.ReactNode
+type Slide = {
+  src: string
+  alt?: string
 }
 
-export const PostContainerClient: FC<Props> = ({ children }) => {
+type Props = {
+  children: ReactNode
+}
+
+export const PostContainerClient = ({ children }: Props) => {
+  const [lightboxOpen, setLightboxOpen] = useState(false)
+  const [lightboxIndex, setLightboxIndex] = useState(0)
+  const [slides, setSlides] = useState<Slide[]>([])
+
   useEffect(() => {
     const addCopyButtons = () => {
       const codeBlocks = document.querySelectorAll('pre code')
@@ -176,18 +188,119 @@ export const PostContainerClient: FC<Props> = ({ children }) => {
       }
     }
 
+    const initLightbox = () => {
+      const images = document.querySelectorAll('figure img')
+      const imageSlides: Slide[] = []
+      const listeners: Array<{
+        element: HTMLImageElement
+        event: string
+        handler: () => void
+      }> = []
+
+      for (const img of images) {
+        const htmlImg = img as HTMLImageElement
+        const src = htmlImg.getAttribute('src')
+        const alt = htmlImg.getAttribute('alt')
+
+        if (src) {
+          const index = imageSlides.length
+          imageSlides.push({ src, alt: alt || undefined })
+
+          htmlImg.style.cursor = 'zoom-in'
+          htmlImg.style.transition = 'opacity 0.2s ease'
+
+          const handleClick = () => {
+            setLightboxIndex(index)
+            setLightboxOpen(true)
+          }
+
+          const handleMouseEnter = () => {
+            htmlImg.style.opacity = '0.9'
+          }
+
+          const handleMouseLeave = () => {
+            htmlImg.style.opacity = '1'
+          }
+
+          htmlImg.addEventListener('click', handleClick)
+          htmlImg.addEventListener('mouseenter', handleMouseEnter)
+          htmlImg.addEventListener('mouseleave', handleMouseLeave)
+
+          // クリーンアップ用に保存
+          listeners.push(
+            { element: htmlImg, event: 'click', handler: handleClick },
+            { element: htmlImg, event: 'mouseenter', handler: handleMouseEnter },
+            { element: htmlImg, event: 'mouseleave', handler: handleMouseLeave },
+          )
+        }
+      }
+
+      setSlides(imageSlides)
+
+      return () => {
+        for (const { element, event, handler } of listeners) {
+          element.removeEventListener(event, handler)
+        }
+      }
+    }
+
     // DOMが完全に読み込まれた後に実行
+    const handleDOMContentLoaded = () => {
+      addCopyButtons()
+      initLightbox()
+    }
+
+    let cleanupLightbox: (() => void) | undefined
+
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', addCopyButtons)
+      document.addEventListener('DOMContentLoaded', handleDOMContentLoaded)
     } else {
       addCopyButtons()
+      cleanupLightbox = initLightbox()
     }
 
     // クリーンアップ
     return () => {
-      document.removeEventListener('DOMContentLoaded', addCopyButtons)
+      document.removeEventListener('DOMContentLoaded', handleDOMContentLoaded)
+      if (cleanupLightbox) {
+        cleanupLightbox()
+      }
     }
   }, [])
 
-  return <>{children}</>
+  return (
+    <>
+      {children}
+      <Lightbox
+        open={lightboxOpen}
+        close={() => setLightboxOpen(false)}
+        index={lightboxIndex}
+        slides={slides}
+        controller={{ closeOnBackdropClick: true }}
+        plugins={[Zoom]}
+        zoom={{ maxZoomPixelRatio: 3 }}
+        carousel={{ padding: '5%' }}
+        styles={{
+          container: {
+            backgroundColor: 'rgba(25, 28, 55, 0.8)',
+          },
+          toolbar: {
+            position: 'absolute',
+            top: 'auto',
+            bottom: '16px',
+            right: '16px',
+            left: 'auto',
+            padding: '8px 12px',
+            backgroundColor: 'rgba(0, 0, 0, 0.6)',
+            backdropFilter: 'blur(8px)',
+            borderRadius: '8px',
+          },
+        }}
+        render={{
+          buttonPrev: () => null,
+          buttonNext: () => null,
+        }}
+      />
+    </>
+  )
 }

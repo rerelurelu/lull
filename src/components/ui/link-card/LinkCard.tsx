@@ -1,7 +1,6 @@
 'use client'
 
 import Image from 'next/image'
-import type { FC } from 'react'
 import { useState } from 'react'
 import { FiLink } from 'react-icons/fi'
 import { cva, cx } from 'styled-system/css'
@@ -125,7 +124,7 @@ const iconStyles = cva({
   },
 })
 
-const FallbackThumbnail: FC<{ siteName?: string }> = ({ siteName }) => {
+const FallbackThumbnail = ({ siteName }: { siteName?: string }) => {
   const displayChar = siteName?.charAt(0).toUpperCase() || '🔗'
 
   return (
@@ -147,7 +146,7 @@ const FallbackThumbnail: FC<{ siteName?: string }> = ({ siteName }) => {
   )
 }
 
-export const LinkCard: FC<LinkCardProps> = ({ href, title, description, thumbnail, siteName }) => {
+export const LinkCard = ({ href, title, description, thumbnail, siteName }: LinkCardProps) => {
   const domain = (() => {
     try {
       return new URL(href).hostname.replace('www.', '')

@@ -1,4 +1,4 @@
-import type { FC } from 'react'
+import type React from 'react'
 import rehypeHighlight from 'rehype-highlight'
 import rehypeParse from 'rehype-parse'
 import rehypeSanitize from 'rehype-sanitize'
@@ -68,7 +68,7 @@ const highlight = async (content: string) => {
   return content
 }
 
-export const PostContainer: FC<Props> = async ({ postContent }) => {
+export const PostContainer = async ({ postContent }: Props): Promise<React.JSX.Element> => {
   const highlightedContent = await highlight(postContent)
 
   return (

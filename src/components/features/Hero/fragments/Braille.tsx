@@ -1,4 +1,3 @@
-import type { FC } from 'react'
 import { cva, cx } from 'styled-system/css'
 import { flex } from 'styled-system/patterns'
 import { gradient } from 'styled-system/recipes'
@@ -12,7 +11,7 @@ export type Props = {
   br: boolean
 }
 
-export const Braille: FC<Props> = ({ tl, tr, ml, mr, bl, br }) => {
+export const Braille = ({ tl, tr, ml, mr, bl, br }: Props) => {
   return (
     <div
       className={flex({

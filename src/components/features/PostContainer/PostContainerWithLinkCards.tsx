@@ -1,4 +1,4 @@
-import type { FC } from 'react'
+import type React from 'react'
 import rehypeHighlight from 'rehype-highlight'
 import rehypeParse from 'rehype-parse'
 import rehypeSanitize from 'rehype-sanitize'
@@ -174,7 +174,9 @@ const extractDomainFromUrl = (url: string): string => {
   }
 }
 
-export const PostContainerWithLinkCards: FC<Props> = async ({ postContent }) => {
+export const PostContainerWithLinkCards = async ({
+  postContent,
+}: Props): Promise<React.JSX.Element> => {
   const processedHtml = await processLinkCards(postContent)
   const highlightedContent = await highlight(processedHtml)
 

@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { type FC, ViewTransition } from 'react'
+import { ViewTransition } from 'react'
 import { css, cva, cx } from 'styled-system/css'
 import type { Entry } from '@/types/entry'
 import { getPathname } from '@/utils/getPathname'
@@ -11,7 +11,7 @@ type Props = {
   entries: Entry[]
 }
 
-export const NavItems: FC<Props> = ({ entries }) => {
+export const NavItems = ({ entries }: Props) => {
   const pathname = getPathname(usePathname())
 
   return (

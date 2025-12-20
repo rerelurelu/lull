@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import type { FC } from 'react'
 import { css, cx } from 'styled-system/css'
 import { text as textRecipe } from 'styled-system/recipes'
 
@@ -9,7 +8,7 @@ type Props = {
   style?: string
 }
 
-export const TextLink: FC<Props> = ({ text, href, style }) => {
+export const TextLink = ({ text, href, style }: Props) => {
   return (
     <Link
       className={cx(

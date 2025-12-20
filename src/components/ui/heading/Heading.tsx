@@ -1,4 +1,3 @@
-import type { FC } from 'react'
 import { css, cx } from 'styled-system/css'
 
 type Props = {
@@ -6,7 +5,7 @@ type Props = {
   style?: string
 }
 
-export const Heading: FC<Props> = ({ title, style }) => {
+export const Heading = ({ title, style }: Props) => {
   return (
     <h1
       className={cx(
