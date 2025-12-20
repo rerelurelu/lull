@@ -15,6 +15,7 @@
         "rehype-sanitize": "^6.0.0",
         "rehype-stringify": "^10.0.1",
         "unified": "^11.0.5",
+        "yet-another-react-lightbox": "^3.27.0",
       },
       "devDependencies": {
         "@biomejs/biome": "2.2.4",
@@ -1239,6 +1240,8 @@
     "xml-js": ["xml-js@1.6.11", "", { "dependencies": { "sax": "^1.2.4" }, "bin": { "xml-js": "./bin/cli.js" } }, "sha512-7rVi2KMfwfWFl+GpPg6m80IVMWXLRjO+PxTq7V2CDhoGak0wzYzFgUY2m4XJ47OGdXd8eLE8EmwfAmdjw7lC1g=="],
 
     "yallist": ["yallist@4.0.0", "", {}, "sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A=="],
+
+    "yet-another-react-lightbox": ["yet-another-react-lightbox@3.27.0", "", { "peerDependencies": { "@types/react": "^16 || ^17 || ^18 || ^19", "@types/react-dom": "^16 || ^17 || ^18 || ^19", "react": "^16.8.0 || ^17 || ^18 || ^19", "react-dom": "^16.8.0 || ^17 || ^18 || ^19" }, "optionalPeers": ["@types/react", "@types/react-dom"] }, "sha512-SV4U0s7vZfwNWPOqyEP81VyquBu/7m9mVJhKEAgWTWUpsIRD6FFLn5+9RvJ4N0wMrxr7v517GzUNqoDPC2EdHg=="],
 
     "zod": ["zod@3.25.76", "", {}, "sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ=="],
 
