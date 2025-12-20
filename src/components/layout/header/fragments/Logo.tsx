@@ -1,8 +1,7 @@
 import Image from 'next/image'
-import type { FC } from 'react'
 import { css } from 'styled-system/css'
 
-export const Logo: FC = () => {
+export const Logo = () => {
   return (
     <div
       className={css({

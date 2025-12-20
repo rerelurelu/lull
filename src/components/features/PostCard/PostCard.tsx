@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import type { FC } from 'react'
 import { css, cx } from 'styled-system/css'
 import { gradient } from 'styled-system/recipes'
 import type { Tag } from '@/types/post'
@@ -14,7 +13,7 @@ type Props = {
   postId: string
 }
 
-export const PostCard: FC<Props> = ({ title, href, createdAt, tags }) => {
+export const PostCard = ({ title, href, createdAt, tags }: Props) => {
   const dateText = new Date(createdAt).toLocaleDateString('en-us', {
     year: 'numeric',
     month: 'short',

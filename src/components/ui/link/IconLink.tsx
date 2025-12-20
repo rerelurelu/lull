@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import type { FC } from 'react'
 import { css, cx } from 'styled-system/css'
 
 type Props = {
@@ -15,7 +14,7 @@ type Props = {
   iconStyle?: string
 }
 
-export const IconLink: FC<Props> = ({
+export const IconLink = ({
   href,
   areaLabel,
   src,
@@ -25,7 +24,7 @@ export const IconLink: FC<Props> = ({
   target = '_blank',
   linkStyle,
   iconStyle,
-}) => {
+}: Props) => {
   return (
     <Link
       className={cx(

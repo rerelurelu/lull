@@ -1,14 +1,14 @@
-import { type FC, ViewTransition } from 'react'
+import { ViewTransition } from 'react'
 import { css, cx } from 'styled-system/css'
 import { PostCard } from '@/components/features'
 import type { Post } from '@/types/post'
 
-type Pros = {
+type Props = {
   posts: Post[]
   className?: string
 }
 
-export const PostArea: FC<Pros> = ({ posts, className }) => {
+export const PostArea = ({ posts, className }: Props) => {
   return (
     <section
       className={cx(

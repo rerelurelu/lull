@@ -1,6 +1,10 @@
-import type { FC, PropsWithChildren } from 'react'
+import type { ReactNode } from 'react'
 
-export const OgpWrapper: FC<PropsWithChildren> = ({ children }) => {
+type Props = {
+  children: ReactNode
+}
+
+export const OgpWrapper = ({ children }: Props) => {
   return (
     <div
       style={{

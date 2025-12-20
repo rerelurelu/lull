@@ -2,7 +2,6 @@
 
 import { Pagination as ArkPagination, type UsePaginationProps, usePagination } from '@ark-ui/react'
 import { useRouter } from 'next/navigation'
-import type { FC } from 'react'
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
 import { css, cx } from 'styled-system/css'
 import { grid } from 'styled-system/patterns'
@@ -29,7 +28,7 @@ const clickableItemStyle = css({
 
 const iconWrapperStyle = cx(clickableItemStyle, css({ display: 'grid', placeItems: 'center' }))
 
-export const Pagination: FC<Props> = ({ baseUrl, className, ...props }) => {
+export const Pagination = ({ baseUrl, className, ...props }: Props) => {
   const pagination = usePagination({ ...props })
   const router = useRouter()
 

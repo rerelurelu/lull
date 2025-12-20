@@ -1,6 +1,6 @@
 'use client'
 
-import type { FC } from 'react'
+import type { ReactNode } from 'react'
 import { useEffect, useState } from 'react'
 import Lightbox from 'yet-another-react-lightbox'
 import Zoom from 'yet-another-react-lightbox/plugins/zoom'
@@ -12,10 +12,10 @@ type Slide = {
 }
 
 type Props = {
-  children: React.ReactNode
+  children: ReactNode
 }
 
-export const PostContainerClient: FC<Props> = ({ children }) => {
+export const PostContainerClient = ({ children }: Props) => {
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [lightboxIndex, setLightboxIndex] = useState(0)
   const [slides, setSlides] = useState<Slide[]>([])

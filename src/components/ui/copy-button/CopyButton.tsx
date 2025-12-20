@@ -1,6 +1,5 @@
 'use client'
 
-import type { FC } from 'react'
 import { useState } from 'react'
 import { css } from 'styled-system/css'
 
@@ -9,7 +8,7 @@ type Props = {
   className?: string
 }
 
-export const CopyButton: FC<Props> = ({ code, className }) => {
+export const CopyButton = ({ code, className }: Props) => {
   const [copied, setCopied] = useState(false)
 
   const handleCopy = async () => {

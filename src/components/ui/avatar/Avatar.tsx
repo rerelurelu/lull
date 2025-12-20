@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import type { FC } from 'react'
 import { css } from 'styled-system/css'
 
 type Props = {
@@ -7,7 +6,7 @@ type Props = {
   alt: string
 }
 
-export const Avatar: FC<Props> = ({ src, alt }) => {
+export const Avatar = ({ src, alt }: Props) => {
   return (
     <div
       className={css({

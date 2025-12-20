@@ -1,4 +1,3 @@
-import type { FC } from 'react'
 import { css, cx } from 'styled-system/css'
 import { gradient } from 'styled-system/recipes'
 import { Braille } from './fragments/Braille'
@@ -7,7 +6,7 @@ type Props = {
   className?: string
 }
 
-export const Hero: FC<Props> = ({ className }) => {
+export const Hero = ({ className }: Props) => {
   return (
     <div
       className={cx(
