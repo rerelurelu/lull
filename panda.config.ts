@@ -105,8 +105,8 @@ export default defineConfig({
           },
           ogp: {
             gradient: {
-              from: { value: '#00f1f9' },
-              to: { value: '#cb33f4' },
+              from: { value: '#3F4C9C' },
+              to: { value: '#2d1b69' },
             },
           },
         },
