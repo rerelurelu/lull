@@ -1,4 +1,4 @@
-import type { LinkMetadata } from '@/libs/linkCardMeta'
+import type { LinkMetadata } from '@/utils/linkCardMeta'
 
 // 生成されたメタデータファイルの型定義
 export type GeneratedLinkMeta = {

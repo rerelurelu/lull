@@ -5,8 +5,8 @@ import { css, cx } from 'styled-system/css'
 import { gradient } from 'styled-system/recipes'
 import { ENTRIES } from '@/constants'
 import { useScrollDirection } from '@/hooks/useScrollDirection'
-import { Logo } from './fragments/Logo'
-import { NavItems } from './fragments/NavItems'
+import { Logo } from './Logo'
+import { NavItems } from './NavItems'
 
 export const Header = () => {
   const scrollDirection = useScrollDirection()

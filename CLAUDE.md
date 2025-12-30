@@ -41,21 +41,22 @@ src/
 │   ├── post/[postId]/    # 動的記事ページ
 │   └── posts/[page]/     # ページネーション付き記事一覧
 ├── components/
-│   ├── features/         # ドメイン固有コンポーネント
-│   ├── layout/           # レイアウトコンポーネント（header/footer）
-│   └── ui/               # 再利用可能UIコンポーネント
+│   ├── post/             # ブログ記事関連コンポーネント（PostCard、PostContainer等）
+│   ├── layout/           # レイアウトコンポーネント（Header、Footer、Hero、Ogp）
+│   └── ui/               # 再利用可能UIコンポーネント（すべてPascalCase）
 ├── services/             # ビジネスロジックとデータ取得
 ├── libs/                 # 外部サービスクライアント（microCMS）
 ├── types/                # TypeScript型定義
-├── utils/                # ユーティリティ関数
+├── utils/                # ユーティリティ関数（純粋関数、技術非依存）
 └── hooks/                # カスタムReactフック
 ```
 
 ### コンポーネントパターン
 - デフォルトでServer Components、必要な場合のみ `'use client'` を使用
-- 既存パターンに従う: features > layout > ui コンポーネント階層
+- 機能ベースアーキテクチャ: post > layout > ui コンポーネント階層
 - `interface` より `type` 定義を使用（コーディングガイドライン準拠）
 - すべてのコンポーネントは関数型コンポーネント
+- コンポーネントディレクトリはPascalCase、フラットな構造を維持
 
 ### スタイリングシステム
 - **Panda CSS** とデザイントークンによる一貫したテーマ設定

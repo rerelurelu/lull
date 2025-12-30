@@ -1,6 +1,6 @@
 import { css, cx } from 'styled-system/css'
 import { gradient } from 'styled-system/recipes'
-import { Braille } from './fragments/Braille'
+import { Braille } from './Braille'
 
 type Props = {
   className?: string

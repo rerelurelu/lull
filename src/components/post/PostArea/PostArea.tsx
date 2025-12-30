@@ -1,6 +1,6 @@
 import { ViewTransition } from 'react'
 import { css, cx } from 'styled-system/css'
-import { PostCard } from '@/components/features'
+import { PostCard } from '@/components/post'
 import type { Post } from '@/types/post'
 
 type Props = {
