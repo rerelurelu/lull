@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { css } from 'styled-system/css'
 import { grid } from 'styled-system/patterns'
-import { Pagination, PostArea } from '@/components/features'
+import { Pagination, PostArea } from '@/components/post'
 import { Heading } from '@/components/ui'
 import { PER_PAGE } from '@/constants'
 import { fetchPosts } from '@/services/post'

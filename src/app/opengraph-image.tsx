@@ -1,5 +1,5 @@
 import { ImageResponse } from 'next/og'
-import { OgpWrapper } from '@/components/features'
+import { OgpWrapper } from '@/components/layout'
 import { OGP_FONT } from '@/constants'
 import { OGP_IMAGE_SIZE } from '@/constants/index'
 import { fetchGoogleFonts } from '@/services/fonts'

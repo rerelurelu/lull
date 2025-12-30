@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { ViewTransition } from 'react'
 import { css, cx } from 'styled-system/css'
 import { text as textRecipe } from 'styled-system/recipes'
-import { PostContainerWithLinkCards } from '@/components/features/PostContainer/PostContainerWithLinkCards'
+import { PostContainerWithLinkCards } from '@/components/post/PostContainer/PostContainerWithLinkCards'
 import { fetchPost, fetchPosts } from '@/services/post'
 import { createArticleMetadata } from '@/utils/metadata'
 
