@@ -1,2 +1,4 @@
-export * from './footer'
-export * from './header'
+export * from './Footer'
+export * from './Header'
+export * from './Hero'
+export * from './Ogp'
