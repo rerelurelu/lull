@@ -16,7 +16,9 @@
     "generate:link-meta": "bun run scripts/generateLinkMeta.ts",
     "generate:feed": "bun run scripts/generateFeed.ts",
     "link-meta:stats": "bun -e \"import('./scripts/generateLinkMeta.ts').then(m => m.logMetadataStats())\"",
-    "feed:stats": "bun -e \"import('./scripts/generateFeed.ts').then(m => m.logFeedStats())\""
+    "feed:stats": "bun -e \"import('./scripts/generateFeed.ts').then(m => m.logFeedStats())\"",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@ark-ui/react": "^4.4.4",
@@ -42,7 +44,13 @@
     "feed": "^5.1.0",
     "react-icons": "^5.3.0",
     "typescript": "^5",
-    "vitest": "^2.1.5"
+    "vitest": "^2.1.5",
+    "storybook": "^10.1.11",
+    "@storybook/nextjs-vite": "^10.1.11",
+    "@storybook/addon-a11y": "^10.1.11",
+    "@storybook/addon-docs": "^10.1.11",
+    "@storybook/addon-onboarding": "^10.1.11",
+    "vite": "^7.3.0"
   },
   "overrides": {
     "@types/react": "19.2.2",
