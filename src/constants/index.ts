@@ -15,8 +15,17 @@ export const OGP_IMAGE_SIZE = {
   HEIGHT: 630,
 } as const
 
-// サイト設定定数
-export const SITE_CONFIG = {
+export type SiteConfig = {
+  readonly title: string
+  readonly description: string
+  readonly url: string
+  readonly language: string
+  readonly author: {
+    readonly name: string
+  }
+}
+
+export const SITE_CONFIG: SiteConfig = {
   title: 'Relu',
   description: 'Reluの個人ブログ・技術記事',
   url: process.env.SITE_URL || '',
