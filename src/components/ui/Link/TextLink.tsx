@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { css, cx } from 'styled-system/css'
-import { text as textRecipe } from 'styled-system/recipes'
 
 type Props = {
   text: string
@@ -15,8 +14,8 @@ export const TextLink = ({ text, href, style }: Props) => {
         css({
           display: 'inline-block',
           textDecoration: 'underline',
+          textStyle: 'body.sm',
         }),
-        textRecipe({ size: 'sm' }),
         style,
       )}
       href={href}

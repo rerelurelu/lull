@@ -88,8 +88,8 @@ const postContainer = css({
   },
 
   '& h1, h2': {
-    mb: '0.5rem',
-    py: '0.5rem',
+    mb: 'md',
+    py: 'md',
     fontWeight: '600',
     borderBottom: '0.0625rem solid token(colors.divider)',
   },
@@ -106,21 +106,21 @@ const postContainer = css({
 
   '& h3': {
     _before: {
-      mr: '0.5rem',
+      mr: 'md',
       content: '"#"',
     },
   },
 
   '& h4': {
     _before: {
-      mr: '0.5rem',
+      mr: 'md',
       content: '"##"',
     },
   },
 
   '& h5': {
     _before: {
-      mr: '0.5rem',
+      mr: 'md',
       content: '"###"',
     },
   },
@@ -128,7 +128,7 @@ const postContainer = css({
   '& h3, h4, h5, h6': {
     fontSize: '1.25rem',
     lineHeight: '1.75rem',
-    mb: '0.75rem',
+    mb: 'lg',
     fontWeight: '400',
   },
 
@@ -142,55 +142,55 @@ const postContainer = css({
     '& img': {
       w: '100%',
       mx: 'auto',
-      my: '2rem',
-      borderRadius: '0.5rem',
+      my: '3xl',
+      borderRadius: 'md',
     },
   },
 
   '& ul': {
     ml: '1.75rem',
-    mb: '2rem',
+    mb: '3xl',
     listStyleType: 'disc',
 
     '& li': {
       mx: '0',
-      fontSize: '1rem',
+      fontSize: 'xl',
       color: 'post.base',
     },
   },
 
   '& hr': {
-    my: '2rem',
+    my: '3xl',
     h: '1px',
     border: 'none',
     bg: 'divider',
   },
 
   '& p': {
-    mb: '2rem',
-    fontSize: '1rem',
+    mb: '3xl',
+    fontSize: 'xl',
     color: 'post.base',
   },
 
   '& code': {
-    p: '0.125rem 0.25rem',
-    mx: '0.25rem',
-    borderRadius: '0.25rem',
+    p: 'xs sm',
+    mx: 'sm',
+    borderRadius: 'sm',
     fontSmoothing: 'antialiased',
     bg: 'bg.codeBlock',
     color: 'post.code',
   },
 
   '& .code-block-wrapper': {
-    mb: '2rem',
-    borderRadius: '0.5rem',
+    mb: '3xl',
+    borderRadius: 'md',
     bg: 'bg.codeBlock',
     overflow: 'hidden',
   },
 
   '& .code-block-header': {
-    px: '1rem',
-    py: '0.25rem',
+    px: 'xl',
+    py: 'sm',
     bg: '#d0d8ff',
     fontSize: '0.875rem',
     fontWeight: '500',
@@ -202,9 +202,9 @@ const postContainer = css({
 
   '& pre': {
     w: '100%',
-    mb: '2rem',
+    mb: '3xl',
     overflowX: 'auto',
-    borderRadius: '0.5rem',
+    borderRadius: 'md',
 
     '& code': {
       display: 'block',
@@ -212,8 +212,8 @@ const postContainer = css({
       minW: '100%',
       mx: 0,
       borderRadius: '0',
-      fontSize: '1rem',
-      p: '1rem',
+      fontSize: 'xl',
+      p: 'xl',
     },
   },
 

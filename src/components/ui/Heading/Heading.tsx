@@ -1,4 +1,4 @@
-import { css, cx } from 'styled-system/css'
+import { styled } from 'styled-system/jsx'
 
 type Props = {
   title: string
@@ -7,20 +7,16 @@ type Props = {
 
 export const Heading = ({ title, style }: Props) => {
   return (
-    <h1
-      className={cx(
-        css({
-          color: 'head',
-          textAlign: 'center',
-          fontSize: '2.25rem',
-          lineHeight: '2.5rem',
-          fontWeight: '400',
-          letterSpacing: '0.1em',
-        }),
-        style,
-      )}
+    <styled.h1
+      color='head'
+      textAlign='center'
+      fontSize='2.25rem'
+      lineHeight='2.5rem'
+      fontWeight='400'
+      letterSpacing='0.1em'
+      className={style}
     >
       {title}
-    </h1>
+    </styled.h1>
   )
 }

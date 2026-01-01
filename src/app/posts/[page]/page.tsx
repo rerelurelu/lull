@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { css } from 'styled-system/css'
-import { grid } from 'styled-system/patterns'
+import { styled } from 'styled-system/jsx'
 import { Pagination, PostArea } from '@/components/post'
 import { Heading } from '@/components/ui'
 import { PER_PAGE } from '@/constants'
@@ -42,7 +42,7 @@ export default async function PostsPage({ params }: Props) {
   })
 
   return (
-    <div className={grid({ placeItems: 'center', w: '100%' })}>
+    <styled.div display='grid' placeItems='center' w='100%'>
       <Heading title='Post' />
       <PostArea posts={posts} className={css({ mt: '5rem' })} />
       <Pagination
@@ -53,6 +53,6 @@ export default async function PostsPage({ params }: Props) {
         defaultPage={Number(page)}
         className={css({ mt: '5rem' })}
       />
-    </div>
+    </styled.div>
   )
 }

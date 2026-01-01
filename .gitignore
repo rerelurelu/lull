@@ -55,5 +55,9 @@ rss.xml
 # playwright
 .playwright-mcp
 
+# storybook
 *storybook.log
 storybook-static
+
+# docs
+docs/

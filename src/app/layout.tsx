@@ -2,8 +2,7 @@ import type { Metadata } from 'next'
 import '@/styles/global.css'
 import '@/styles/syntax-highlighting.css'
 import { M_PLUS_1p } from 'next/font/google'
-import { cx } from 'styled-system/css'
-import { flex, grid } from 'styled-system/patterns'
+import { styled } from 'styled-system/jsx'
 import { Footer, Header } from '@/components/layout'
 import { createMetadata } from '@/utils/metadata'
 
@@ -23,28 +22,19 @@ export default function RootLayout({
   return (
     <html lang='ja'>
       <body className={MPlus1p.className}>
-        <div
-          className={cx(
-            grid({
-              minH: '100vh',
-              gridTemplateRows: 'auto 1fr auto',
-              gap: 0,
-            }),
-          )}
-        >
+        <styled.div display='grid' minH='100vh' gridTemplateRows='auto 1fr auto' gap={0}>
           <Header />
-          <main
-            className={flex({
-              alignItems: 'start',
-              justifyContent: 'center',
-              mx: '2rem',
-              py: '2rem',
-            })}
+          <styled.main
+            display='flex'
+            alignItems='start'
+            justifyContent='center'
+            mx='2rem'
+            py='2rem'
           >
             {children}
-          </main>
+          </styled.main>
           <Footer />
-        </div>
+        </styled.div>
       </body>
     </html>
   )

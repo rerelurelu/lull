@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { css } from 'styled-system/css'
+import { styled } from 'styled-system/jsx'
 
 type Props = {
   src: string
@@ -8,12 +9,7 @@ type Props = {
 
 export const Avatar = ({ src, alt }: Props) => {
   return (
-    <div
-      className={css({
-        pos: 'relative',
-        display: 'inline-flex',
-      })}
-    >
+    <styled.div pos='relative' display='inline-flex'>
       <Image
         src={src}
         width={192}
@@ -27,6 +23,6 @@ export const Avatar = ({ src, alt }: Props) => {
           boxShadow: '0 0 0 3px token(colors.avatar.ring)',
         })}
       />
-    </div>
+    </styled.div>
   )
 }

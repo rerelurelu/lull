@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
-import { css, cx } from 'styled-system/css'
-import { grid } from 'styled-system/patterns'
+import { styled } from 'styled-system/jsx'
 import { gradient } from 'styled-system/recipes'
 import { Avatar, IconLink } from '@/components/ui'
 import { createMetadata } from '@/utils/metadata'
@@ -22,30 +21,26 @@ const intro = {
 
 export default function AboutPage() {
   return (
-    <div className={grid({ placeItems: 'center', px: '1.5rem' })}>
+    <styled.div display='grid' placeItems='center' px='2xl'>
       <Avatar src={'/images/avatar.webp'} alt={`Relu's avatar`} />
-      <span
-        className={cx(
-          gradient({ type: 'dark' }),
-          css({
-            fontSize: '2.25rem',
-            lineHeight: '2.5rem',
-            mt: '2.5rem',
-            backgroundClip: 'text',
-            color: 'transparent',
-            fontWeight: '600',
-          }),
-        )}
+      <styled.span
+        className={gradient({ type: 'dark' })}
+        fontSize='2.25rem'
+        lineHeight='2.5rem'
+        mt='2.5rem'
+        backgroundClip='text'
+        color='transparent'
+        fontWeight='600'
       >
         Relu
-      </span>
-      <ul
-        className={css({
-          mt: '1.5rem',
-          display: 'flex',
-          flexWrap: 'wrap',
-          gap: '1rem',
-          listStyle: 'none',
+      </styled.span>
+      <styled.ul
+        mt='2xl'
+        display='flex'
+        flexWrap='wrap'
+        gap='xl'
+        listStyle='none'
+        css={{
           '& a': {
             transition: 'all 0.3s ease',
             _hover: {
@@ -53,7 +48,7 @@ export default function AboutPage() {
               filter: 'drop-shadow(0 4px 8px {colors.overlay.brand.30})',
             },
           },
-        })}
+        }}
       >
         <li>
           <IconLink
@@ -75,19 +70,17 @@ export default function AboutPage() {
             alt={'Zenn icon'}
           />
         </li>
-      </ul>
-      <div
-        className={css({
-          mt: '3rem',
-          display: 'grid',
-          w: '100%',
-          maxW: '56rem',
-          placeItems: 'center',
-          lineHeight: '1.5rem',
-        })}
+      </styled.ul>
+      <styled.div
+        mt='4xl'
+        display='grid'
+        w='100%'
+        maxW='56rem'
+        placeItems='center'
+        lineHeight='1.5rem'
       >
         <p>{intro.para1}</p>
-      </div>
-    </div>
+      </styled.div>
+    </styled.div>
   )
 }

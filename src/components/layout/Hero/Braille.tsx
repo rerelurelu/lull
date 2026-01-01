@@ -18,7 +18,7 @@ export const Braille = ({ tl, tr, ml, mr, bl, br }: Props) => {
         flexWrap: 'wrap',
         w: { base: '56px', md: '76px' },
         h: 'fit-content',
-        gap: { base: '8px', md: '12px' },
+        gap: { base: 'md', md: 'lg' },
       })}
     >
       <div
