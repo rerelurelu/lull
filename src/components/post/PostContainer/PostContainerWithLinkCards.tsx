@@ -200,8 +200,8 @@ const postContainer = css({
   },
 
   '& h1, h2': {
-    mb: '1rem',
-    py: '0.5rem',
+    mb: 'xl',
+    py: 'md',
     fontWeight: '600',
     borderBottom: '0.0625rem solid token(colors.divider)',
   },
@@ -219,10 +219,10 @@ const postContainer = css({
   '& h3': {
     fontSize: '1.125rem',
     lineHeight: '1.75rem',
-    mb: '0.75rem',
+    mb: 'lg',
     fontWeight: '600',
     _before: {
-      mr: '0.5rem',
+      mr: 'md',
       content: '"#"',
     },
   },
@@ -230,10 +230,10 @@ const postContainer = css({
   '& h4': {
     fontSize: '1.0625rem',
     lineHeight: '1.75rem',
-    mb: '0.75rem',
+    mb: 'lg',
     fontWeight: '600',
     _before: {
-      mr: '0.5rem',
+      mr: 'md',
       content: '"##"',
     },
   },
@@ -241,13 +241,13 @@ const postContainer = css({
   '& h5, h6': {
     fontSize: '1rem',
     lineHeight: '1.75rem',
-    mb: '0.75rem',
+    mb: 'lg',
     fontWeight: '600',
   },
 
   '& h5': {
     _before: {
-      mr: '0.5rem',
+      mr: 'md',
       content: '"###"',
     },
   },
@@ -255,7 +255,7 @@ const postContainer = css({
   // セクション間の間隔制御
   '& p + h2, & ul + h2, & pre + h2, & .code-block-wrapper + h2, & .link-card-wrapper + h2, & hr + h2':
     {
-      mt: '3rem',
+      mt: '4xl',
     },
 
   '& p + h3, & ul + h3, & pre + h3, & .code-block-wrapper + h3, & .link-card-wrapper + h3, & hr + h3':
@@ -289,13 +289,13 @@ const postContainer = css({
       w: '100%',
       mx: 'auto',
       mb: '2.25rem',
-      borderRadius: '0.5rem',
+      borderRadius: 'md',
     },
   },
 
   '& ul': {
     ml: '1.75rem',
-    mb: '1.5rem',
+    mb: '2xl',
     listStyleType: 'disc',
 
     '& li': {
@@ -306,37 +306,37 @@ const postContainer = css({
   },
 
   '& hr': {
-    mb: '3rem',
+    mb: '4xl',
     h: '1px',
     border: 'none',
     bg: 'divider',
   },
 
   '& p': {
-    mb: '1.5rem',
+    mb: '2xl',
     fontSize: '1rem',
     color: 'post.base',
   },
 
   '& code': {
-    p: '0.125rem 0.25rem',
-    mx: '0.25rem',
-    borderRadius: '0.25rem',
+    p: 'xs sm',
+    mx: 'sm',
+    borderRadius: 'sm',
     fontSmoothing: 'antialiased',
     bg: 'bg.codeBlock',
     color: '#1e1b4b',
   },
 
   '& .code-block-wrapper': {
-    mb: '1.5rem',
-    borderRadius: '0.5rem',
+    mb: '2xl',
+    borderRadius: 'md',
     bg: 'bg.codeBlock',
     overflow: 'hidden',
   },
 
   '& .code-block-header': {
-    px: '1rem',
-    py: '0.25rem',
+    px: 'xl',
+    py: 'sm',
     bg: '#d0d8ff',
     fontSize: '0.875rem',
     fontWeight: '500',
@@ -348,9 +348,9 @@ const postContainer = css({
 
   '& pre': {
     w: '100%',
-    mb: '1.5rem',
+    mb: '2xl',
     overflowX: 'auto',
-    borderRadius: '0.5rem',
+    borderRadius: 'md',
 
     '& code': {
       display: 'block',
@@ -359,7 +359,7 @@ const postContainer = css({
       mx: 0,
       borderRadius: '0',
       fontSize: '1rem',
-      p: '1rem',
+      p: 'xl',
     },
   },
 
@@ -385,7 +385,7 @@ const linkCardStyles = css({
   '& .link-card': {
     display: 'block',
     w: '100%',
-    borderRadius: '0.75rem',
+    borderRadius: 'lg',
     border: '1px solid token(colors.divider)',
     bg: 'linear-gradient(135deg, rgba(100, 125, 238, 0.1), rgba(127, 83, 172, 0.1))',
     backdropFilter: 'blur(8px)',
@@ -416,8 +416,8 @@ const linkCardStyles = css({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
-    p: '1rem',
-    pr: '0.75rem',
+    p: 'xl',
+    pr: 'lg',
   },
 
   '& .link-card-title': {
@@ -430,7 +430,7 @@ const linkCardStyles = css({
     '--webkit-box-orient': 'vertical',
     overflow: 'hidden',
     maxW: '100%',
-    margin: '0 0 0.25rem 0 !important',
+    margin: '0 0 sm 0 !important',
     padding: '0 !important',
 
     _before: {
@@ -446,7 +446,7 @@ const linkCardStyles = css({
     display: '-webkit-box',
     WebkitLineClamp: '1',
     '--webkit-box-orient': 'vertical',
-    margin: '0 0 0.25rem 0 !important',
+    margin: '0 0 sm 0 !important',
     padding: '0 !important',
   },
 
@@ -465,7 +465,7 @@ const linkCardStyles = css({
   '& .link-card-thumbnail': {
     flexShrink: 0,
     h: '120px',
-    borderRadius: '0 0.75rem 0.75rem 0',
+    borderRadius: '0 lg lg 0',
     overflow: 'hidden',
     bg: 'linear-gradient(135deg, token(colors.postCard.bg))',
     display: 'flex',

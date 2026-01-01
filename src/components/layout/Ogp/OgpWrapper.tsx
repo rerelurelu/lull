@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import { styled } from 'styled-system/jsx'
 
 type Props = {
   children: ReactNode
@@ -6,67 +7,59 @@ type Props = {
 
 export const OgpWrapper = ({ children }: Props) => {
   return (
-    <div
-      style={{
-        fontSize: 72,
-        width: '100%',
-        height: '100%',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        background: 'linear-gradient(to right, #3F4C9C 0%, #2d1b69 100%)',
-        padding: '24px',
-      }}
+    <styled.div
+      w='100%'
+      h='100%'
+      display='flex'
+      alignItems='center'
+      justifyContent='center'
+      background='linear-gradient(to right, {colors.brand.primary} 0%, {colors.brand.dark} 100%)'
+      p='2xl'
+      fontSize='72px'
     >
-      <div
-        style={{
-          width: '100%',
-          height: '100%',
-          color: '#191C37',
-          background: '#F8F9FE',
-          display: 'flex',
-          justifyContent: 'space-between',
-          flexDirection: 'column',
-          borderRadius: 12,
-          padding: '40px',
-        }}
+      <styled.div
+        w='100%'
+        h='100%'
+        color='base'
+        bg='bg.base'
+        display='flex'
+        justifyContent='space-between'
+        flexDirection='column'
+        borderRadius='lg'
+        p='40px'
       >
         {children}
-        <div style={{ width: '100%', display: 'flex' }}>
-          <div
-            style={{
-              width: '100%',
-              display: 'flex',
-              justifyContent: 'flex-start',
-              alignItems: 'center',
-              fontSize: 56,
-              gap: '20px',
-            }}
+        <styled.div w='100%' display='flex'>
+          <styled.div
+            w='100%'
+            display='flex'
+            justifyContent='flex-start'
+            alignItems='center'
+            fontSize='56px'
+            gap='20px'
           >
-            <div
-              style={{
-                display: 'flex',
-                borderRadius: '9999px',
-                overflow: 'hidden',
-                boxShadow: '0 0 0 3px #5B6FD8',
-                alignItems: 'center',
-                marginLeft: '8px',
-                width: 56,
-                height: 56,
-              }}
+            <styled.div
+              display='flex'
+              borderRadius='full'
+              overflow='hidden'
+              boxShadow='0 0 0 3px {colors.brand.light}'
+              alignItems='center'
+              ml='md'
+              w='56px'
+              h='56px'
             >
               <img
                 src='https://avatars.githubusercontent.com/u/43092452?v=4'
-                alt='Relu`s Icon'
+                alt="Relu's Icon"
                 width={56}
                 height={56}
                 style={{ borderRadius: '9999px' }}
               />
-            </div>
-            <span style={{ paddingBottom: '5px' }}>Relu</span>
-          </div>
-        </div>
-      </div>
-    </div>
+            </styled.div>
+            <styled.span pb='5px'>Relu</styled.span>
+          </styled.div>
+        </styled.div>
+      </styled.div>
+    </styled.div>
   )
 }

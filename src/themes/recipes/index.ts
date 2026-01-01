@@ -1,7 +1,11 @@
+import { badgeRecipe } from './badge.recipe'
+import { codeBlockRecipe } from './codeBlock.recipe'
 import { gradientRecipe } from './gradient.recipe'
-import { text } from './text'
+import { linkCardRecipe } from './linkCard.recipe'
 
 export const recipes = {
-  text,
   gradient: gradientRecipe,
+  codeBlock: codeBlockRecipe,
+  linkCard: linkCardRecipe,
+  badge: badgeRecipe,
 }

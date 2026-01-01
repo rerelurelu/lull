@@ -19,8 +19,8 @@ const linkCardStyles = cva({
     w: '100%',
     maxW: '640px',
     mx: 'auto',
-    my: '2rem',
-    borderRadius: '0.75rem',
+    my: '3xl',
+    borderRadius: 'lg',
     border: '1px solid token(colors.divider)',
     backdropFilter: 'blur(8px)',
     transition: 'background 0.3s ease',
@@ -47,7 +47,7 @@ const thumbnailContainerStyles = cva({
   base: {
     flexShrink: 0,
     h: '120px',
-    borderRadius: '0 0.75rem 0.75rem 0',
+    borderRadius: '0 lg lg 0',
     overflow: 'hidden',
     bg: 'linear-gradient(135deg, token(colors.postCard.bg))',
     display: 'flex',
@@ -65,8 +65,8 @@ const contentStyles = cva({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
-    p: '1rem',
-    pr: '0.75rem',
+    p: 'xl',
+    pr: 'lg',
   },
 })
 
@@ -76,7 +76,7 @@ const titleStyles = cva({
     fontWeight: '600',
     lineHeight: '1.4',
     color: 'token(colors.postCard.title.base)',
-    mb: '0.25rem',
+    mb: 'sm',
     overflow: 'hidden',
     maxW: '100%',
     display: '-webkit-box',
@@ -95,7 +95,7 @@ const descriptionStyles = cva({
     fontSize: '0.75rem',
     color: 'token(colors.post.base)',
     lineHeight: '1.4',
-    mb: '0.25rem',
+    mb: 'sm',
     overflow: 'hidden',
     display: '-webkit-box',
     WebkitLineClamp: '1',
@@ -118,8 +118,8 @@ const domainStyles = cva({
 
 const iconStyles = cva({
   base: {
-    w: '1rem',
-    h: '1rem',
+    w: 'xl',
+    h: 'xl',
     color: 'token(colors.icon)',
   },
 })

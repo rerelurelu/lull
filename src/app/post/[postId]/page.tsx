@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { ViewTransition } from 'react'
-import { css, cx } from 'styled-system/css'
-import { text as textRecipe } from 'styled-system/recipes'
+import { styled } from 'styled-system/jsx'
 import { PostContainerWithLinkCards } from '@/components/post/PostContainer/PostContainerWithLinkCards'
 import { fetchPost, fetchPosts } from '@/services/post'
 import { createArticleMetadata } from '@/utils/metadata'
@@ -47,67 +46,45 @@ export default async function PostPage({ params }: Props) {
   })
 
   return (
-    <div
-      className={css({
-        maxW: '48rem',
-        display: 'flex',
-        flexDir: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-      })}
+    <styled.div
+      maxW='48rem'
+      display='flex'
+      flexDir='column'
+      alignItems='center'
+      justifyContent='center'
     >
       <ViewTransition name={`post-${postId}`}>
-        <header
-          className={css({
-            display: 'grid',
-            justifyItems: 'center',
-            gap: '3rem',
-          })}
-        >
-          <h1
-            className={css({
-              fontSize: '2.25rem',
-              lineHeight: '2.5rem',
-              fontWeight: '600',
-              textWrap: 'pretty',
-              textAlign: 'center',
-            })}
+        <styled.header display='grid' justifyItems='center' gap='4xl'>
+          <styled.h1
+            fontSize='2.25rem'
+            lineHeight='2.5rem'
+            fontWeight='600'
+            textWrap='pretty'
+            textAlign='center'
           >
             {post.title}
-          </h1>
-          <div
-            className={cx(
-              css({
-                display: 'grid',
-                justifyItems: 'center',
-                gap: '0.25rem',
-                fontSmoothing: 'antialiased',
-              }),
-              textRecipe({ size: 'sm' }),
-            )}
+          </styled.h1>
+          <styled.div
+            display='grid'
+            justifyItems='center'
+            gap='sm'
+            fontSmoothing='antialiased'
+            textStyle='body.sm'
           >
-            <p
-              className={css({
-                fontWeight: '600',
-              })}
-            >
-              Published
-            </p>
+            <styled.p fontWeight='600'>Published</styled.p>
             <time dateTime={post.publishedAt}>{dateDisplay}</time>
-          </div>
-        </header>
+          </styled.div>
+        </styled.header>
       </ViewTransition>
-      <div
-        className={css({
-          mt: '5rem',
-          w: '100%',
-          fontSize: '1.125rem',
-          lineHeight: '1.75rem',
-          letterSpacing: '0.025rem',
-        })}
+      <styled.div
+        mt='5rem'
+        w='100%'
+        fontSize='1.125rem'
+        lineHeight='1.75rem'
+        letterSpacing='0.025rem'
       >
         <PostContainerWithLinkCards postContent={post.content} />
-      </div>
-    </div>
+      </styled.div>
+    </styled.div>
   )
 }
