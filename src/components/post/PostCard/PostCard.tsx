@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { css, cx } from 'styled-system/css'
-import { gradient } from 'styled-system/recipes'
+import { badge, gradient } from 'styled-system/recipes'
 import type { Tag } from '@/types/post'
 
 type Props = {
@@ -28,7 +28,7 @@ export const PostCard = ({ title, href, createdAt, tags }: Props) => {
           pos: 'relative',
           display: 'flex',
           flexDir: 'column',
-          borderRadius: '1rem',
+          borderRadius: 'lg',
           h: '14rem',
           overflow: 'hidden',
           border: '1px solid {colors.overlay.brand.10}',
@@ -39,12 +39,12 @@ export const PostCard = ({ title, href, createdAt, tags }: Props) => {
       <div
         className={css({
           color: 'postCard.title.base',
-          p: '1.5rem',
+          p: '2xl',
           display: 'flex',
           justifyContent: 'space-between',
           flex: '1 1 auto',
           flexDir: 'column',
-          gap: '0.75rem',
+          gap: 'lg',
         })}
       >
         <header
@@ -69,8 +69,8 @@ export const PostCard = ({ title, href, createdAt, tags }: Props) => {
                 textWrap: 'pretty',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '0.5rem',
-                mb: '0.5rem',
+                gap: 'md',
+                mb: 'md',
               })}
             >
               {title}
@@ -95,30 +95,23 @@ export const PostCard = ({ title, href, createdAt, tags }: Props) => {
           </time>
           <div
             className={css({
-              mt: '0.75rem',
+              mt: 'lg',
               display: 'flex',
               flexWrap: 'wrap',
               alignItems: 'flex-start',
               justifyContent: 'flex-start',
-              columnGap: '0.5rem',
-              rowGap: '0.25rem',
+              columnGap: 'md',
+              rowGap: 'sm',
             })}
           >
             {tags.map((tag) => (
               <div
-                className={css({
-                  color: 'postCard.tag',
-                  bg: 'surface.light',
-                  px: '0.75rem',
-                  py: '0.375rem',
-                  borderRadius: '9999px',
-                  border: '1px solid {colors.divider}',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '0.125rem',
-                  fontSize: '0.6875rem',
-                  fontWeight: '500',
-                })}
+                className={cx(
+                  badge({ variant: 'tag', size: 'md' }),
+                  css({
+                    gap: 'xs',
+                  }),
+                )}
                 key={tag.id}
               >
                 <span className={css({ opacity: 0.8 })}>#</span>
