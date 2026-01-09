@@ -1,5 +1,4 @@
 import type { ReactNode } from 'react'
-import { styled } from 'styled-system/jsx'
 
 type Props = {
   children: ReactNode
@@ -7,46 +6,54 @@ type Props = {
 
 export const OgpWrapper = ({ children }: Props) => {
   return (
-    <styled.div
-      w='100%'
-      h='100%'
-      display='flex'
-      alignItems='center'
-      justifyContent='center'
-      background='linear-gradient(to right, {colors.brand.primary} 0%, {colors.brand.dark} 100%)'
-      p='2xl'
-      fontSize='72px'
+    <div
+      style={{
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: 'linear-gradient(to right, #3F4C9C 0%, #2d1b69 100%)',
+        padding: '24px',
+        fontSize: '72px',
+      }}
     >
-      <styled.div
-        w='100%'
-        h='100%'
-        color='base'
-        bg='bg.base'
-        display='flex'
-        justifyContent='space-between'
-        flexDirection='column'
-        borderRadius='lg'
-        p='40px'
+      <div
+        style={{
+          width: '100%',
+          height: '100%',
+          color: '#191C37',
+          background: '#F8F9FE',
+          display: 'flex',
+          justifyContent: 'space-between',
+          flexDirection: 'column',
+          borderRadius: '16px',
+          padding: '40px',
+        }}
       >
         {children}
-        <styled.div w='100%' display='flex'>
-          <styled.div
-            w='100%'
-            display='flex'
-            justifyContent='flex-start'
-            alignItems='center'
-            fontSize='56px'
-            gap='20px'
+        <div style={{ width: '100%', display: 'flex' }}>
+          <div
+            style={{
+              width: '100%',
+              display: 'flex',
+              justifyContent: 'flex-start',
+              alignItems: 'center',
+              fontSize: '56px',
+              gap: '20px',
+            }}
           >
-            <styled.div
-              display='flex'
-              borderRadius='full'
-              overflow='hidden'
-              boxShadow='0 0 0 3px {colors.brand.light}'
-              alignItems='center'
-              ml='md'
-              w='56px'
-              h='56px'
+            <div
+              style={{
+                display: 'flex',
+                borderRadius: '9999px',
+                overflow: 'hidden',
+                boxShadow: '0 0 0 3px #5B6FD8',
+                alignItems: 'center',
+                marginLeft: '8px',
+                width: '56px',
+                height: '56px',
+              }}
             >
               <img
                 src='https://avatars.githubusercontent.com/u/43092452?v=4'
@@ -55,11 +62,11 @@ export const OgpWrapper = ({ children }: Props) => {
                 height={56}
                 style={{ borderRadius: '9999px' }}
               />
-            </styled.div>
-            <styled.span pb='5px'>Relu</styled.span>
-          </styled.div>
-        </styled.div>
-      </styled.div>
-    </styled.div>
+            </div>
+            <span style={{ paddingBottom: '5px' }}>Relu</span>
+          </div>
+        </div>
+      </div>
+    </div>
   )
 }
