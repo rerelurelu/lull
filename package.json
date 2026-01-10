@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.4",
-    "@pandacss/dev": "^1.7.2",
+    "@pandacss/dev": "^1.8.0",
     "@storybook/addon-a11y": "^10.1.11",
     "@storybook/addon-docs": "^10.1.11",
     "@storybook/addon-onboarding": "^10.1.11",
