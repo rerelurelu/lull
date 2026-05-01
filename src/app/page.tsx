@@ -81,7 +81,7 @@ export default async function Home() {
           />
         </styled.div>
         <PostArea posts={posts} />
-        <TextLink text='See all posts →' href={'/posts/1'} />
+        <TextLink text='See all posts →' href={'/posts'} />
       </styled.div>
     </styled.div>
   )

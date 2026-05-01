@@ -22,7 +22,6 @@ export const PostArea = ({ posts, className }: Props) => {
           <PostCard
             createdAt={post.publishedAt.slice(0, 10)}
             href={`/post/${post.id}`}
-            key={post.id}
             postId={post.id}
             tags={post.tags.map((tag) => tag)}
             title={post.title}
