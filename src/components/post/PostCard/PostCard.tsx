@@ -1,5 +1,3 @@
-'use client'
-
 import Link from 'next/link'
 import { css, cx } from 'styled-system/css'
 import { badge, gradient } from 'styled-system/recipes'
