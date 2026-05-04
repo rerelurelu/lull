@@ -16,12 +16,12 @@ export const badgeRecipe = defineRecipe({
   variants: {
     variant: {
       tag: {
-        color: 'postCard.tag',
-        bg: 'surface.light',
-        border: '1px solid {colors.divider}',
+        color: 'muted',
+        bg: 'bg.subtle',
+        border: '1px solid {colors.border.subtle}',
       },
       default: {
-        bg: 'overlay.brand.10',
+        bg: 'bg.subtle',
         color: 'brand.primary',
       },
       outline: {
