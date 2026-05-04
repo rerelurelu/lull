@@ -13,7 +13,7 @@ export const OgpWrapper = ({ children }: Props) => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        background: 'linear-gradient(to right, #2C7AAA 0%, #1B2540 100%)',
+        background: 'linear-gradient(135deg, #C4D8AF 0%, #58AEE0 100%)',
         padding: '24px',
         fontSize: '72px',
       }}
@@ -23,7 +23,7 @@ export const OgpWrapper = ({ children }: Props) => {
           width: '100%',
           height: '100%',
           color: '#121A2F',
-          background: '#D7E5C9',
+          background: '#FFFFFF',
           display: 'flex',
           justifyContent: 'space-between',
           flexDirection: 'column',
