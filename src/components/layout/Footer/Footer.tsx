@@ -1,20 +1,17 @@
 import { styled } from 'styled-system/jsx'
-import { gradient } from 'styled-system/recipes'
 
 export const Footer = () => {
   return (
     <styled.footer
-      className={gradient({ type: 'footer' })}
-      display='flex'
-      alignItems='center'
-      justifyContent='center'
-      borderTop='1px solid token(colors.border.section)'
+      bg='transparent'
       py='3xl'
-      letterSpacing='widest'
+      fontSize='0.75rem'
+      letterSpacing='0.08em'
+      color='muted'
       textAlign='center'
       mt='auto'
     >
-      <p>© 2024 Relu</p>
+      <p>© {new Date().getFullYear()} Relu</p>
     </styled.footer>
   )
 }

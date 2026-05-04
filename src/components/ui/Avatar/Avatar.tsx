@@ -12,15 +12,15 @@ export const Avatar = ({ src, alt }: Props) => {
     <styled.div pos='relative' display='inline-flex'>
       <Image
         src={src}
-        width={192}
-        height={192}
+        width={144}
+        height={144}
         alt={alt}
         className={css({
-          w: '12rem',
-          h: '12rem',
+          w: '9rem',
+          h: '9rem',
           borderRadius: 'full',
           overflow: 'hidden',
-          boxShadow: '0 0 0 3px token(colors.avatar.ring)',
+          border: '1px solid {colors.border.subtle}',
         })}
       />
     </styled.div>

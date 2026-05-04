@@ -42,7 +42,7 @@ export const OgpWrapper = ({ children }: Props) => {
               display='flex'
               borderRadius='full'
               overflow='hidden'
-              boxShadow='0 0 0 3px {colors.brand.light}'
+              boxShadow='0 0 0 3px {colors.sage.400}'
               alignItems='center'
               ml='md'
               w='56px'
