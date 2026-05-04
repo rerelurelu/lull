@@ -9,11 +9,14 @@ export const linkCardRecipe = defineSlotRecipe({
       display: 'flex',
       gap: 'xl',
       p: 'xl',
-      layerStyle: 'linkCard',
+      borderRadius: 'lg',
+      border: '1px solid {colors.divider}',
+      background: 'bg.base',
       textDecoration: 'none',
-      transition: 'all 0.2s ease',
+      transition: 'border-color 0.2s ease, background 0.2s ease',
       _hover: {
-        transform: 'translateY(-2px)',
+        borderColor: 'sage.400',
+        background: 'bg.subtle',
       },
     },
     content: {
@@ -37,7 +40,7 @@ export const linkCardRecipe = defineSlotRecipe({
     title: {
       fontSize: '1.125rem',
       lineHeight: '1.75rem',
-      fontWeight: '600',
+      fontWeight: '500',
       color: 'head',
     },
     description: {

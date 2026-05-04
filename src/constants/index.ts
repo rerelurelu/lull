@@ -1,11 +1,3 @@
-import type { Entry } from '@/types/entry'
-
-export const ENTRIES: Entry[] = [
-  { href: '/', content: 'home' },
-  { href: '/about/', content: 'about' },
-  { href: '/posts/', content: 'post' },
-]
-
 export const OGP_FONT = 'M PLUS 1p'
 export const MAX_OGP_TEXT_LENGTH = 59
 export const OGP_IMAGE_SIZE = {

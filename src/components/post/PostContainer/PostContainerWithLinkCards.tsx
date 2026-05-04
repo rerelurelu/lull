@@ -197,6 +197,7 @@ const postContainer = css({
 
   '& h1, h2, h3, h4, h5, h6': {
     mt: '0',
+    color: 'head',
   },
 
   '& h1, h2': {
@@ -224,6 +225,8 @@ const postContainer = css({
     _before: {
       mr: 'md',
       content: '"#"',
+      color: 'brand.primary',
+      opacity: 0.7,
     },
   },
 
@@ -235,6 +238,8 @@ const postContainer = css({
     _before: {
       mr: 'md',
       content: '"##"',
+      color: 'brand.primary',
+      opacity: 0.7,
     },
   },
 
@@ -322,9 +327,11 @@ const postContainer = css({
     p: 'xs sm',
     mx: 'sm',
     borderRadius: 'sm',
+    fontFamily: 'monospace',
+    fontSize: '0.875rem',
     fontSmoothing: 'antialiased',
     bg: 'bg.codeBlock',
-    color: '#1e1b4b',
+    color: 'post.code',
   },
 
   '& .code-block-wrapper': {
@@ -337,7 +344,8 @@ const postContainer = css({
   '& .code-block-header': {
     px: 'xl',
     py: 'sm',
-    bg: '#d0d8ff',
+    bg: 'bg.codeHeader',
+    fontFamily: 'monospace',
     fontSize: '0.875rem',
     fontWeight: '500',
   },
@@ -386,20 +394,20 @@ const linkCardStyles = css({
     display: 'block',
     w: '100%',
     borderRadius: 'lg',
+    bg: 'bg.base',
     border: '1px solid token(colors.divider)',
-    bg: 'linear-gradient(135deg, rgba(100, 125, 238, 0.1), rgba(127, 83, 172, 0.1))',
-    backdropFilter: 'blur(8px)',
-    transition: 'background 0.3s ease',
+    transition: 'border-color 0.2s ease, background 0.2s ease',
     textDecoration: 'none',
     cursor: 'pointer',
     overflow: 'hidden',
 
     _hover: {
-      bg: 'linear-gradient(135deg, rgba(100, 125, 238, 0.15), rgba(127, 83, 172, 0.15))',
+      borderColor: 'token(colors.sage.400)',
+      bg: 'bg.subtle',
     },
 
-    _focus: {
-      outline: '2px solid token(colors.link)',
+    _focusVisible: {
+      outline: '2px solid token(colors.brand.primary)',
       outlineOffset: '2px',
     },
   },
@@ -467,7 +475,7 @@ const linkCardStyles = css({
     h: '120px',
     borderRadius: '0 lg lg 0',
     overflow: 'hidden',
-    bg: 'linear-gradient(135deg, token(colors.postCard.bg))',
+    bg: 'bg.subtle',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -489,6 +497,6 @@ const linkCardStyles = css({
   '& .link-card-fallback-text': {
     fontSize: '2rem',
     fontWeight: '700',
-    color: 'white',
+    color: 'head',
   },
 })

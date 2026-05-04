@@ -13,7 +13,7 @@ export const OgpWrapper = ({ children }: Props) => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        background: 'linear-gradient(to right, #3F4C9C 0%, #2d1b69 100%)',
+        background: 'linear-gradient(135deg, #C4D8AF 0%, #58AEE0 100%)',
         padding: '24px',
         fontSize: '72px',
       }}
@@ -22,8 +22,8 @@ export const OgpWrapper = ({ children }: Props) => {
         style={{
           width: '100%',
           height: '100%',
-          color: '#191C37',
-          background: '#F8F9FE',
+          color: '#121A2F',
+          background: '#FFFFFF',
           display: 'flex',
           justifyContent: 'space-between',
           flexDirection: 'column',
@@ -48,7 +48,7 @@ export const OgpWrapper = ({ children }: Props) => {
                 display: 'flex',
                 borderRadius: '9999px',
                 overflow: 'hidden',
-                boxShadow: '0 0 0 3px #5B6FD8',
+                boxShadow: '0 0 0 3px #2C7AAA',
                 alignItems: 'center',
                 marginLeft: '8px',
                 width: '56px',

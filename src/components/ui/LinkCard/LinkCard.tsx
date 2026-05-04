@@ -1,10 +1,7 @@
-'use client'
-
 import Image from 'next/image'
-import { useState } from 'react'
 import { FiLink } from 'react-icons/fi'
-import { cva, cx } from 'styled-system/css'
-import { gradient } from 'styled-system/recipes'
+import { cva } from 'styled-system/css'
+
 export type LinkCardProps = {
   href: string
   title?: string
@@ -21,15 +18,20 @@ const linkCardStyles = cva({
     mx: 'auto',
     my: '3xl',
     borderRadius: 'lg',
-    border: '1px solid token(colors.divider)',
-    backdropFilter: 'blur(8px)',
-    transition: 'background 0.3s ease',
+    border: '1px solid {colors.divider}',
+    bg: 'bg.base',
+    transition: 'border-color 0.2s ease, background 0.2s ease',
     textDecoration: 'none',
     cursor: 'pointer',
     overflow: 'hidden',
 
-    _focus: {
-      outline: '2px solid token(colors.link)',
+    _hover: {
+      borderColor: 'sage.400',
+      bg: 'bg.subtle',
+    },
+
+    _focusVisible: {
+      outline: '2px solid {colors.brand.primary}',
       outlineOffset: '2px',
     },
   },
@@ -47,9 +49,10 @@ const thumbnailContainerStyles = cva({
   base: {
     flexShrink: 0,
     h: '120px',
+    w: '120px',
     borderRadius: '0 lg lg 0',
     overflow: 'hidden',
-    bg: 'linear-gradient(135deg, token(colors.postCard.bg))',
+    bg: 'bg.subtle',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -75,31 +78,25 @@ const titleStyles = cva({
     fontSize: '0.875rem',
     fontWeight: '600',
     lineHeight: '1.4',
-    color: 'token(colors.postCard.title.base)',
+    color: 'head',
     mb: 'sm',
     overflow: 'hidden',
     maxW: '100%',
     display: '-webkit-box',
     WebkitLineClamp: '2',
-    // Use custom CSS property for WebkitBoxOrient
     '--webkit-box-orient': 'vertical',
-
-    _groupHover: {
-      color: 'token(colors.postCard.title.hover)',
-    },
   },
 })
 
 const descriptionStyles = cva({
   base: {
     fontSize: '0.75rem',
-    color: 'token(colors.post.base)',
+    color: 'base',
     lineHeight: '1.4',
     mb: 'sm',
     overflow: 'hidden',
     display: '-webkit-box',
     WebkitLineClamp: '1',
-    // Use custom CSS property for WebkitBoxOrient
     '--webkit-box-orient': 'vertical',
   },
 })
@@ -107,7 +104,7 @@ const descriptionStyles = cva({
 const domainStyles = cva({
   base: {
     fontSize: '0.8rem',
-    color: 'token(colors.link)',
+    color: 'link',
     fontFamily: 'monospace',
     overflow: 'hidden',
     textOverflow: 'ellipsis',
@@ -120,7 +117,15 @@ const iconStyles = cva({
   base: {
     w: 'xl',
     h: 'xl',
-    color: 'token(colors.icon)',
+    color: 'icon',
+  },
+})
+
+const fallbackCharStyles = cva({
+  base: {
+    fontSize: '2rem',
+    fontWeight: '700',
+    color: 'head',
   },
 })
 
@@ -130,15 +135,7 @@ const FallbackThumbnail = ({ siteName }: { siteName?: string }) => {
   return (
     <div className={thumbnailContainerStyles()}>
       {siteName ? (
-        <span
-          style={{
-            fontSize: '2rem',
-            fontWeight: '700',
-            color: 'white',
-          }}
-        >
-          {displayChar}
-        </span>
+        <span className={fallbackCharStyles()}>{displayChar}</span>
       ) : (
         <FiLink className={iconStyles()} size={32} />
       )}
@@ -155,17 +152,13 @@ export const LinkCard = ({ href, title, description, thumbnail, siteName }: Link
     }
   })()
 
-  const [isHovered, setIsHovered] = useState(false)
-
   return (
     <a
       href={href}
       target='_blank'
       rel='noopener noreferrer'
-      className={cx(gradient({ type: isHovered ? 'linkCardHover' : 'linkCard' }), linkCardStyles())}
+      className={linkCardStyles()}
       aria-label={`外部リンク: ${title || href}`}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
     >
       <div className={cardHeaderStyles()}>
         {thumbnail ? (

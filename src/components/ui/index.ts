@@ -1,5 +1,6 @@
 export * from './Avatar'
 export * from './CopyButton'
 export * from './Heading'
+export * from './Icon'
 export * from './Link'
 export * from './LinkCard'
