@@ -9,9 +9,10 @@ export const runtime = 'edge'
 export const alt = 'Reluの投稿記事'
 export const contentType = 'image/png'
 
-export default async function Image({ params }: { params: { postId: string } }) {
+export default async function Image({ params }: { params: Promise<{ postId: string }> }) {
+  const { postId } = await params
   const font = await fetchGoogleFonts(OGP_FONT)
-  const post = await fetchPost(params.postId)
+  const post = await fetchPost(postId)
 
   return new ImageResponse(<OgpWrapper>{post.title.slice(0, MAX_OGP_TEXT_LENGTH)}</OgpWrapper>, {
     ...OGP_IMAGE_SIZE,

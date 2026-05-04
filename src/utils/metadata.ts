@@ -58,10 +58,13 @@ export const createArticleMetadata = (
   description: string,
   path: string,
 ): Metadata => {
+  const ogImageUrl = `${SITE_CONFIG.url}${path}/opengraph-image`
+
   return createMetadata({
     title,
     description,
     path,
     type: 'article',
+    images: ogImageUrl,
   })
 }
