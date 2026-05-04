@@ -3,7 +3,7 @@ import '@/styles/global.css'
 import '@/styles/syntax-highlighting.css'
 import { M_PLUS_1p } from 'next/font/google'
 import { styled } from 'styled-system/jsx'
-import { Footer, Header } from '@/components/layout'
+import { Footer, RevealReplay } from '@/components/layout'
 import { createMetadata } from '@/utils/metadata'
 
 const MPlus1p = M_PLUS_1p({
@@ -22,14 +22,14 @@ export default function RootLayout({
   return (
     <html lang='ja'>
       <body className={MPlus1p.className}>
-        <styled.div display='grid' minH='100vh' gridTemplateRows='auto 1fr auto' gap={0}>
-          <Header />
+        <RevealReplay />
+        <styled.div display='grid' minH='100vh' gridTemplateRows='1fr auto' gap={0}>
           <styled.main
             display='flex'
             alignItems='start'
             justifyContent='center'
-            mx='2rem'
-            py='2rem'
+            mx={{ base: 'xl', md: '2rem' }}
+            py={{ base: '3xl', md: '5rem' }}
           >
             {children}
           </styled.main>
