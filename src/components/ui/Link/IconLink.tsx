@@ -35,8 +35,14 @@ export const IconLink = ({
       rel={target === '_blank' ? 'noreferrer' : undefined}
       aria-label={areaLabel}
       textDecoration='underline'
-      _hover={{ opacity: '0.7' }}
-      className={linkStyle}
+      className={cx(
+        css({
+          '@media (hover: hover)': {
+            _hover: { opacity: '0.7' },
+          },
+        }),
+        linkStyle,
+      )}
     >
       <Image
         src={src}

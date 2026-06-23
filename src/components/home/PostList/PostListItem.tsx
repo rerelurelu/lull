@@ -32,10 +32,12 @@ export const PostListItem = ({ post }: Props) => {
           textDecoration: 'none',
           color: 'inherit',
           transition: 'background 0.25s ease, transform 0.25s ease',
-          _hover: {
-            bg: 'bg.subtle',
-            transform: { md: 'translateX(2px)' },
-            '& h3': { color: 'brand.primary' },
+          '@media (hover: hover)': {
+            _hover: {
+              bg: 'bg.subtle',
+              transform: { md: 'translateX(2px)' },
+              '& h3': { color: 'brand.primary' },
+            },
           },
         })}
       >

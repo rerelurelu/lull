@@ -14,9 +14,11 @@ export const linkCardRecipe = defineSlotRecipe({
       background: 'bg.base',
       textDecoration: 'none',
       transition: 'border-color 0.2s ease, background 0.2s ease',
-      _hover: {
-        borderColor: 'sage.400',
-        background: 'bg.subtle',
+      '@media (hover: hover)': {
+        _hover: {
+          borderColor: 'sage.400',
+          background: 'bg.subtle',
+        },
       },
     },
     content: {
