@@ -12,7 +12,9 @@ const description = 'ふろんとえんどめいん'
 
 const iconHover = css({
   transition: 'opacity 0.2s ease, transform 0.2s ease',
-  _hover: { opacity: 0.6, transform: 'translateY(-1px)' },
+  '@media (hover: hover)': {
+    _hover: { opacity: 0.6, transform: 'translateY(-1px)' },
+  },
 })
 
 export const IntroBlock = () => {

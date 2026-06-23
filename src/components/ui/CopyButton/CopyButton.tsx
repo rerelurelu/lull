@@ -94,9 +94,11 @@ const copyButton = css({
   transition: 'all 0.2s ease',
   zIndex: 10,
 
-  _hover: {
-    bg: 'overlay.white.20',
-    transform: 'scale(1.05)',
+  '@media (hover: hover)': {
+    _hover: {
+      bg: 'overlay.white.20',
+      transform: 'scale(1.05)',
+    },
   },
 
   _active: {
