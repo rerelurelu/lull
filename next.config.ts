@@ -5,9 +5,6 @@ const nextConfig: NextConfig = {
     root: process.cwd(),
   },
   reactCompiler: true,
-  experimental: {
-    viewTransition: true,
-  },
 }
 
 export default nextConfig
