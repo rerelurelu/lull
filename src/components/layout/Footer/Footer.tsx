@@ -11,7 +11,7 @@ export const Footer = () => {
       textAlign='center'
       mt='auto'
     >
-      <p>© {new Date().getFullYear()} れれるれる</p>
+      <p>© {new Date().getFullYear()} Relu</p>
     </styled.footer>
   )
 }

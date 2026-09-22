@@ -57,13 +57,13 @@ export const OgpWrapper = ({ children }: Props) => {
             >
               <img
                 src='https://avatars.githubusercontent.com/u/43092452?v=4'
-                alt='れれるれるのアイコン'
+                alt="Relu's Icon"
                 width={56}
                 height={56}
                 style={{ borderRadius: '9999px' }}
               />
             </div>
-            <span style={{ paddingBottom: '5px' }}>れれるれる</span>
+            <span style={{ paddingBottom: '5px' }}>Relu</span>
           </div>
         </div>
       </div>
