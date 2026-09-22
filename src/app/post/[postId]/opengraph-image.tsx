@@ -6,7 +6,7 @@ import { fetchGoogleFonts } from '@/services/fonts'
 import { fetchPost } from '@/services/post'
 
 export const runtime = 'edge'
-export const alt = 'Reluの投稿記事'
+export const alt = 'れれるれるの投稿記事'
 export const contentType = 'image/png'
 
 export default async function Image({ params }: { params: Promise<{ postId: string }> }) {

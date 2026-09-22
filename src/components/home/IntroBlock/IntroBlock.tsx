@@ -28,7 +28,7 @@ export const IntroBlock = () => {
       w='full'
     >
       <styled.div className={reveal({ delay: '0' })} data-reveal>
-        <Avatar src='/images/avatar.webp' alt="Relu's avatar" />
+        <Avatar src='/images/avatar.webp' alt='れれるれるのアバター' />
       </styled.div>
 
       <styled.div
@@ -47,7 +47,7 @@ export const IntroBlock = () => {
           letterSpacing='0.02em'
           color='head'
         >
-          Relu
+          れれるれる
         </styled.h1>
 
         <styled.p
