@@ -5,13 +5,13 @@ import { OGP_IMAGE_SIZE } from '@/constants/index'
 import { fetchGoogleFonts } from '@/services/fonts'
 
 export const runtime = 'edge'
-export const alt = 'れれるれるの個人ブログ・技術記事'
+export const alt = 'Reluの個人ブログ・技術記事'
 export const contentType = 'image/png'
 
 export default async function Image() {
   const font = await fetchGoogleFonts(OGP_FONT)
 
-  return new ImageResponse(<OgpWrapper>れれるれるの個人ブログ・技術記事</OgpWrapper>, {
+  return new ImageResponse(<OgpWrapper>Reluの個人ブログ・技術記事</OgpWrapper>, {
     ...OGP_IMAGE_SIZE,
     fonts: [
       {

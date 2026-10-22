@@ -6,7 +6,9 @@ import type { Post, PostsData } from '@/types/post'
 const ENDPOINT = process.env.MICROCMS_ENDPOINT as string
 
 export const fetchPosts = cache(async (queries?: MicroCMSQueries): Promise<PostsData> => {
-  const data = await client.getList<Post>({ endpoint: ENDPOINT, queries })
+  // API キーに下書き取得権限があると publishedAt のない下書きも返るため、公開済みだけに絞る
+  const filters = ['publishedAt[exists]', queries?.filters].filter(Boolean).join('[and]')
+  const data = await client.getList<Post>({ endpoint: ENDPOINT, queries: { ...queries, filters } })
 
   return { posts: data.contents, totalCount: data.totalCount }
 })

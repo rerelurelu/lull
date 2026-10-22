@@ -3,18 +3,18 @@ import { createArticleMetadata, createMetadata } from '../metadata'
 
 vi.mock('@/constants', () => ({
   SITE_CONFIG: {
-    title: 'れれるれる',
-    description: 'れれるれるの個人ブログ・技術記事',
+    title: 'Relu',
+    description: 'Reluの個人ブログ・技術記事',
     url: 'https://example.com',
     language: 'ja',
-    author: { name: 'れれるれる' },
+    author: { name: 'Relu' },
   } as const,
 }))
 
 describe('createMetadata', () => {
   const defaultSiteConfig = {
-    title: 'れれるれる',
-    description: 'れれるれるの個人ブログ・技術記事',
+    title: 'Relu',
+    description: 'Reluの個人ブログ・技術記事',
     url: 'https://example.com',
     language: 'ja',
   }
@@ -37,9 +37,9 @@ describe('createMetadata', () => {
   test('カスタムタイトルでメタデータを生成', () => {
     const metadata = createMetadata({ title: 'About' })
 
-    expect(metadata.title).toBe('About | れれるれる')
-    expect(metadata.openGraph?.title).toBe('About | れれるれる')
-    expect(metadata.twitter?.title).toBe('About | れれるれる')
+    expect(metadata.title).toBe('About | Relu')
+    expect(metadata.openGraph?.title).toBe('About | Relu')
+    expect(metadata.twitter?.title).toBe('About | Relu')
   })
 
   test('カスタムディスクリプションでメタデータを生成', () => {
@@ -97,7 +97,7 @@ describe('createMetadata', () => {
     }
     const metadata = createMetadata(options)
 
-    expect(metadata.title).toBe('カスタムタイトル | れれるれる')
+    expect(metadata.title).toBe('カスタムタイトル | Relu')
     expect(metadata.description).toBe('カスタムな説明')
     expect(metadata.openGraph?.url).toBe('https://example.com/custom-path')
     expect(metadata.openGraph?.images).toBe('https://example.com/custom.jpg')
@@ -113,7 +113,7 @@ describe('createArticleMetadata', () => {
       '/posts/test-article',
     )
 
-    expect(metadata.title).toBe('テスト記事 | れれるれる')
+    expect(metadata.title).toBe('テスト記事 | Relu')
     expect(metadata.description).toBe('これはテスト記事です')
     expect(metadata.openGraph?.url).toBe('https://example.com/posts/test-article')
     expect(metadata.alternates?.canonical).toBe('https://example.com/posts/test-article')
@@ -126,7 +126,7 @@ describe('createArticleMetadata', () => {
 
     const metadata = createArticleMetadata(title, description, path)
 
-    expect(metadata.title).toBe('技術記事タイトル | れれるれる')
+    expect(metadata.title).toBe('技術記事タイトル | Relu')
     expect(metadata.description).toBe('技術記事の説明')
     expect(metadata.openGraph).toBeDefined()
     expect(metadata.twitter).toBeDefined()

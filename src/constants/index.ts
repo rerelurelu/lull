@@ -16,9 +16,9 @@ export type SiteConfig = {
 }
 
 export const SITE_CONFIG: SiteConfig = {
-  title: 'れれるれる',
-  description: 'れれるれるの個人ブログ・技術記事',
+  title: 'Relu',
+  description: 'Reluの個人ブログ・技術記事',
   url: process.env.SITE_URL || '',
   language: 'ja',
-  author: { name: 'れれるれる' },
+  author: { name: 'Relu' },
 } as const
