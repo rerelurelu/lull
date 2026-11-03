@@ -5,7 +5,6 @@ import { OGP_IMAGE_SIZE } from '@/constants/index'
 import { fetchGoogleFonts } from '@/services/fonts'
 import { fetchPost } from '@/services/post'
 
-export const runtime = 'edge'
 export const alt = 'Reluの投稿記事'
 export const contentType = 'image/png'
 
